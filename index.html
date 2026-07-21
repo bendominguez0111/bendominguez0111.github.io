@@ -20,8 +20,7 @@
     --accent: #b91c1c;
     --accent-deep: #991b1b;
     --wash: rgb(185 28 28 / 0.04);
-    --ink-lift: #222a30;
-    --ink-edge: #04060a;
+    --accent-edge: #7f1d1d;
     --nav-shadow: 0 1px 0 var(--hairline), 0 4px 16px rgb(20 24 26 / 0.04);
     --mono-size: 0.78125rem;
   }
@@ -74,15 +73,15 @@
   /* ---------- the button ---------- */
   .cta {
     display: inline-flex; align-items: center; gap: 0.4rem;
-    font-size: 0.78125rem; font-weight: 600; white-space: nowrap;
-    color: #fff; background: var(--ink);
-    padding: 0.3rem 0.8rem; border-radius: 7px;
-    border: 1px solid var(--ink-edge);
-    border-bottom-width: 3px;
+    font-size: 0.8125rem; font-weight: 600; white-space: nowrap;
+    color: #fff; background: var(--accent);
+    padding: 0.38rem 0.9rem; border-radius: 7px;
+    border: 1px solid var(--accent-edge);
+    border-bottom-width: 3.5px;
     transition: transform 110ms ease, border-bottom-width 110ms ease, background 110ms ease;
   }
   .cta .arr { font-family: "Geist Mono", monospace; font-size: 0.8em; }
-  .cta:hover { background: var(--ink-lift); }
+  .cta:hover { background: var(--accent-deep); }
   .cta:active { transform: translateY(2px); border-bottom-width: 1px; }
 
   /* ---------- intro ---------- */
@@ -152,13 +151,18 @@
   .demo {
     grid-row: 1 / span 2; grid-column: 3; align-self: center;
     width: 10rem; border-radius: 9px; overflow: hidden;
-    background: #0b0d0f;
-    box-shadow: 0 0 0 1px rgb(20 24 26 / 0.9), inset 0 0 24px rgb(232 226 210 / 0.03);
+    background:
+      linear-gradient(rgb(20 24 26 / 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(20 24 26 / 0.045) 1px, transparent 1px),
+      #f8fafa;
+    background-size: 10px 10px, 10px 10px, auto;
+    box-shadow: 0 0 0 1px var(--hairline), 0 1px 2px rgb(20 24 26 / 0.04);
   }
   .demo svg { display: block; width: 100%; height: auto; }
-  .demo [stroke] { stroke: #e8e2d2; stroke-width: 1.1; fill: none; stroke-linecap: round; }
-  .demo .dim { stroke: rgb(232 226 210 / 0.28); }
-  .demo .fillc { fill: #e8e2d2; stroke: none; }
+  .demo [stroke] { stroke: #3d4a52; stroke-width: 1.1; fill: none; stroke-linecap: round; }
+  .demo .dim { stroke: rgb(20 24 26 / 0.3); }
+  .demo .fillc { fill: #3d4a52; stroke: none; }
+  .d3 .persp polygon, .d3 .persp line { stroke-dasharray: 4 3; }
   .demo .acc { stroke: var(--accent); }
   .demo .accf { fill: var(--accent); stroke: none; }
   @media (max-width: 860px) { .demo { display: none; } .worklist li { grid-template-columns: 2.6rem 1fr; } }
@@ -171,12 +175,12 @@
     58% { transform: translateY(88px); opacity: 1; }
     64% { opacity: 0; } 100% { transform: translateY(88px); opacity: 0; }
   }
-  .d1 .row { stroke: rgb(232 226 210 / 0.25); animation: d1row 4s linear infinite; }
+  .d1 .row { stroke: rgb(20 24 26 / 0.22); animation: d1row 4s linear infinite; }
   .d1 .r2 { animation-name: d1row2; } .d1 .r3 { animation-name: d1row3; } .d1 .r4 { animation-name: d1row4; }
-  @keyframes d1row  { 0%,13% { stroke: rgb(232 226 210 / 0.25); } 16%,88% { stroke: #e8e2d2; } 94%,100% { stroke: rgb(232 226 210 / 0.25); } }
-  @keyframes d1row2 { 0%,24% { stroke: rgb(232 226 210 / 0.25); } 27%,88% { stroke: #e8e2d2; } 94%,100% { stroke: rgb(232 226 210 / 0.25); } }
-  @keyframes d1row3 { 0%,36% { stroke: rgb(232 226 210 / 0.25); } 39%,88% { stroke: #e8e2d2; } 94%,100% { stroke: rgb(232 226 210 / 0.25); } }
-  @keyframes d1row4 { 0%,47% { stroke: rgb(232 226 210 / 0.25); } 50%,88% { stroke: #e8e2d2; } 94%,100% { stroke: rgb(232 226 210 / 0.25); } }
+  @keyframes d1row  { 0%,13% { stroke: rgb(20 24 26 / 0.22); } 16%,88% { stroke: #14181a; } 94%,100% { stroke: rgb(20 24 26 / 0.22); } }
+  @keyframes d1row2 { 0%,24% { stroke: rgb(20 24 26 / 0.22); } 27%,88% { stroke: #14181a; } 94%,100% { stroke: rgb(20 24 26 / 0.22); } }
+  @keyframes d1row3 { 0%,36% { stroke: rgb(20 24 26 / 0.22); } 39%,88% { stroke: #14181a; } 94%,100% { stroke: rgb(20 24 26 / 0.22); } }
+  @keyframes d1row4 { 0%,47% { stroke: rgb(20 24 26 / 0.22); } 50%,88% { stroke: #14181a; } 94%,100% { stroke: rgb(20 24 26 / 0.22); } }
   .d1 .check { opacity: 0; animation: d1check 4s linear infinite; transform-box: fill-box; transform-origin: center; }
   @keyframes d1check { 0%,60% { opacity: 0; transform: scale(0.6); } 66% { opacity: 1; transform: scale(1.08); } 70%,88% { opacity: 1; transform: scale(1); } 96%,100% { opacity: 0; } }
 
@@ -215,7 +219,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .demo * { animation: none !important; }
-    .d1 .row { stroke: #e8e2d2; } .d1 .check { opacity: 1; }
+    .d1 .row { stroke: #14181a; } .d1 .check { opacity: 1; }
     .d3 .flat { opacity: 1; } .d3 .persp { opacity: 0; }
     .d4 .curve { stroke-dashoffset: 0; } .d4 .tip { opacity: 1; }
   }
