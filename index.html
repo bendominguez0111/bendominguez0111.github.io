@@ -44,6 +44,7 @@
     --nav-bg: rgb(252 253 253 / 0.92);
     --num-ghost: rgb(20 24 26 / 0.08);
     --cta-hover: #822720;
+    --dg-mono: #86999f;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -70,6 +71,7 @@
       --nav-bg: rgb(29 41 55 / 0.9);
       --num-ghost: rgb(220 235 250 / 0.18);
       --cta-hover: #b04a3e;
+      --dg-mono: rgb(196 214 232 / 0.55);
       --nav-shadow: 0 1px 0 var(--hairline), 0 4px 16px rgb(0 4 10 / 0.3);
     }
     .meta img { filter: invert(1) brightness(1.4); }
@@ -199,6 +201,8 @@
     position: relative;
     padding: 1.55rem 0 1.65rem;
     border-top: 1px solid var(--hairline);
+    min-height: 11.5rem;
+    display: flex; flex-direction: column; justify-content: center;
   }
   .worklist li:last-child { border-bottom: 1px solid var(--hairline); }
   .num {
@@ -209,14 +213,14 @@
     user-select: none;
   }
   .workhead {
-    display: flex; align-items: center; justify-content: space-between; gap: 0.9rem;
+    display: flex; align-items: center; gap: 0.8rem;
     padding-left: 4.5rem; flex-wrap: wrap;
   }
   .workhead h3 { font-size: 1.3125rem; font-weight: 700; letter-spacing: -0.018em; }
   .meta {
     display: flex; align-items: center; gap: 0.55rem;
     margin-top: 0.95rem; padding: 0.65rem 0 0 0; margin-left: 4.5rem;
-    max-width: 34rem;
+    max-width: 25.5rem;
     border-top: 1px solid var(--hairline);
     font-family: "Geist Mono", monospace;
     font-size: 0.71875rem; color: var(--faint);
@@ -228,8 +232,25 @@
   .meta .live { color: var(--accent); font-weight: 500; }
   .worklist p {
     margin-top: 0.55rem; padding-left: 4.5rem;
-    max-width: 34rem;
+    max-width: 25.5rem;
     color: var(--muted); font-size: 0.9375rem; line-height: 1.66; text-wrap: pretty;
+  }
+
+  /* ---------- light schematics ---------- */
+  .demo {
+    position: absolute; right: -1.5rem; top: 50%;
+    transform: translateY(-50%);
+    width: 18rem; pointer-events: none;
+  }
+  @media (max-width: 1260px) { .demo { right: 0; width: 16rem; } }
+  .demo svg { display: block; width: 100%; height: auto; }
+  .demo [stroke] { stroke: var(--dg-mono); stroke-width: 1; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .demo .dash { stroke-dasharray: 3 2.5; }
+  .demo .fillm { fill: var(--dg-mono); stroke: none; }
+  .demo text {
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 6.4px; letter-spacing: 0.03em;
+    fill: var(--dg-mono); stroke: none;
   }
 
   /* ---------- figure tags ---------- */
@@ -314,6 +335,18 @@
     <ul class="worklist">
       <li>
         <span class="num" aria-hidden="true">01</span>
+        <span class="demo" aria-hidden="true"><svg viewBox="0 0 176 104">
+  <rect x="8" y="44" width="26" height="16" rx="2" stroke="currentColor"/><text x="21" y="54.5" text-anchor="middle">IMG</text>
+  <rect x="46" y="44" width="26" height="16" rx="2" stroke="currentColor"/><text x="59" y="54.5" text-anchor="middle">OCR</text>
+  <rect x="84" y="44" width="26" height="16" rx="2" stroke="currentColor"/><text x="97" y="54.5" text-anchor="middle">VLM</text>
+  <rect x="134" y="44" width="32" height="16" rx="2" stroke="currentColor"/><text x="150" y="54.5" text-anchor="middle">SLIP</text>
+  <line x1="34" y1="52" x2="43" y2="52" stroke="currentColor"/><path class="fillm" d="M43 49.5l5 2.5-5 2.5z"/>
+  <line x1="72" y1="52" x2="81" y2="52" stroke="currentColor"/><path class="fillm" d="M81 49.5l5 2.5-5 2.5z"/>
+  <line x1="110" y1="52" x2="129" y2="52" stroke="currentColor"/><path class="fillm" d="M129 49.5l5 2.5-5 2.5z"/>
+  <rect class="dash" x="60" y="12" width="56" height="14" rx="2" stroke="currentColor"/><text x="88" y="21.5" text-anchor="middle">DHASH CACHE</text>
+  <path class="dash" d="M21 44 V23 Q21 19 25 19 H58" stroke="currentColor"/>
+  <path class="dash" d="M118 19 H146 Q150 19 150 23 V42" stroke="currentColor"/><path class="fillm" d="M147.5 42l2.5 5 2.5-5z"/>
+</svg></span>
         <div class="workhead"><h3>Image to betslip</h3><span class="tagchip">Vision pipeline</span></div>
         <p>The industry's first screenshot-to-betslip system — any bet, any book,
         parsed into a structured, one-tap betslip. Launched viral on X; shipped
@@ -322,6 +355,15 @@
       </li>
       <li>
         <span class="num" aria-hidden="true">02</span>
+        <span class="demo" aria-hidden="true"><svg viewBox="0 0 176 104">
+  <rect x="8" y="43" width="38" height="18" rx="2" stroke="currentColor"/><text x="27" y="54.5" text-anchor="middle">ORCH</text>
+  <rect x="118" y="14" width="50" height="14" rx="2" stroke="currentColor"/><text x="143" y="23.5" text-anchor="middle">SEARCH</text>
+  <rect x="118" y="45" width="50" height="14" rx="2" stroke="currentColor"/><text x="143" y="54.5" text-anchor="middle">STATS</text>
+  <rect x="118" y="76" width="50" height="14" rx="2" stroke="currentColor"/><text x="143" y="85.5" text-anchor="middle">PARLAY</text>
+  <line x1="46" y1="47" x2="112" y2="22" stroke="currentColor"/><path class="fillm" d="M112 19.7l5.5 1.8-4 4z"/>
+  <line x1="46" y1="52" x2="112" y2="52" stroke="currentColor"/><path class="fillm" d="M112 49.5l5 2.5-5 2.5z"/>
+  <line x1="46" y1="57" x2="112" y2="82" stroke="currentColor"/><path class="fillm" d="M113.5 78.7l4 4-5.5 1.8z"/>
+</svg></span>
         <div class="workhead"><h3>Multi-agent betting copilot</h3><span class="tagchip">Agent graph</span></div>
         <p>The system behind every GamblyBot conversation: an orchestrator with
         specialized subagents, offline evals with LLM-as-judge scoring, and
@@ -330,6 +372,20 @@
       </li>
       <li>
         <span class="num" aria-hidden="true">03</span>
+        <span class="demo" aria-hidden="true"><svg viewBox="0 0 176 104">
+  <polygon class="dash" points="10,84 66,84 56,26 24,26" stroke="currentColor"/>
+  <line class="dash" x1="28" y1="84" x2="35" y2="26" stroke="currentColor"/>
+  <line class="dash" x1="46" y1="84" x2="45" y2="26" stroke="currentColor"/>
+  <rect x="100" y="22" width="66" height="62" stroke="currentColor"/>
+  <line x1="122" y1="22" x2="122" y2="84" stroke="currentColor"/>
+  <line x1="144" y1="22" x2="144" y2="84" stroke="currentColor"/>
+  <line class="dash" x1="30" y1="58" x2="114" y2="46" stroke="currentColor"/>
+  <line class="dash" x1="44" y1="70" x2="130" y2="64" stroke="currentColor"/>
+  <line class="dash" x1="40" y1="40" x2="126" y2="34" stroke="currentColor"/>
+  <circle class="fillm" cx="30" cy="58" r="2.2"/><circle class="fillm" cx="114" cy="46" r="2.2"/>
+  <circle class="fillm" cx="44" cy="70" r="2.2"/><circle class="fillm" cx="130" cy="64" r="2.2"/>
+  <circle class="fillm" cx="40" cy="40" r="2.2"/><circle class="fillm" cx="126" cy="34" r="2.2"/>
+</svg></span>
         <div class="workhead"><h3>Broadcast field registration</h3><span class="tagchip">Homography</span></div>
         <p>A field-registration model for broadcast film that beats the best
         published IoU results — and turns raw footage into the speed metrics
@@ -338,6 +394,15 @@
       </li>
       <li>
         <span class="num" aria-hidden="true">04</span>
+        <span class="demo" aria-hidden="true"><svg viewBox="0 0 176 104">
+  <line x1="20" y1="86" x2="166" y2="86" stroke="currentColor"/>
+  <line x1="20" y1="86" x2="20" y2="14" stroke="currentColor"/>
+  <circle class="fillm" cx="36" cy="70" r="1.7"/><circle class="fillm" cx="48" cy="60" r="1.7"/>
+  <circle class="fillm" cx="62" cy="64" r="1.7"/><circle class="fillm" cx="76" cy="50" r="1.7"/>
+  <circle class="fillm" cx="90" cy="54" r="1.7"/><circle class="fillm" cx="104" cy="40" r="1.7"/>
+  <circle class="fillm" cx="120" cy="44" r="1.7"/><circle class="fillm" cx="134" cy="30" r="1.7"/>
+  <polyline points="24,78 56,62 92,50 128,36 158,24" stroke="currentColor"/>
+</svg></span>
         <div class="workhead"><h3>Fantasy Data Pros</h3><span class="tagchip">Edu platform</span></div>
         <p>Taught Python and ML through sports data — 300k+ visitors, 4,000+ paid
         enrollments. Product, payments, and content, built solo.</p>
