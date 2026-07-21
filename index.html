@@ -17,10 +17,11 @@
     --faint: #6b7a80;      /* small-text gray: 4.6:1 on bg */
     --ghost: #93a0a5;      /* non-text only (logo marks) */
     --hairline: #e7ebec;
-    --accent: #ea580c;
-    --accent-deep: #c2410c;
-    --accent-edge: #9a3412;
-    --wash: rgb(234 88 12 / 0.05);
+    --accent: #b91c1c;
+    --accent-deep: #991b1b;
+    --wash: rgb(185 28 28 / 0.04);
+    --ink-lift: #222a30;
+    --ink-edge: #04060a;
     --nav-shadow: 0 1px 0 var(--hairline), 0 4px 16px rgb(20 24 26 / 0.04);
     --mono-size: 0.78125rem;
   }
@@ -35,7 +36,7 @@
   }
   a { color: inherit; text-decoration: none; }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
-  ::selection { background: rgb(234 88 12 / 0.16); }
+  ::selection { background: rgb(185 28 28 / 0.14); }
   .col { max-width: 41rem; margin: 0 auto; padding: 0 1.25rem; }
 
   /* ---------- navbar ---------- */
@@ -72,17 +73,17 @@
 
   /* ---------- the button ---------- */
   .cta {
-    display: inline-flex; align-items: center; gap: 0.45rem;
-    font-size: 0.84375rem; font-weight: 600; white-space: nowrap;
-    color: #fff; background: var(--accent);
-    padding: 0.44rem 1rem; border-radius: 8px;
-    border: 1.5px solid var(--accent-edge);
-    border-bottom-width: 4px;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.78125rem; font-weight: 600; white-space: nowrap;
+    color: #fff; background: var(--ink);
+    padding: 0.3rem 0.8rem; border-radius: 7px;
+    border: 1px solid var(--ink-edge);
+    border-bottom-width: 3px;
     transition: transform 110ms ease, border-bottom-width 110ms ease, background 110ms ease;
   }
   .cta .arr { font-family: "Geist Mono", monospace; font-size: 0.8em; }
-  .cta:hover { background: var(--accent-deep); }
-  .cta:active { transform: translateY(2px); border-bottom-width: 1.5px; }
+  .cta:hover { background: var(--ink-lift); }
+  .cta:active { transform: translateY(2px); border-bottom-width: 1px; }
 
   /* ---------- intro ---------- */
   .intro { padding: 3.2rem 0 0; }
@@ -121,7 +122,7 @@
   ul.worklist { list-style: none; }
   .worklist li {
     position: relative;
-    display: grid; grid-template-columns: 2.6rem 1fr; gap: 0 0.8rem;
+    display: grid; grid-template-columns: 2.6rem 1fr 10rem; gap: 0 1rem;
     padding: 1rem 0; border-top: 1px solid var(--hairline);
   }
   .worklist li:last-child { border-bottom: 1px solid var(--hairline); }
@@ -130,7 +131,8 @@
     border-radius: 10px; pointer-events: none;
   }
   .worklist li:hover::before { background: var(--wash); }
-  .worklist .logo { grid-row: 1 / span 2; padding-top: 0.15rem; }
+  .worklist .logo { grid-row: 1 / span 2; grid-column: 1; padding-top: 0.15rem; }
+  .worklist .workhead, .worklist li > p { grid-column: 2; }
   .worklist .logo img {
     height: 1.55rem; width: auto; max-width: 2.6rem; display: block;
     filter: grayscale(1) opacity(0.5);
@@ -145,6 +147,78 @@
     font-size: var(--mono-size); color: var(--faint); white-space: nowrap;
   }
   .worklist p { margin-top: 0.25rem; color: var(--muted); font-size: 1rem; line-height: 1.62; text-wrap: pretty; }
+
+  /* ---------- westworld demo panels ---------- */
+  .demo {
+    grid-row: 1 / span 2; grid-column: 3; align-self: center;
+    width: 10rem; border-radius: 9px; overflow: hidden;
+    background: #0b0d0f;
+    box-shadow: 0 0 0 1px rgb(20 24 26 / 0.9), inset 0 0 24px rgb(232 226 210 / 0.03);
+  }
+  .demo svg { display: block; width: 100%; height: auto; }
+  .demo [stroke] { stroke: #e8e2d2; stroke-width: 1.1; fill: none; stroke-linecap: round; }
+  .demo .dim { stroke: rgb(232 226 210 / 0.28); }
+  .demo .fillc { fill: #e8e2d2; stroke: none; }
+  .demo .acc { stroke: var(--accent); }
+  .demo .accf { fill: var(--accent); stroke: none; }
+  @media (max-width: 860px) { .demo { display: none; } .worklist li { grid-template-columns: 2.6rem 1fr; } }
+
+  /* p1 scan */
+  .d1 .scanline { animation: d1scan 4s linear infinite; }
+  @keyframes d1scan {
+    0% { transform: translateY(14px); opacity: 0; }
+    6% { opacity: 1; }
+    58% { transform: translateY(88px); opacity: 1; }
+    64% { opacity: 0; } 100% { transform: translateY(88px); opacity: 0; }
+  }
+  .d1 .row { stroke: rgb(232 226 210 / 0.25); animation: d1row 4s linear infinite; }
+  .d1 .r2 { animation-name: d1row2; } .d1 .r3 { animation-name: d1row3; } .d1 .r4 { animation-name: d1row4; }
+  @keyframes d1row  { 0%,13% { stroke: rgb(232 226 210 / 0.25); } 16%,88% { stroke: #e8e2d2; } 94%,100% { stroke: rgb(232 226 210 / 0.25); } }
+  @keyframes d1row2 { 0%,24% { stroke: rgb(232 226 210 / 0.25); } 27%,88% { stroke: #e8e2d2; } 94%,100% { stroke: rgb(232 226 210 / 0.25); } }
+  @keyframes d1row3 { 0%,36% { stroke: rgb(232 226 210 / 0.25); } 39%,88% { stroke: #e8e2d2; } 94%,100% { stroke: rgb(232 226 210 / 0.25); } }
+  @keyframes d1row4 { 0%,47% { stroke: rgb(232 226 210 / 0.25); } 50%,88% { stroke: #e8e2d2; } 94%,100% { stroke: rgb(232 226 210 / 0.25); } }
+  .d1 .check { opacity: 0; animation: d1check 4s linear infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes d1check { 0%,60% { opacity: 0; transform: scale(0.6); } 66% { opacity: 1; transform: scale(1.08); } 70%,88% { opacity: 1; transform: scale(1); } 96%,100% { opacity: 0; } }
+
+  /* p2 orchestrate */
+  .d2 .pkt { animation: d2p 3.6s ease-in-out infinite; }
+  .d2 .pkt2 { animation-delay: 0.5s; } .d2 .pkt3 { animation-delay: 1s; }
+  @keyframes d2p {
+    0%, 8% { transform: translate(0, 0); opacity: 0; }
+    12% { opacity: 1; }
+    45% { transform: translate(var(--dx), var(--dy)); opacity: 1; }
+    52%, 100% { transform: translate(var(--dx), var(--dy)); opacity: 0; }
+  }
+  .d2 .sat { transform-box: fill-box; transform-origin: center; animation: d2sat 3.6s ease-in-out infinite; }
+  .d2 .sat2 { animation-delay: 0.5s; } .d2 .sat3 { animation-delay: 1s; }
+  @keyframes d2sat { 0%,42% { transform: scale(1); } 50% { transform: scale(1.25); } 58%,100% { transform: scale(1); } }
+  .d2 .core { transform-box: fill-box; transform-origin: center; animation: d2core 3.6s ease-in-out infinite; }
+  @keyframes d2core { 0% { transform: scale(1); } 6% { transform: scale(1.12); } 14%,100% { transform: scale(1); } }
+
+  /* p3 homography */
+  .d3 .persp { animation: d3a 5.2s ease-in-out infinite; }
+  .d3 .flat  { animation: d3b 5.2s ease-in-out infinite; }
+  @keyframes d3a { 0%,30% { opacity: 1; } 46%,78% { opacity: 0; } 92%,100% { opacity: 1; } }
+  @keyframes d3b { 0%,30% { opacity: 0; } 46%,78% { opacity: 1; } 92%,100% { opacity: 0; } }
+  .d3 .p1 { animation: d3p1 5.2s ease-in-out infinite; }
+  .d3 .p2 { animation: d3p2 5.2s ease-in-out infinite; }
+  @keyframes d3p1 { 0%,30% { transform: translate(0,0); } 46%,78% { transform: translate(-9px,14px); } 92%,100% { transform: translate(0,0); } }
+  @keyframes d3p2 { 0%,30% { transform: translate(0,0); } 46%,78% { transform: translate(12px,-6px); } 92%,100% { transform: translate(0,0); } }
+  .d3 .lock { opacity: 0; animation: d3lock 5.2s ease-in-out infinite; }
+  @keyframes d3lock { 0%,48% { opacity: 0; } 56%,74% { opacity: 1; } 82%,100% { opacity: 0; } }
+
+  /* p4 model */
+  .d4 .curve { stroke-dasharray: 1; stroke-dashoffset: 1; animation: d4draw 4.4s ease-in-out infinite; }
+  @keyframes d4draw { 0% { stroke-dashoffset: 1; } 12% { stroke-dashoffset: 1; } 62% { stroke-dashoffset: 0; } 86% { stroke-dashoffset: 0; opacity: 1; } 96%,100% { stroke-dashoffset: 0; opacity: 0; } }
+  .d4 .tip { opacity: 0; transform-box: fill-box; transform-origin: center; animation: d4tip 4.4s ease-in-out infinite; }
+  @keyframes d4tip { 0%,58% { opacity: 0; transform: scale(0.6); } 64% { opacity: 1; transform: scale(1.2); } 70%,86% { opacity: 1; transform: scale(1); } 96%,100% { opacity: 0; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .demo * { animation: none !important; }
+    .d1 .row { stroke: #e8e2d2; } .d1 .check { opacity: 1; }
+    .d3 .flat { opacity: 1; } .d3 .persp { opacity: 0; }
+    .d4 .curve { stroke-dashoffset: 0; } .d4 .tip { opacity: 1; }
+  }
 
   /* ---------- details rows ---------- */
   .rows { border-top: 1px solid var(--hairline); }
@@ -215,6 +289,15 @@
     <ul class="worklist">
       <li>
         <span class="logo"><img src="assets/gambly.svg" alt=""></span>
+        <span class="demo d1" aria-hidden="true"><svg viewBox="0 0 160 104">
+  <rect class="dim" x="46" y="14" width="68" height="76" rx="5" stroke="c"/>
+  <line class="row r1" x1="56" y1="30" x2="104" y2="30" stroke="c"/>
+  <line class="row r2" x1="56" y1="44" x2="96" y2="44" stroke="c"/>
+  <line class="row r3" x1="56" y1="58" x2="104" y2="58" stroke="c"/>
+  <line class="row r4" x1="56" y1="72" x2="88" y2="72" stroke="c"/>
+  <line class="scanline acc" x1="48" y1="0" x2="112" y2="0" stroke="c"/>
+  <g class="check"><circle cx="124" cy="80" r="9" class="acc" stroke="c"/><path class="acc" d="M119.5 80l3.5 3.5 6-7" stroke="c"/></g>
+</svg></span>
         <div class="workhead"><h3>Image to betslip</h3><span class="who">Gambly</span></div>
         <p>A screenshot of any bet — any book, any app — parsed into a structured,
         one-tap betslip. The flagship feature; shipped across web, iMessage, Discord,
@@ -222,6 +305,19 @@
       </li>
       <li>
         <span class="logo"><img src="assets/gambly.svg" alt=""></span>
+        <span class="demo d2" aria-hidden="true"><svg viewBox="0 0 160 104">
+  <line class="dim" x1="38" y1="52" x2="118" y2="22" stroke="c"/>
+  <line class="dim" x1="38" y1="52" x2="124" y2="52" stroke="c"/>
+  <line class="dim" x1="38" y1="52" x2="118" y2="82" stroke="c"/>
+  <circle class="core" cx="30" cy="52" r="8" stroke="c"/>
+  <circle class="fillc" cx="30" cy="52" r="2.5"/>
+  <circle class="sat"  cx="124" cy="22" r="6" stroke="c"/>
+  <circle class="sat sat2" cx="130" cy="52" r="6" stroke="c"/>
+  <circle class="sat sat3" cx="124" cy="82" r="6" stroke="c"/>
+  <circle class="pkt accf" cx="38" cy="50" r="2.6" style="--dx:78px; --dy:-29px;"/>
+  <circle class="pkt pkt2 accf" cx="38" cy="52" r="2.6" style="--dx:84px; --dy:0px;"/>
+  <circle class="pkt pkt3 accf" cx="38" cy="54" r="2.6" style="--dx:78px; --dy:29px;"/>
+</svg></span>
         <div class="workhead"><h3>Multi-agent betting copilot</h3><span class="who">Gambly</span></div>
         <p>Orchestrator plus specialized subagents for betting search, stats research,
         and parlay building — offline eval harness, LLM-as-judge scoring, exactly-once
@@ -229,6 +325,26 @@
       </li>
       <li>
         <span class="logo"><img src="assets/huddlevision-mark.svg" alt=""></span>
+        <span class="demo d3" aria-hidden="true"><svg viewBox="0 0 160 104">
+  <g class="persp">
+    <polygon points="34,80 126,80 106,28 54,28" stroke="c" class="dim"/>
+    <line class="dim" x1="57" y1="80" x2="72" y2="28" stroke="c"/>
+    <line class="dim" x1="80" y1="80" x2="80" y2="28" stroke="c"/>
+    <line class="dim" x1="103" y1="80" x2="88" y2="28" stroke="c"/>
+  </g>
+  <g class="flat">
+    <rect x="40" y="26" width="80" height="54" stroke="c" class="dim"/>
+    <line class="dim" x1="60" y1="26" x2="60" y2="80" stroke="c"/>
+    <line class="dim" x1="80" y1="26" x2="80" y2="80" stroke="c"/>
+    <line class="dim" x1="100" y1="26" x2="100" y2="80" stroke="c"/>
+    <g class="lock">
+      <path class="acc" d="M40 32v-6h6" stroke="c"/><path class="acc" d="M114 26h6v6" stroke="c"/>
+      <path class="acc" d="M120 74v6h-6" stroke="c"/><path class="acc" d="M46 80h-6v-6" stroke="c"/>
+    </g>
+  </g>
+  <circle class="p1 accf" cx="66" cy="46" r="2.8"/>
+  <circle class="p2 fillc" cx="96" cy="64" r="2.8"/>
+</svg></span>
         <div class="workhead"><h3>Broadcast field registration</h3><span class="who">Huddlevision</span></div>
         <p>A field-registration model for broadcast football film that outperforms the
         best published IoU results — the basis for speed and acceleration metrics
@@ -236,6 +352,16 @@
       </li>
       <li>
         <span class="logo"><img src="assets/fdp-mark.svg" alt=""></span>
+        <span class="demo d4" aria-hidden="true"><svg viewBox="0 0 160 104">
+  <line class="dim" x1="30" y1="84" x2="134" y2="84" stroke="c"/>
+  <line class="dim" x1="30" y1="84" x2="30" y2="18" stroke="c"/>
+  <circle class="dim" cx="52" cy="66" r="1.8" stroke="c"/>
+  <circle class="dim" cx="70" cy="72" r="1.8" stroke="c"/>
+  <circle class="dim" cx="88" cy="52" r="1.8" stroke="c"/>
+  <circle class="dim" cx="106" cy="58" r="1.8" stroke="c"/>
+  <polyline class="curve" pathLength="1" points="30,78 52,62 70,66 88,44 106,50 128,26" stroke="c"/>
+  <circle class="tip accf" cx="128" cy="26" r="3.2"/>
+</svg></span>
         <div class="workhead"><h3>Fantasy Data Pros</h3><span class="who">Founder · est. 2020</span></div>
         <p>Taught Python and ML through NFL, MLB, and NBA data — 300k+ visitors,
         thousands of students. Product, courses, payments, and content, built solo.</p>
