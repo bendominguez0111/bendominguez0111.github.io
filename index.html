@@ -112,17 +112,25 @@
   .factline {
     display: flex; flex-wrap: wrap;
     margin-top: 1.7rem;
-    background: #ffffff; border-radius: 8px;
-    box-shadow: 0 0 0 1px var(--hairline), 0 1px 0 rgb(20 24 26 / 0.06), 0 3px 8px rgb(20 24 26 / 0.05);
-    font-family: "Geist Mono", monospace;
+    background: #ffffff; border-radius: 9px;
+    border: 1px solid #d3dadd;
+    border-bottom-width: 3px;
+    border-bottom-color: #b6c0c4;
   }
-  .fcell { padding: 0.6rem 1.1rem 0.65rem; border-left: 1px solid var(--hairline); flex: 1 1 auto; }
+  .fcell { padding: 0.7rem 1.25rem 0.75rem; border-left: 1px solid var(--hairline); flex: 1 1 auto; }
   .fcell:first-child { border-left: 0; }
   .fcell .fl {
-    display: block; font-size: 0.625rem; letter-spacing: 0.09em;
+    display: block;
+    font-family: "Geist Mono", monospace;
+    font-size: 0.625rem; letter-spacing: 0.1em;
     text-transform: uppercase; color: var(--faint);
+    margin-bottom: 0.1rem;
   }
-  .fcell .fv { font-size: var(--mono-size); font-weight: 500; color: var(--ink); }
+  .fcell .fv {
+    font-family: "Geist", sans-serif;
+    font-size: 1rem; font-weight: 700; letter-spacing: -0.015em;
+    color: var(--ink);
+  }
 
   section { margin-top: 3.4rem; }
   h2 {
