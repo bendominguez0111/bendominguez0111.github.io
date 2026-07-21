@@ -93,7 +93,7 @@
   a { color: inherit; text-decoration: none; }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
   ::selection { background: rgb(158 47 39 / 0.14); }
-  .col { max-width: 50rem; margin: 0 auto; padding: 0 1.5rem; }
+  .col { max-width: 50rem; margin: 0 auto; padding: 0 1.5rem 4rem; }
 
   /* ---------- navbar ---------- */
   .navbar {
@@ -381,6 +381,10 @@
     .demo::before { display: none; }
   }
   @media (max-width: 560px) {
+    .factline { display: grid; grid-template-columns: 1fr 1fr; }
+    .fcell { border-left: 0; padding: 0.55rem 0.9rem 0.6rem; }
+    .fcell:nth-child(even) { border-left: 1px solid var(--hairline); }
+    .fcell:nth-child(n+3) { border-top: 1px solid var(--hairline); }
     .num { font-size: 2.4rem; top: 1.8rem; }
     .meta { margin-left: 3rem; }
     .workhead, .worklist p, .demo { padding-left: 0; margin-left: 3rem; }
@@ -406,12 +410,6 @@
     .rows > div { grid-template-columns: 1fr; gap: 0.1rem; }
   }
 
-  footer { margin-top: 3rem; padding: 0 0 2.6rem; }
-  .stamp {
-    display: flex; flex-wrap: wrap;
-    border: 1px solid var(--hairline); border-radius: 2px;
-    background: var(--surface);
-  }
   .scell { padding: 0.5rem 1rem 0.55rem; border-left: 1px solid var(--hairline); flex: 1 1 auto; }
   .scell:first-child { border-left: 0; }
   .scell .sl {
@@ -467,11 +465,9 @@
       <li>
         <span class="num" aria-hidden="true">01</span>
         <div class="workhead"><h3>Image to betslip</h3></div>
-        <p>The industry's first screenshot-to-betslip system: any bet, from any book,
-        parsed by a vision pipeline into a structured, one-tap betslip — with
-        perceptual-hash caching for instant repeats. Launched viral on X, imitated
-        by competitors since, and shipped as Gambly's front door across web,
-        iMessage, Discord, Telegram, and X.</p>
+        <p>The industry's first screenshot-to-betslip system — any bet, any book,
+        parsed into a structured, one-tap betslip. Launched viral on X; shipped
+        across web, iMessage, Discord, Telegram, and X.</p>
         <div class="meta"><img src="assets/gambly.svg" alt="">Gambly</div>
         <span class="demo d1" aria-hidden="true"><svg viewBox="0 0 176 104">
   <rect class="bx fb1" x="8" y="44" width="26" height="16" rx="2" stroke="currentColor"/><text x="21" y="54.5" text-anchor="middle">IMG</text>
@@ -494,12 +490,9 @@
       <li>
         <span class="num" aria-hidden="true">02</span>
         <div class="workhead"><h3>Multi-agent betting copilot</h3></div>
-        <p>The production system behind every GamblyBot conversation: an orchestrator
-        with specialized subagents for betting search, stats research, and parlay
-        building, behind typed tool boundaries. Offline eval harness with
-        LLM-as-judge scoring, full tracing, and exactly-once turn execution on
-        durable workflows — a worker can die mid-conversation and the turn
-        finishes anyway.</p>
+        <p>The system behind every GamblyBot conversation: an orchestrator with
+        specialized subagents, offline evals with LLM-as-judge scoring, and
+        exactly-once turns on durable workflows.</p>
         <div class="meta"><img src="assets/gambly.svg" alt="">Gambly</div>
         <span class="demo d2" aria-hidden="true"><svg viewBox="0 0 176 104">
   <rect class="bx" x="8" y="38" width="38" height="18" rx="2" stroke="currentColor"/><text x="27" y="49.5" text-anchor="middle">ORCH</text>
@@ -527,11 +520,9 @@
       <li>
         <span class="num" aria-hidden="true">03</span>
         <div class="workhead"><h3>Broadcast field registration</h3></div>
-        <p>A field-registration model for broadcast football film that beats the best
-        published IoU results in the research literature. The recovered homography
-        turns raw game footage into per-player speed and acceleration — the engine
-        behind the MPH metric in Tracking Football's Triple Verified recruiting
-        data. Technical writeup coming soon.</p>
+        <p>A field-registration model for broadcast film that beats the best
+        published IoU results — and turns raw footage into the speed metrics
+        behind Tracking Football's recruiting data.</p>
         <div class="meta"><img src="assets/huddlevision-mark.svg" alt="">Huddlevision</div>
         <span class="demo d3" aria-hidden="true"><svg viewBox="0 0 176 104">
   <text x="88" y="12" text-anchor="middle">H : CAM → FIELD · 3×3</text>
@@ -564,10 +555,8 @@
       <li>
         <span class="num" aria-hidden="true">04</span>
         <div class="workhead"><h3>Fantasy Data Pros</h3></div>
-        <p>Bootstrapped a platform teaching Python and machine learning through NFL,
-        MLB, and NBA data — 300k+ visitors, 4,000+ paid enrollments, three
-        courses, and a public fantasy-football API. Product, payments, content,
-        and the ML itself, built solo.</p>
+        <p>Taught Python and ML through sports data — 300k+ visitors, 4,000+ paid
+        enrollments. Product, payments, and content, built solo.</p>
         <div class="meta"><img src="assets/fdp-mark.svg" alt="">Founder · est. 2020</div>
         <span class="demo d4" aria-hidden="true"><svg viewBox="0 0 176 104">
   <line class="dim" x1="20" y1="86" x2="166" y2="86" stroke="currentColor"/>
@@ -600,15 +589,6 @@
     </div>
   </section>
 
-  <footer>
-    <div class="stamp">
-      <span class="scell"><span class="sl">Drawn by</span><span class="sv">B. DOMINGUEZ</span></span>
-      <span class="scell"><span class="sl">Sheet</span><span class="sv">1 OF 1</span></span>
-      <span class="scell"><span class="sl">Rev</span><span class="sv">C · JUL 2026</span></span>
-      <span class="scell"><span class="sl">Coordinates</span><span class="sv">25.77°N 80.19°W</span></span>
-      <span class="scell"><span class="sl">Method</span><span class="sv">HAND-ROLLED HTML · NO TRACKERS</span></span>
-    </div>
-  </footer>
 
 </div>
 </body>
