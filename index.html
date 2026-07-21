@@ -43,6 +43,7 @@
     --dg-box-acc: #fdf7f6;
     --nav-bg: rgb(252 253 253 / 0.92);
     --num-ghost: rgb(20 24 26 / 0.08);
+    --cta-hover: #822720;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -50,14 +51,14 @@
       --ink: #e8edf4;
       --muted: #a9b8c5;
       --faint: #8496a6;
-      --hairline: rgb(232 237 244 / 0.15);
+      --hairline: rgb(180 205 235 / 0.16);
       --accent: #c05248;
       --accent-deep: #d3675d;
       --accent-edge: #7e2e27;
       --wash: rgb(232 237 244 / 0.04);
       --surface: #132033;
       --edge: rgb(232 237 244 / 0.22);
-      --edge-deep: rgb(232 237 244 / 0.38);
+      --edge-deep: rgb(3 8 18 / 0.85);
       --gridline: rgb(146 178 224 / 0.08);
       --gridbloom: rgb(146 178 224 / 0.17);
       --dg-ink: #cfd9e4;
@@ -65,9 +66,10 @@
       --dg-text: #c6d2de;
       --dg-td: rgb(232 237 244 / 0.48);
       --dg-box: #132033;
-      --dg-box-acc: #2b1d22;
+      --dg-box-acc: #1a2439;
       --nav-bg: rgb(14 24 38 / 0.88);
       --num-ghost: rgb(232 237 244 / 0.1);
+      --cta-hover: #a8443b;
     }
     .meta img { filter: invert(0.88); }
   }
@@ -131,7 +133,7 @@
     transition: transform 110ms ease, border-bottom-width 110ms ease, background 110ms ease;
   }
   .cta .arr { font-family: "Geist Mono", monospace; font-size: 0.8em; }
-  .cta:hover { background: var(--accent-deep); }
+  .cta:hover { background: var(--cta-hover); }
   .cta:active { transform: translateY(2px); border-bottom-width: 1px; }
 
   /* ---------- intro ---------- */
