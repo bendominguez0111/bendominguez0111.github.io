@@ -41,7 +41,7 @@
     box-shadow: var(--nav-shadow);
   }
   .navbar .inner {
-    max-width: 72rem; margin: 0 auto; padding: 0 1.25rem;
+    max-width: 41rem; margin: 0 auto; padding: 0 1.25rem;
     height: 3.25rem;
     display: flex; justify-content: space-between; align-items: center;
   }
@@ -99,16 +99,21 @@
   }
 
   ul.worklist { list-style: none; }
-  .worklist li { padding: 0.9rem 0; border-top: 1px solid var(--hairline); }
+  .worklist li {
+    display: grid; grid-template-columns: 1.7rem 1fr; gap: 0 0.55rem;
+    padding: 0.9rem 0; border-top: 1px solid var(--hairline);
+  }
   .worklist li:last-child { border-bottom: 1px solid var(--hairline); }
+  .worklist .logo {
+    grid-row: 1 / span 2; padding-top: 0.15rem;
+  }
+  .worklist .logo img { height: 1.05rem; width: auto; max-width: 1.7rem; display: block; filter: grayscale(1) opacity(0.55); }
   .workhead { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
   .workhead h3 { font-size: 0.9375rem; font-weight: 700; letter-spacing: -0.011em; }
   .who {
-    display: inline-flex; align-items: center; gap: 0.45rem;
     font-family: "Geist Mono", monospace;
     font-size: 0.6875rem; color: var(--faint); white-space: nowrap;
   }
-  .who img { height: 0.95rem; width: auto; display: block; filter: grayscale(1) opacity(0.55); }
   .worklist p { margin-top: 0.2rem; color: var(--muted); font-size: 0.9063rem; text-wrap: pretty; }
 
   .rows { border-top: 1px solid var(--hairline); }
@@ -173,37 +178,29 @@
     <h2>Work</h2>
     <ul class="worklist">
       <li>
-        <div class="workhead">
-          <h3>Image to betslip</h3>
-          <span class="who"><img src="assets/gambly.svg" alt="" width="15" height="15">Gambly</span>
-        </div>
+        <span class="logo"><img src="assets/gambly.svg" alt=""></span>
+          <div class="workhead"><h3>Image to betslip</h3><span class="who">Gambly</span></div>
         <p>A screenshot of any bet — any book, any app — parsed into a structured,
         one-tap betslip. The flagship feature; shipped across web, iMessage, Discord,
         Telegram, and X.</p>
       </li>
       <li>
-        <div class="workhead">
-          <h3>Multi-agent betting copilot</h3>
-          <span class="who"><img src="assets/gambly.svg" alt="" width="15" height="15">Gambly</span>
-        </div>
+        <span class="logo"><img src="assets/gambly.svg" alt=""></span>
+          <div class="workhead"><h3>Multi-agent betting copilot</h3><span class="who">Gambly</span></div>
         <p>Orchestrator plus specialized subagents for betting search, stats research,
         and parlay building — offline eval harness, LLM-as-judge scoring, exactly-once
         turn execution on durable workflows.</p>
       </li>
       <li>
-        <div class="workhead">
-          <h3>Broadcast field registration</h3>
-          <span class="who"><img src="assets/huddlevision.svg" alt="" width="15" height="15">Huddlevision</span>
-        </div>
+        <span class="logo"><img src="assets/huddlevision.svg" alt=""></span>
+          <div class="workhead"><h3>Broadcast field registration</h3><span class="who">Huddlevision</span></div>
         <p>A field-registration model for broadcast football film that outperforms the
         best published IoU results — the basis for speed and acceleration metrics
         straight from game footage. Writeup coming soon.</p>
       </li>
       <li>
-        <div class="workhead">
-          <h3>Fantasy Data Pros</h3>
-          <span class="who"><img src="assets/fdp.svg" alt="" width="15" height="15">Founder · est. 2020</span>
-        </div>
+        <span class="logo"><img src="assets/fdp.svg" alt=""></span>
+          <div class="workhead"><h3>Fantasy Data Pros</h3><span class="who">Founder · est. 2020</span></div>
         <p>Taught Python and ML through NFL, MLB, and NBA data — 300k+ visitors,
         thousands of students. Product, courses, payments, and content, built solo.</p>
       </li>
