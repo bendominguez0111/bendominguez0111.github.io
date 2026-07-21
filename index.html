@@ -10,286 +10,185 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fbfcfb;
-    --card: #ffffff;
-    --ink: #16211a;
-    --muted: #5f6d64;
-    --faint: #8b988f;
-    --hairline: #e6ebe7;
-    --accent: #157a43;
-    --accent-ink: #0d5b30;
-    --ring: 0 0 0 1px rgb(22 33 26 / 0.07);
-    --shadow-sm: 0 1px 2px rgb(22 33 26 / 0.05);
-    --shadow-md: 0 1px 2px rgb(22 33 26 / 0.04), 0 4px 12px rgb(22 33 26 / 0.06);
-    --shadow-lg: 0 2px 4px rgb(22 33 26 / 0.04), 0 16px 40px rgb(22 33 26 / 0.10);
-    --r: 10px;
+    --bg: #fdfdfc;
+    --ink: #171f1a;
+    --muted: #5c6961;
+    --faint: #97a29a;
+    --hairline: #e8ebe8;
+    --accent: #14743f;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     background: var(--bg);
     color: var(--ink);
     font-family: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 0.9375rem;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
-  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+  .wrap { max-width: 41rem; margin: 0 auto; padding: 0 1.25rem 3rem; }
   a { color: inherit; text-decoration: none; }
-  .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
 
-  /* ---------- nav ---------- */
-  .nav {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1.1rem 0;
+  header.top {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 1.6rem 0 0.9rem;
+    border-bottom: 1px solid var(--hairline);
   }
-  .nav .name { font-weight: 800; font-size: 1rem; display: flex; align-items: center; gap: 0.6rem; }
-  .nav .mark {
-    width: 1.75rem; height: 1.75rem; border-radius: 7px;
-    background: var(--ink); color: #fff;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 0.7rem; font-weight: 700; font-family: "IBM Plex Mono", monospace;
-    box-shadow: var(--shadow-sm);
-  }
-  .nav nav { display: flex; gap: 1.4rem; font-size: 0.8125rem; color: var(--muted); }
-  .nav nav a:hover, .nav nav a:focus-visible { color: var(--ink); }
-
-  /* ---------- hero ---------- */
-  .hero {
-    position: relative;
-    padding: 5rem 0 6.5rem;
-  }
-  .hero::before {
-    content: "";
-    position: absolute; inset: 0;
-    background-image: radial-gradient(rgb(22 33 26 / 0.09) 1px, transparent 1px);
-    background-size: 22px 22px;
-    -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 20%, black 30%, transparent 75%);
-    mask-image: radial-gradient(ellipse 70% 80% at 50% 20%, black 30%, transparent 75%);
-    pointer-events: none;
-  }
-  .hero > * { position: relative; }
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 0.5rem;
+  .top .name { font-weight: 800; font-size: 0.9375rem; }
+  .top nav { display: flex; gap: 1.1rem; }
+  .top nav a {
     font-family: "IBM Plex Mono", monospace;
-    font-size: 0.71875rem; font-weight: 500; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--accent);
+    font-size: 0.71875rem; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--muted);
   }
-  .eyebrow::before {
-    content: ""; width: 0.4rem; height: 0.4rem; border-radius: 50%;
-    background: var(--accent);
-  }
-  .hero h1 {
-    margin-top: 1rem;
-    font-size: clamp(2.4rem, 6vw, 3.9rem);
-    font-weight: 800;
-    line-height: 1.04;
-    letter-spacing: -0.02em;
-    text-wrap: balance;
-    max-width: 46rem;
-  }
-  .hero .sub {
-    margin-top: 1.25rem; max-width: 34rem;
-    color: var(--muted); font-size: 1.0625rem; text-wrap: pretty;
-  }
-  .cta { display: flex; gap: 0.75rem; margin-top: 2rem; flex-wrap: wrap; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    font-size: 0.875rem; font-weight: 700;
-    padding: 0.6rem 1.05rem; border-radius: 8px;
-    transition: box-shadow 150ms ease, transform 150ms ease;
-  }
-  .btn-primary { background: var(--ink); color: #fff; box-shadow: var(--shadow-md); }
-  .btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
-  .btn-ghost { background: var(--card); box-shadow: var(--ring), var(--shadow-sm); color: var(--ink); }
-  .btn-ghost:hover { transform: translateY(-1px); box-shadow: var(--ring), var(--shadow-md); }
+  .top nav a:hover, .top nav a:focus-visible { color: var(--accent); }
 
-  /* ---------- floating stat card ---------- */
-  .statcard {
-    background: var(--card);
-    border-radius: var(--r);
-    box-shadow: var(--ring), var(--shadow-lg);
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    margin-top: -3.25rem;
+  .intro { padding: 2.4rem 0 0; }
+  .intro h1 {
+    font-size: 1.5rem; font-weight: 800; letter-spacing: -0.015em;
+    line-height: 1.25; text-wrap: balance;
   }
-  .statcard > div { padding: 1.15rem 1.3rem; border-left: 1px solid var(--hairline); }
-  .statcard > div:first-child { border-left: 0; }
-  .statcard .label {
+  .intro h1 em { font-style: normal; color: var(--accent); }
+  .intro p {
+    margin-top: 0.8rem; color: var(--muted); text-wrap: pretty;
+  }
+  .intro a, .body-link { color: var(--ink); font-weight: 700; border-bottom: 1px solid var(--hairline); }
+  .intro a:hover, .body-link:hover { border-color: var(--accent); color: var(--accent); }
+
+  .factline {
+    display: flex; gap: 1.6rem; flex-wrap: wrap;
+    margin-top: 1.5rem; padding: 0.7rem 0;
+    border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline);
     font-family: "IBM Plex Mono", monospace;
-    font-size: 0.65625rem; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--faint);
+    font-size: 0.71875rem; color: var(--muted);
   }
-  .statcard .value {
-    font-size: 1.5rem; font-weight: 800; letter-spacing: -0.01em;
-    font-variant-numeric: tabular-nums; margin-top: 0.1rem;
-  }
-  .statcard .sub { font-size: 0.78125rem; color: var(--muted); }
-  @media (max-width: 640px) {
-    .statcard { grid-template-columns: 1fr 1fr; }
-    .statcard > div:nth-child(3) { border-left: 0; }
-    .statcard > div:nth-child(n+3) { border-top: 1px solid var(--hairline); }
-  }
+  .factline b { color: var(--ink); font-weight: 500; }
 
-  /* ---------- sections ---------- */
-  section { padding-top: 5rem; }
-  .sec-grid {
-    display: grid; grid-template-columns: 16rem 1fr; gap: 2.5rem;
+  section { margin-top: 2.6rem; }
+  h2 {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.71875rem; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 0.9rem;
   }
-  @media (max-width: 760px) { .sec-grid { grid-template-columns: 1fr; gap: 1.25rem; } }
-  .sec-grid h2 {
-    font-size: 1.375rem; font-weight: 800; letter-spacing: -0.01em;
-    margin-top: 0.6rem; text-wrap: balance;
-  }
-  .prose { color: var(--muted); max-width: 40rem; }
+  .prose { color: var(--muted); }
   .prose p { text-wrap: pretty; }
-  .prose p + p { margin-top: 0.9rem; }
-  .prose a { color: var(--accent-ink); font-weight: 700; }
-  .prose a:hover, .prose a:focus-visible { text-decoration: underline; }
+  .prose p + p { margin-top: 0.7rem; }
   .prose strong { color: var(--ink); font-weight: 700; }
 
-  /* ---------- work cards ---------- */
-  .cards {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin-top: 2rem;
+  ul.worklist { list-style: none; }
+  .worklist li {
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--hairline);
   }
-  @media (max-width: 760px) { .cards { grid-template-columns: 1fr; } }
-  .card {
-    background: var(--card); border-radius: var(--r);
-    box-shadow: var(--ring), var(--shadow-md);
-    padding: 1.35rem 1.4rem 1.45rem;
-    transition: box-shadow 150ms ease, transform 150ms ease;
-  }
-  .card:hover { transform: translateY(-2px); box-shadow: var(--ring), var(--shadow-lg); }
-  .card .tag {
+  .worklist li:last-child { border-bottom: 1px solid var(--hairline); }
+  .workhead { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+  .workhead h3 { font-size: 0.9375rem; font-weight: 800; letter-spacing: -0.005em; }
+  .workhead .where {
     font-family: "IBM Plex Mono", monospace;
-    font-size: 0.65625rem; font-weight: 500; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--accent);
+    font-size: 0.6875rem; color: var(--faint); white-space: nowrap;
   }
-  .card h3 { font-size: 1.125rem; font-weight: 800; letter-spacing: -0.01em; margin-top: 0.5rem; }
-  .card .org { font-size: 0.78125rem; color: var(--faint); margin-top: 0.05rem; }
-  .card p.desc { margin-top: 0.6rem; font-size: 0.9375rem; color: var(--muted); text-wrap: pretty; }
+  .worklist p { margin-top: 0.15rem; color: var(--muted); font-size: 0.9063rem; text-wrap: pretty; }
 
-  /* ---------- elsewhere + footer ---------- */
-  .elsewhere {
-    margin-top: 5rem;
-    border-top: 1px solid var(--hairline);
-    padding: 2rem 0;
-    display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
-    color: var(--muted); font-size: 0.9375rem;
+  .rows { border-top: 1px solid var(--hairline); }
+  .rows > div {
+    display: grid; grid-template-columns: 9.5rem 1fr; gap: 1rem;
+    padding: 0.55rem 0; border-bottom: 1px solid var(--hairline);
+    font-size: 0.9063rem;
   }
-  .elsewhere .mono { font-size: 0.71875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); }
+  .rows .k {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--faint); padding-top: 0.2rem;
+  }
+  .rows .v { color: var(--muted); }
+  .rows .v a { color: var(--ink); font-weight: 700; border-bottom: 1px solid var(--hairline); }
+  .rows .v a:hover { border-color: var(--accent); color: var(--accent); }
+  @media (max-width: 480px) {
+    .rows > div { grid-template-columns: 1fr; gap: 0.1rem; }
+  }
+
   footer {
+    margin-top: 2.8rem; padding-top: 1rem;
     border-top: 1px solid var(--hairline);
-    padding: 1.4rem 0 2.5rem;
-    display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
-    font-size: 0.8125rem; color: var(--faint);
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.6875rem; color: var(--faint);
+    text-transform: uppercase; letter-spacing: 0.06em;
   }
-  footer nav { display: flex; gap: 1.4rem; }
-  footer nav a { color: var(--muted); }
-  footer nav a:hover, footer nav a:focus-visible { color: var(--ink); }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="nav">
-    <span class="name"><span class="mark">BD</span>Ben Dominguez</span>
-    <nav>
-      <a href="https://github.com/bendominguez0111">GitHub</a>
-      <a href="https://www.linkedin.com/in/ben-d-856099156/">LinkedIn</a>
-      <a href="https://x.com/bendominguez011">X</a>
-    </nav>
-  </div>
-
-  <header class="hero">
-    <span class="eyebrow">AI Engineer · Miami, FL</span>
-    <h1>LLM systems and computer&nbsp;vision, built for&nbsp;sports.</h1>
-    <p class="sub">I lead engineering at Gambly and founded Huddlevision. Production
-    agents, eval harnesses, vision pipelines — and the data plumbing that makes
-    them trustworthy.</p>
-    <div class="cta">
-      <a class="btn btn-primary" href="mailto:bendominguez011@gmail.com">Get in touch</a>
-      <a class="btn btn-ghost" href="https://github.com/bendominguez0111">GitHub →</a>
-    </div>
-  </header>
-
-  <div class="statcard">
-    <div><div class="label">Shipping since</div><div class="value">2020</div><div class="sub">Python-first</div></div>
-    <div><div class="label">Team led</div><div class="value">10</div><div class="sub">product · AI · infra</div></div>
-    <div><div class="label">Companies founded</div><div class="value">2</div><div class="sub">CV · education</div></div>
-    <div><div class="label">Stack</div><div class="value">PY · C# · TS</div><div class="sub">+ SQL everywhere</div></div>
-  </div>
-
-  <section>
-    <div class="sec-grid">
-      <div>
-        <span class="eyebrow">Now</span>
-        <h2>Two companies, one obsession.</h2>
-      </div>
-      <div class="prose">
-        <p>I lead engineering at <a href="https://gambly.com">Gambly</a>, a sports-betting
-        copilot — a ten-engineer team across product, AI, and infrastructure. I built
-        the AI platform behind it: the <strong>image-to-betslip</strong> system that turns a
-        screenshot of any bet into a one-tap betslip, and the <strong>multi-agent chat
-        system</strong> powering GamblyBot across web, iMessage, Discord, and Telegram.</p>
-        <p>I'm also the founder of <a href="https://huddlevision.ai">Huddlevision</a>,
-        building computer vision for football — field registration, player detection
-        and tracking, and the speed metrics behind
-        <a href="https://www.trackingfootball.com">Tracking Football</a>'s recruiting data.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <span class="eyebrow">Selected work</span>
-    <div class="cards">
-      <div class="card">
-        <span class="tag">Vision · Product</span>
-        <h3>Image to betslip</h3>
-        <div class="org">Gambly — flagship feature</div>
-        <p class="desc">A screenshot of any bet — any book, any app — parsed into a
-        structured, executable betslip. Shipped across web, iMessage, Discord,
-        Telegram, and X.</p>
-      </div>
-      <div class="card">
-        <span class="tag">Agents · Evals</span>
-        <h3>Multi-agent betting copilot</h3>
-        <div class="org">Gambly — Claude, durable workflows</div>
-        <p class="desc">An orchestrator with specialized subagents for betting search,
-        stats research, and parlay building — offline eval harness, LLM-as-judge
-        scoring, exactly-once turn execution.</p>
-      </div>
-      <div class="card">
-        <span class="tag">CV · Research</span>
-        <h3>Broadcast field registration</h3>
-        <div class="org">Huddlevision — writeup coming soon</div>
-        <p class="desc">A field-registration model for broadcast football film that
-        outperforms the best published IoU results, powering speed and acceleration
-        metrics straight from game footage.</p>
-      </div>
-      <div class="card">
-        <span class="tag">Founder · Est. 2020</span>
-        <h3>Fantasy Data Pros</h3>
-        <div class="org">Python + data science through sports</div>
-        <p class="desc">A platform teaching Python and ML through NFL, MLB, and NBA
-        data — 300k+ visitors, thousands of students. Product, courses, payments,
-        and content, built solo.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="elsewhere">
-    <span class="mono">Elsewhere</span>
-    <span>Open Source Football contributor · Running in Production podcast guest ·
-    sports-analytics talks at UNC Charlotte &amp; Virginia Tech</span>
-  </div>
-
-  <footer>
-    <span>© 2026 Ben Dominguez</span>
+  <header class="top">
+    <span class="name">Ben Dominguez</span>
     <nav>
       <a href="https://github.com/bendominguez0111">GitHub</a>
       <a href="https://www.linkedin.com/in/ben-d-856099156/">LinkedIn</a>
       <a href="https://x.com/bendominguez011">X</a>
       <a href="mailto:bendominguez011@gmail.com">Email</a>
     </nav>
+  </header>
+
+  <div class="intro">
+    <h1>AI engineer building LLM systems and computer vision <em>for sports</em>.</h1>
+    <p>I lead engineering at <a href="https://gambly.com">Gambly</a>, a sports-betting
+    copilot — a ten-engineer team across product, AI, and infrastructure — and I'm
+    the founder of <a href="https://huddlevision.ai">Huddlevision</a>, computer
+    vision for football. Miami, FL.</p>
+    <div class="factline">
+      <span>SHIPPING <b>SINCE 2020</b></span>
+      <span>TEAM <b>10 ENG</b></span>
+      <span>FOUNDED <b>×2</b></span>
+      <span>STACK <b>PY·C#·TS</b></span>
+    </div>
+  </div>
+
+  <section>
+    <h2>Work</h2>
+    <ul class="worklist">
+      <li>
+        <div class="workhead"><h3>Image to betslip</h3><span class="where">Gambly</span></div>
+        <p>A screenshot of any bet — any book, any app — parsed into a structured,
+        one-tap betslip. The flagship feature; shipped across web, iMessage, Discord,
+        Telegram, and X.</p>
+      </li>
+      <li>
+        <div class="workhead"><h3>Multi-agent betting copilot</h3><span class="where">Gambly</span></div>
+        <p>Orchestrator plus specialized subagents for betting search, stats research,
+        and parlay building — offline eval harness, LLM-as-judge scoring, exactly-once
+        turn execution on durable workflows.</p>
+      </li>
+      <li>
+        <div class="workhead"><h3>Broadcast field registration</h3><span class="where">Huddlevision</span></div>
+        <p>A field-registration model for broadcast football film that outperforms the
+        best published IoU results — the basis for speed and acceleration metrics
+        straight from game footage. Writeup coming soon.</p>
+      </li>
+      <li>
+        <div class="workhead"><h3>Fantasy Data Pros</h3><span class="where">Founder · est. 2020</span></div>
+        <p>Taught Python and ML through NFL, MLB, and NBA data — 300k+ visitors,
+        thousands of students. Product, courses, payments, and content, built solo.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Details</h2>
+    <div class="rows">
+      <div><span class="k">Interests</span><span class="v">Agent orchestration, evals, durable execution, homography, ranking systems, and the data plumbing under all of it.</span></div>
+      <div><span class="k">Clients</span><span class="v"><a href="https://www.trackingfootball.com">Tracking Football</a> — speed metrics (MPH) for their recruiting evaluation data.</span></div>
+      <div><span class="k">Elsewhere</span><span class="v">Open Source Football contributor · Running in Production podcast · talks at UNC Charlotte &amp; Virginia Tech.</span></div>
+      <div><span class="k">Contact</span><span class="v"><a href="mailto:bendominguez011@gmail.com">bendominguez011@gmail.com</a></span></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Ben Dominguez</span>
+    <span>No trackers · hand-rolled HTML</span>
   </footer>
 
 </div>
