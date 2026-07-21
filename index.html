@@ -165,21 +165,27 @@
   .demo::before {
     content: ""; position: absolute; inset: -8%;
     background:
-      linear-gradient(rgb(20 24 26 / 0.075) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(20 24 26 / 0.075) 1px, transparent 1px);
-    background-size: 11px 11px;
+      linear-gradient(rgb(20 24 26 / 0.085) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(20 24 26 / 0.085) 1px, transparent 1px);
+    background-size: 22px 22px;
     background-attachment: fixed;
     -webkit-mask-image: radial-gradient(ellipse 62% 58% at 50% 50%, black 45%, transparent 76%);
     mask-image: radial-gradient(ellipse 62% 58% at 50% 50%, black 45%, transparent 76%);
   }
   .demo svg { position: relative; display: block; width: 100%; height: auto; }
-  .demo [stroke] { stroke: #3d4a52; stroke-width: 1; fill: none; stroke-linecap: round; }
-  .demo .dim { stroke: rgb(20 24 26 / 0.32); }
+  .demo svg { shape-rendering: geometricPrecision; }
+  .demo [stroke] { stroke: #38444c; stroke-width: 1.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .demo .dim { stroke: rgb(20 24 26 / 0.34); stroke-width: 0.8; }
   .demo .dash { stroke-dasharray: 3 2.5; }
-  .demo .bx { fill: var(--bg); }
-  .demo .acc { stroke: var(--accent); }
+  .demo .bx {
+    fill: #ffffff;
+    filter: drop-shadow(0 1px 1px rgb(20 24 26 / 0.15));
+  }
+  .demo .acc { stroke: var(--accent); stroke-width: 1.4; }
+  .demo .bx.acc { fill: #fdf7f6; }
   .demo .accf { fill: var(--accent); stroke: none; }
-  .demo .fillc { fill: #3d4a52; stroke: none; }
+  .demo .fillc { fill: #38444c; stroke: none; }
+  .demo .areafill { fill: rgb(158 47 39 / 0.06); stroke: none; }
   .demo text {
     font-family: "Geist Mono", ui-monospace, monospace;
     font-size: 6.4px; letter-spacing: 0.03em;
@@ -449,6 +455,7 @@
   <circle class="fillc sc sc3" style="transform-box: fill-box; transform-origin: center;" cx="62" cy="64" r="1.7"/><circle class="fillc sc sc4" style="transform-box: fill-box; transform-origin: center;" cx="76" cy="50" r="1.7"/>
   <circle class="fillc sc sc5" style="transform-box: fill-box; transform-origin: center;" cx="90" cy="54" r="1.7"/><circle class="fillc sc sc6" style="transform-box: fill-box; transform-origin: center;" cx="104" cy="40" r="1.7"/>
   <circle class="fillc sc sc7" style="transform-box: fill-box; transform-origin: center;" cx="120" cy="44" r="1.7"/><circle class="fillc sc sc8" style="transform-box: fill-box; transform-origin: center;" cx="134" cy="30" r="1.7"/>
+  <polygon class="areafill" points="24,78 56,62 92,50 128,36 158,24 158,86 24,86"/>
   <polyline class="acc curve" pathLength="1" points="24,78 56,62 92,50 128,36 158,24" stroke="currentColor" fill="none" stroke-dasharray="1" stroke-dashoffset="0"/>
   <circle class="accf tip" style="transform-box: fill-box; transform-origin: center;" cx="158" cy="24" r="3"/>
   <text class="td" x="24" y="12">P(WIN) · LOGISTIC ON EPA</text>
