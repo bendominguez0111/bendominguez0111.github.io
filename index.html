@@ -44,7 +44,7 @@
     --nav-bg: rgb(251 252 253 / 0.92);
     --num-ghost: rgb(22 39 64 / 0.09);
     --cta-hover: #822720;
-    --dg-mono: rgb(47 71 104 / 0.34);
+    --dg-mono: rgb(47 71 104 / 0.46);
     --dg-hw: rgb(47 71 104 / 0.42);
   }
   @media (prefers-color-scheme: dark) {
@@ -72,12 +72,11 @@
       --nav-bg: rgb(28 48 73 / 0.9);
       --num-ghost: rgb(220 235 250 / 0.18);
       --cta-hover: #b04a3e;
-      --dg-mono: rgb(196 214 232 / 0.28);
+      --dg-mono: rgb(196 214 232 / 0.38);
       --dg-hw: rgb(196 214 232 / 0.34);
       --nav-shadow: 0 4px 16px rgb(0 4 10 / 0.35);
     }
-    .meta img { filter: invert(0.82) opacity(0.75); }
-    .demo .bx { filter: drop-shadow(0 1px 0 rgb(0 4 10 / 0.45)) drop-shadow(0 2px 3px rgb(0 4 10 / 0.35)); }
+        .demo .bx { filter: drop-shadow(0 1px 0 rgb(0 4 10 / 0.45)) drop-shadow(0 2px 3px rgb(0 4 10 / 0.35)); }
     ::selection { background: rgb(224 96 82 / 0.4); }
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -211,7 +210,7 @@
     text-transform: uppercase; letter-spacing: 0.05em;
     flex-wrap: wrap; row-gap: 0.2rem;
   }
-  .meta img { height: 1.5rem; width: auto; max-width: 2.4rem; display: block; flex: none; filter: invert(0.52) opacity(0.9); }
+  .mlogo { height: 1.5rem; width: auto; max-width: 2.4rem; display: block; flex: none; color: var(--faint); }
   .meta .mtext { flex: 1; min-width: 0; }
   .worklist p {
     margin-top: 0.55rem; padding-left: 4.5rem;
@@ -339,7 +338,7 @@
         <p>The industry's first screenshot-to-betslip system — any bet, any book,
         parsed into a structured, one-tap betslip. Launched viral on X; shipped
         across web, iMessage, Discord, Telegram, and X.</p>
-        <div class="meta"><img src="assets/gambly.svg" alt=""><span class="mtext">GAMBLY · LEAD ENG · 2024—</span></div>
+        <div class="meta"><svg class="mlogo mlogo-g" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" stroke="#000" stroke-width="0.025" d="M22.5 17.697c0 1.056-.898 1.898-1.97 1.847l-6.587-.32-5.831 3.503c-1.252.751-2.857-.136-2.857-1.58v-2.62l-1.973-.1c-.998-.05-1.782-.861-1.782-1.846v-11.4c0-.924.693-1.707 1.623-1.832l17.243-2.331c1.128-.153 2.134.71 2.134 1.831zm-4.436-9.369h2.718V2.85a.16.16 0 0 0-.182-.155L3.357 5.024a.16.16 0 0 0-.1.053.16.16 0 0 0-.038.104v11.4c0 .04.015.08.043.109q.045.044.108.048l3.452.175a.156.156 0 0 1 .152.157v4.078a.16.16 0 0 0 .243.134l6.24-3.747a.16.16 0 0 1 .092-.023l7.065.342a.16.16 0 0 0 .118-.043.16.16 0 0 0 .05-.114V9.789H13.67a.16.16 0 0 0-.113.046.16.16 0 0 0-.047.112v2.518c0 .041.017.081.047.11q.047.046.113.047h4.074a.16.16 0 0 1 .113.046c.03.03.047.07.047.111v1.942a.16.16 0 0 1-.104.148.2.2 0 0 1-.064.01l-4.93-.24a.16.16 0 0 0-.091.024l-2.62 1.573a.16.16 0 0 1-.244-.134v-1.724c0-.04-.015-.079-.044-.108a.16.16 0 0 0-.107-.049l-3.452-.174a.16.16 0 0 1-.108-.049.16.16 0 0 1-.044-.108V7.65c0-.079.059-.145.138-.156l11.488-1.553a.16.16 0 0 1 .182.156V8.17c0 .042.017.082.047.111q.047.045.113.046Z" clip-rule="evenodd"></path></svg><span class="mtext">GAMBLY · LEAD ENG · 2024—</span></div>
       </li>
       <li>
         <span class="num" aria-hidden="true">02</span>
@@ -361,7 +360,7 @@
         <p>The system behind every GamblyBot conversation: an orchestrator with
         specialized subagents, offline evals with LLM-as-judge scoring, and
         exactly-once turns on durable workflows.</p>
-        <div class="meta"><img src="assets/gambly.svg" alt=""><span class="mtext">GAMBLY · LEAD ENG · 2025—</span></div>
+        <div class="meta"><svg class="mlogo mlogo-g" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" stroke="#000" stroke-width="0.025" d="M22.5 17.697c0 1.056-.898 1.898-1.97 1.847l-6.587-.32-5.831 3.503c-1.252.751-2.857-.136-2.857-1.58v-2.62l-1.973-.1c-.998-.05-1.782-.861-1.782-1.846v-11.4c0-.924.693-1.707 1.623-1.832l17.243-2.331c1.128-.153 2.134.71 2.134 1.831zm-4.436-9.369h2.718V2.85a.16.16 0 0 0-.182-.155L3.357 5.024a.16.16 0 0 0-.1.053.16.16 0 0 0-.038.104v11.4c0 .04.015.08.043.109q.045.044.108.048l3.452.175a.156.156 0 0 1 .152.157v4.078a.16.16 0 0 0 .243.134l6.24-3.747a.16.16 0 0 1 .092-.023l7.065.342a.16.16 0 0 0 .118-.043.16.16 0 0 0 .05-.114V9.789H13.67a.16.16 0 0 0-.113.046.16.16 0 0 0-.047.112v2.518c0 .041.017.081.047.11q.047.046.113.047h4.074a.16.16 0 0 1 .113.046c.03.03.047.07.047.111v1.942a.16.16 0 0 1-.104.148.2.2 0 0 1-.064.01l-4.93-.24a.16.16 0 0 0-.091.024l-2.62 1.573a.16.16 0 0 1-.244-.134v-1.724c0-.04-.015-.079-.044-.108a.16.16 0 0 0-.107-.049l-3.452-.174a.16.16 0 0 1-.108-.049.16.16 0 0 1-.044-.108V7.65c0-.079.059-.145.138-.156l11.488-1.553a.16.16 0 0 1 .182.156V8.17c0 .042.017.082.047.111q.047.045.113.046Z" clip-rule="evenodd"></path></svg><span class="mtext">GAMBLY · LEAD ENG · 2025—</span></div>
       </li>
       <li>
         <span class="num" aria-hidden="true">03</span>
@@ -389,7 +388,7 @@
         <p>A field-registration model for broadcast film that beats the best
         published IoU results — and turns raw footage into the speed metrics
         behind Tracking Football's recruiting data.</p>
-        <div class="meta"><img src="assets/huddlevision-mark.svg" alt=""><span class="mtext">HUDDLEVISION · FOUNDER · 2023—</span></div>
+        <div class="meta"><svg class="mlogo mlogo-h" viewBox="0 0 74 80" aria-hidden="true"><path d="M40.0082 0L32.688 7.32016L27.259 12.7491H29.1828V18.5042L40.0136 7.67341L72.3375 39.9973L57.17 55.1648V62.8381L62.599 57.4146L80.0163 39.9973L40.0082 0ZM50.8335 61.4904L40.0027 72.3212L22.8517 55.1702L7.68426 40.0027L22.8517 24.8353V17.151L0 40.0027L40.0027 80L52.7519 67.2509H50.8281V61.4904H50.8335Z" fill="currentColor"/><path d="M50.8335 31.8565V37.2855H29.1774V12.7546H22.8571V56.4201H17.4282V7.32015H34.6063V31.8565H50.8335Z" fill="currentColor"/><path d="M62.5882 23.5799V72.6799H45.4045V48.1489H29.1774V42.7199H50.8335V67.2454H57.1592V23.5799H62.5882Z" fill="currentColor"/></svg><span class="mtext">HUDDLEVISION · FOUNDER · 2023—</span></div>
       </li>
       <li>
         <span class="num" aria-hidden="true">04</span>
@@ -399,15 +398,15 @@
   <line x1="17.5" y1="62" x2="20" y2="62" stroke="currentColor"/><line x1="17.5" y1="38" x2="20" y2="38" stroke="currentColor"/>
   <line x1="56" y1="86" x2="56" y2="88.5" stroke="currentColor"/><line x1="92" y1="86" x2="92" y2="88.5" stroke="currentColor"/><line x1="128" y1="86" x2="128" y2="88.5" stroke="currentColor"/>
   <circle class="fillm" cx="36" cy="74" r="1.6"/><circle class="fillm" cx="48" cy="78" r="1.6"/>
-  <circle class="fillm" cx="62" cy="65" r="1.6"/><circle class="fillm" cx="76" cy="54" r="1.6"/>
+  <circle class="fillm" cx="62" cy="65" r="1.6"/><circle class="fillm" cx="70" cy="58" r="1.6"/>
   <circle class="fillm" cx="90" cy="57" r="1.6"/><circle class="fillm" cx="104" cy="34" r="1.6"/>
   <circle class="fillm" cx="120" cy="30" r="1.6"/><circle class="fillm" cx="134" cy="22" r="1.6"/>
   <path d="M24 79 C56 77 74 70 90 53 C104 37 124 25 158 22.5" stroke="currentColor"/>
   <line class="dash" x1="20" y1="51" x2="166" y2="51" stroke="currentColor"/>
   <line class="dash" x1="48" y1="75" x2="48" y2="78" stroke="currentColor"/>
-  <line class="dash" x1="76" y1="54" x2="76" y2="58" stroke="currentColor"/>
+  <line class="dash" x1="70" y1="58" x2="70" y2="62" stroke="currentColor"/>
   <line class="dash" x1="90" y1="53" x2="90" y2="57" stroke="currentColor"/>
-  <text class="hw" x="24" y="12">p(win) — logistic on epa</text>
+  <text class="hw" x="24" y="12">p(win), logistic on epa</text>
   <text class="hw" x="6" y="20">1.0</text>
   <text class="hw" x="6" y="88">0.0</text>
   <text class="hw" x="132" y="98">epa / play</text>
@@ -416,7 +415,7 @@
         <div class="workhead"><h3>Fantasy Data Pros</h3></div>
         <p>Taught Python and ML through sports data — 300k+ visitors, 4,000+ paid
         enrollments. Product, payments, and content, built solo.</p>
-        <div class="meta"><img src="assets/fdp-mark.svg" alt=""><span class="mtext">FANTASY DATA PROS · FOUNDER · 2020—</span></div>
+        <div class="meta"><svg class="mlogo mlogo-f" viewBox="0 2.8 66.9 32.2" aria-hidden="true"><path fill="currentColor" d="M52.842 2.863c1.177 0 2.319.383 3.288 1.045.622.418 1.176.975 1.626 1.637l4.083 5.746 5.018 7.174-9.482 13.581c-.034.07-.069.14-.138.21-1.211 1.706-3.01 2.715-4.914 2.715h-6.99l.623-.87 10.866-15.636-5.191-7.383-5.71-8.149-.07-.07h6.991zM21.005 2.83l-.069.07-5.71 8.148-5.19 7.418 10.9 15.601.588.87h-6.99c-1.903 0-3.703-.974-4.914-2.716-.034-.07-.069-.139-.138-.209L0 18.465l5.018-7.174L9.067 5.51c.484-.662 1.038-1.219 1.626-1.637 1.004-.696 2.11-1.044 3.287-1.044h7.025zM34.813 14.18v3.134h3.599v-3.134l.158.006c1.415.094 2.54 1.45 2.54 3.128h3.67c0 1.707-1.212 3.135-2.735 3.135h-.969v3.134l-.158-.005c-1.415-.095-2.54-1.45-2.54-3.13h-3.6v3.135H32.08V20.45h-3.564l-.005.185c-.082 1.654-1.26 2.949-2.695 2.949V20.45h-3.668l.005-.185c.082-1.654 1.26-2.95 2.694-2.95h.97l.004-.185c.082-1.653 1.26-2.949 2.695-2.949v3.134h3.599v-3.134h2.699z"/></svg><span class="mtext">FANTASY DATA PROS · FOUNDER · 2020—</span></div>
       </li>
     </ul>
   </section>
