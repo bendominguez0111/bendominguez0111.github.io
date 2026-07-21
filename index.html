@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ben Dominguez</title>
+<meta name="description" content="Ben Dominguez — AI engineer. Engineering lead at Gambly, founder of Huddlevision.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1c1c1c;
+    --muted: #6b6b6b;
+    --rule: #e5e5e5;
+    --accent: #0f5c2e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131313;
+      --text: #e8e8e8;
+      --muted: #9a9a9a;
+      --rule: #2a2a2a;
+      --accent: #6fbf8f;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  main {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 5rem 1.25rem 4rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 650;
+    letter-spacing: normal;
+    text-wrap: balance;
+  }
+  .tagline { color: var(--muted); margin-top: 0.25rem; }
+  section { margin-top: 3rem; }
+  h2 {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  p { text-wrap: pretty; }
+  p + p { margin-top: 0.875rem; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover, a:focus-visible { text-decoration: underline; }
+  .entry { padding: 1rem 0; border-top: 1px solid var(--rule); }
+  .entry:last-child { border-bottom: 1px solid var(--rule); }
+  .entry h3 { font-size: 1rem; font-weight: 600; }
+  .entry .meta { color: var(--muted); font-size: 0.875rem; }
+  .entry p { margin-top: 0.375rem; }
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 0.9375rem;
+  }
+  footer nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Ben Dominguez</h1>
+    <p class="tagline">AI engineer in Miami. I build LLM systems and computer vision for sports.</p>
+  </header>
+
+  <section>
+    <h2>Now</h2>
+    <p>I lead engineering at <a href="https://gambly.com">Gambly</a>, a sports-betting
+    copilot — a ten-engineer team across product, AI, and infrastructure. I built the
+    AI platform behind it: the image-to-betslip system that turns a screenshot of any
+    bet into a one-tap betslip, and the multi-agent chat system that powers GamblyBot
+    across web, iMessage, Discord, and Telegram. Day to day that means agent
+    orchestration, evals, durable execution, and the unglamorous data plumbing that
+    makes all of it trustworthy.</p>
+    <p>I'm also the founder of <a href="https://huddlevision.ai">Huddlevision</a>,
+    where we build computer vision for football — field registration, player
+    detection and tracking, and the speed metrics behind
+    <a href="https://www.trackingfootball.com">Tracking Football</a>'s recruiting data.</p>
+  </section>
+
+  <section>
+    <h2>Selected work</h2>
+    <div class="entry">
+      <h3>Image to betslip</h3>
+      <p class="meta">Gambly · vision pipeline, multi-channel product</p>
+      <p>A screenshot of any bet — from any book, any app — parsed into a structured,
+      executable betslip. Shipped across web, iMessage, Discord, Telegram, and X;
+      became Gambly's flagship feature.</p>
+    </div>
+    <div class="entry">
+      <h3>Multi-agent betting copilot</h3>
+      <p class="meta">Gambly · Claude, evals, durable workflows</p>
+      <p>An orchestrator with specialized subagents for betting search, stats research,
+      and parlay building, behind typed tool boundaries — with an offline eval harness,
+      LLM-as-judge scoring, and exactly-once turn execution on durable workflows.</p>
+    </div>
+    <div class="entry">
+      <h3>Broadcast field registration</h3>
+      <p class="meta">Huddlevision · computer vision</p>
+      <p>A field-registration model for broadcast football film that outperforms the
+      best published IoU results in the research literature, powering homography-based
+      speed and acceleration metrics straight from game footage. Technical writeup
+      coming soon.</p>
+    </div>
+    <div class="entry">
+      <h3>Fantasy Data Pros</h3>
+      <p class="meta">Founder · est. 2020</p>
+      <p>A platform that taught Python and data science through NFL, MLB, and NBA
+      data — 300k+ visitors and thousands of students. Built and run solo:
+      product, courses, payments, and the ML content.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Elsewhere</h2>
+    <p>Open Source Football contributor; guest on the Running in Production podcast;
+    talks on sports analytics at UNC Charlotte and Virginia Tech.</p>
+  </section>
+
+  <footer>
+    <nav>
+      <a href="https://github.com/bendominguez0111">GitHub</a>
+      <a href="https://www.linkedin.com/in/ben-d-856099156/">LinkedIn</a>
+      <a href="https://x.com/bendominguez011">X</a>
+      <a href="mailto:bendominguez011@gmail.com">Email</a>
+    </nav>
+  </footer>
+</main>
+</body>
+</html>
