@@ -125,20 +125,13 @@
     padding: 1.15rem 0; border-top: 1px solid var(--hairline);
   }
   .worklist li:last-child { border-bottom: 1px solid var(--hairline); }
-  .worklist li::before {
-    content: ""; position: absolute; inset: 2px -1rem;
-    border-radius: 10px; pointer-events: none;
-  }
-  .worklist li:hover::before { background: var(--wash); }
   .worklist .logo { grid-row: 1 / span 2; grid-column: 1; padding-top: 0.15rem; }
   .worklist .workhead, .worklist li > p { grid-column: 2; }
   .worklist .logo img {
     height: 1.55rem; width: auto; max-width: 2.6rem; display: block;
-    filter: grayscale(1) opacity(0.5);
-    transition: filter 150ms ease;
+    filter: grayscale(1) opacity(0.55);
   }
   .worklist .logo img[src*="gambly"], .worklist .logo img[src*="huddlevision"] { height: 2rem; }
-  .worklist li:hover .logo img { filter: grayscale(0) opacity(1); }
   .workhead { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
   .workhead h3 { font-size: 1.0625rem; font-weight: 700; letter-spacing: -0.011em; }
   .who {
@@ -147,7 +140,7 @@
   }
   .worklist p { margin-top: 0.25rem; color: var(--muted); font-size: 1rem; line-height: 1.62; text-wrap: pretty; }
 
-  /* ---------- westworld demo panels ---------- */
+  /* ---------- schematic demo panels ---------- */
   .demo {
     grid-row: 1 / span 2; grid-column: 3; align-self: center;
     width: 11rem; border-radius: 9px; overflow: hidden;
@@ -159,70 +152,20 @@
     box-shadow: 0 0 0 1px var(--hairline), 0 1px 2px rgb(20 24 26 / 0.04);
   }
   .demo svg { display: block; width: 100%; height: auto; }
-  .demo [stroke] { stroke: #3d4a52; stroke-width: 1.1; fill: none; stroke-linecap: round; }
-  .demo .dim { stroke: rgb(20 24 26 / 0.3); }
-  .demo .fillc { fill: #3d4a52; stroke: none; }
-  .d3 .persp polygon, .d3 .persp line { stroke-dasharray: 4 3; }
+  .demo [stroke] { stroke: #3d4a52; stroke-width: 1; fill: none; stroke-linecap: round; }
+  .demo .dim { stroke: rgb(20 24 26 / 0.32); }
+  .demo .dash { stroke-dasharray: 3 2.5; }
+  .demo .bx { fill: #ffffff; }
   .demo .acc { stroke: var(--accent); }
   .demo .accf { fill: var(--accent); stroke: none; }
+  .demo .fillc { fill: #3d4a52; stroke: none; }
+  .demo text {
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 6.4px; letter-spacing: 0.03em;
+    fill: #37434a; stroke: none;
+  }
+  .demo text.td { fill: rgb(20 24 26 / 0.45); }
   @media (max-width: 860px) { .demo { display: none; } .worklist li { grid-template-columns: 2.6rem 1fr; } }
-
-  /* p1 scan */
-  .d1 .scanline { animation: d1scan 4s linear infinite; }
-  @keyframes d1scan {
-    0% { transform: translateY(14px); opacity: 0; }
-    6% { opacity: 1; }
-    58% { transform: translateY(88px); opacity: 1; }
-    64% { opacity: 0; } 100% { transform: translateY(88px); opacity: 0; }
-  }
-  .d1 .row { stroke: rgb(20 24 26 / 0.22); animation: d1row 4s linear infinite; }
-  .d1 .r2 { animation-name: d1row2; } .d1 .r3 { animation-name: d1row3; } .d1 .r4 { animation-name: d1row4; }
-  @keyframes d1row  { 0%,13% { stroke: rgb(20 24 26 / 0.22); } 16%,88% { stroke: #14181a; } 94%,100% { stroke: rgb(20 24 26 / 0.22); } }
-  @keyframes d1row2 { 0%,24% { stroke: rgb(20 24 26 / 0.22); } 27%,88% { stroke: #14181a; } 94%,100% { stroke: rgb(20 24 26 / 0.22); } }
-  @keyframes d1row3 { 0%,36% { stroke: rgb(20 24 26 / 0.22); } 39%,88% { stroke: #14181a; } 94%,100% { stroke: rgb(20 24 26 / 0.22); } }
-  @keyframes d1row4 { 0%,47% { stroke: rgb(20 24 26 / 0.22); } 50%,88% { stroke: #14181a; } 94%,100% { stroke: rgb(20 24 26 / 0.22); } }
-  .d1 .check { opacity: 0; animation: d1check 4s linear infinite; transform-box: fill-box; transform-origin: center; }
-  @keyframes d1check { 0%,60% { opacity: 0; transform: scale(0.6); } 66% { opacity: 1; transform: scale(1.08); } 70%,88% { opacity: 1; transform: scale(1); } 96%,100% { opacity: 0; } }
-
-  /* p2 orchestrate */
-  .d2 .pkt { animation: d2p 3.6s ease-in-out infinite; }
-  .d2 .pkt2 { animation-delay: 0.5s; } .d2 .pkt3 { animation-delay: 1s; }
-  @keyframes d2p {
-    0%, 8% { transform: translate(0, 0); opacity: 0; }
-    12% { opacity: 1; }
-    45% { transform: translate(var(--dx), var(--dy)); opacity: 1; }
-    52%, 100% { transform: translate(var(--dx), var(--dy)); opacity: 0; }
-  }
-  .d2 .sat { transform-box: fill-box; transform-origin: center; animation: d2sat 3.6s ease-in-out infinite; }
-  .d2 .sat2 { animation-delay: 0.5s; } .d2 .sat3 { animation-delay: 1s; }
-  @keyframes d2sat { 0%,42% { transform: scale(1); } 50% { transform: scale(1.25); } 58%,100% { transform: scale(1); } }
-  .d2 .core { transform-box: fill-box; transform-origin: center; animation: d2core 3.6s ease-in-out infinite; }
-  @keyframes d2core { 0% { transform: scale(1); } 6% { transform: scale(1.12); } 14%,100% { transform: scale(1); } }
-
-  /* p3 homography */
-  .d3 .persp { animation: d3a 5.2s ease-in-out infinite; }
-  .d3 .flat  { animation: d3b 5.2s ease-in-out infinite; }
-  @keyframes d3a { 0%,30% { opacity: 1; } 46%,78% { opacity: 0; } 92%,100% { opacity: 1; } }
-  @keyframes d3b { 0%,30% { opacity: 0; } 46%,78% { opacity: 1; } 92%,100% { opacity: 0; } }
-  .d3 .p1 { animation: d3p1 5.2s ease-in-out infinite; }
-  .d3 .p2 { animation: d3p2 5.2s ease-in-out infinite; }
-  @keyframes d3p1 { 0%,30% { transform: translate(0,0); } 46%,78% { transform: translate(-9px,14px); } 92%,100% { transform: translate(0,0); } }
-  @keyframes d3p2 { 0%,30% { transform: translate(0,0); } 46%,78% { transform: translate(12px,-6px); } 92%,100% { transform: translate(0,0); } }
-  .d3 .lock { opacity: 0; animation: d3lock 5.2s ease-in-out infinite; }
-  @keyframes d3lock { 0%,48% { opacity: 0; } 56%,74% { opacity: 1; } 82%,100% { opacity: 0; } }
-
-  /* p4 model */
-  .d4 .curve { stroke-dasharray: 1; stroke-dashoffset: 1; animation: d4draw 4.4s ease-in-out infinite; }
-  @keyframes d4draw { 0% { stroke-dashoffset: 1; } 12% { stroke-dashoffset: 1; } 62% { stroke-dashoffset: 0; } 86% { stroke-dashoffset: 0; opacity: 1; } 96%,100% { stroke-dashoffset: 0; opacity: 0; } }
-  .d4 .tip { opacity: 0; transform-box: fill-box; transform-origin: center; animation: d4tip 4.4s ease-in-out infinite; }
-  @keyframes d4tip { 0%,58% { opacity: 0; transform: scale(0.6); } 64% { opacity: 1; transform: scale(1.2); } 70%,86% { opacity: 1; transform: scale(1); } 96%,100% { opacity: 0; } }
-
-  @media (prefers-reduced-motion: reduce) {
-    .demo * { animation: none !important; }
-    .d1 .row { stroke: #14181a; } .d1 .check { opacity: 1; }
-    .d3 .flat { opacity: 1; } .d3 .persp { opacity: 0; }
-    .d4 .curve { stroke-dashoffset: 0; } .d4 .tip { opacity: 1; }
-  }
 
   /* ---------- details rows ---------- */
   .rows { border-top: 1px solid var(--hairline); }
@@ -293,15 +236,20 @@
     <ul class="worklist">
       <li>
         <span class="logo"><img src="assets/gambly.svg" alt=""></span>
-        <span class="demo d1" aria-hidden="true"><svg viewBox="0 0 160 104">
-  <rect class="dim" x="46" y="14" width="68" height="76" rx="5" stroke="c"/>
-  <line class="row r1" x1="56" y1="30" x2="104" y2="30" stroke="c"/>
-  <line class="row r2" x1="56" y1="44" x2="96" y2="44" stroke="c"/>
-  <line class="row r3" x1="56" y1="58" x2="104" y2="58" stroke="c"/>
-  <line class="row r4" x1="56" y1="72" x2="88" y2="72" stroke="c"/>
-  <line class="scanline acc" x1="48" y1="0" x2="112" y2="0" stroke="c"/>
-  <g class="check"><circle cx="124" cy="80" r="9" class="acc" stroke="c"/><path class="acc" d="M119.5 80l3.5 3.5 6-7" stroke="c"/></g>
-</svg></span>
+        <span class="demo" aria-hidden="true"><svg viewBox="0 0 176 104">
+  <rect class="bx" x="8" y="44" width="26" height="16" rx="2" stroke="currentColor"/><text x="21" y="54.5" text-anchor="middle">IMG</text>
+  <rect class="bx" x="46" y="44" width="26" height="16" rx="2" stroke="currentColor"/><text x="59" y="54.5" text-anchor="middle">OCR</text>
+  <rect class="bx" x="84" y="44" width="26" height="16" rx="2" stroke="currentColor"/><text x="97" y="54.5" text-anchor="middle">VLM</text>
+  <rect class="bx acc" x="134" y="44" width="32" height="16" rx="2" stroke="currentColor"/><text x="150" y="54.5" text-anchor="middle">SLIP</text>
+  <line class="dim" x1="34" y1="52" x2="43" y2="52" stroke="currentColor"/><path class="fillc" d="M43 49.5l5 2.5-5 2.5z"/>
+  <line class="dim" x1="72" y1="52" x2="81" y2="52" stroke="currentColor"/><path class="fillc" d="M81 49.5l5 2.5-5 2.5z"/>
+  <line class="dim" x1="110" y1="52" x2="129" y2="52" stroke="currentColor"/><path class="fillc" d="M129 49.5l5 2.5-5 2.5z"/>
+  <rect class="bx dash" x="60" y="12" width="56" height="14" rx="2" stroke="currentColor"/><text x="88" y="21.5" text-anchor="middle">DHASH CACHE</text>
+  <polyline class="dim dash" points="21,44 21,19 58,19" stroke="currentColor" fill="none"/>
+  <polyline class="dim dash" points="118,19 150,19 150,42" stroke="currentColor" fill="none"/><path class="fillc" d="M147.5 42l2.5 5 2.5-5z"/>
+  <text class="td" x="124" y="15">HIT</text>
+  <text class="td" x="8" y="86">TEXT + VISION → MATCHED OFFERS</text>
+  <text class="td" x="8" y="96">MISS → FULL PIPELINE</text></svg></span>
         <div class="workhead"><h3>Image to betslip</h3><span class="who">Gambly</span></div>
         <p>A screenshot of any bet — any book, any app — parsed into a structured,
         one-tap betslip. The flagship feature; shipped across web, iMessage, Discord,
@@ -309,19 +257,18 @@
       </li>
       <li>
         <span class="logo"><img src="assets/gambly.svg" alt=""></span>
-        <span class="demo d2" aria-hidden="true"><svg viewBox="0 0 160 104">
-  <line class="dim" x1="38" y1="52" x2="118" y2="22" stroke="c"/>
-  <line class="dim" x1="38" y1="52" x2="124" y2="52" stroke="c"/>
-  <line class="dim" x1="38" y1="52" x2="118" y2="82" stroke="c"/>
-  <circle class="core" cx="30" cy="52" r="8" stroke="c"/>
-  <circle class="fillc" cx="30" cy="52" r="2.5"/>
-  <circle class="sat"  cx="124" cy="22" r="6" stroke="c"/>
-  <circle class="sat sat2" cx="130" cy="52" r="6" stroke="c"/>
-  <circle class="sat sat3" cx="124" cy="82" r="6" stroke="c"/>
-  <circle class="pkt accf" cx="38" cy="50" r="2.6" style="--dx:78px; --dy:-29px;"/>
-  <circle class="pkt pkt2 accf" cx="38" cy="52" r="2.6" style="--dx:84px; --dy:0px;"/>
-  <circle class="pkt pkt3 accf" cx="38" cy="54" r="2.6" style="--dx:78px; --dy:29px;"/>
-</svg></span>
+        <span class="demo" aria-hidden="true"><svg viewBox="0 0 176 104">
+  <rect class="bx" x="8" y="38" width="38" height="18" rx="2" stroke="currentColor"/><text x="27" y="49.5" text-anchor="middle">ORCH</text>
+  <rect class="bx" x="118" y="10" width="50" height="14" rx="2" stroke="currentColor"/><text x="143" y="19.5" text-anchor="middle">SEARCH</text>
+  <rect class="bx" x="118" y="40" width="50" height="14" rx="2" stroke="currentColor"/><text x="143" y="49.5" text-anchor="middle">STATS</text>
+  <rect class="bx" x="118" y="70" width="50" height="14" rx="2" stroke="currentColor"/><text x="143" y="79.5" text-anchor="middle">PARLAY</text>
+  <line class="dim" x1="46" y1="43" x2="112" y2="18" stroke="currentColor"/><path class="fillc" d="M112 15.7l5.5 1.8-4 4z"/>
+  <line class="dim" x1="46" y1="47" x2="112" y2="47" stroke="currentColor"/><path class="fillc" d="M112 44.5l5 2.5-5 2.5z"/>
+  <line class="dim" x1="46" y1="51" x2="112" y2="76" stroke="currentColor"/><path class="fillc" d="M113.5 72.7l4 4-5.5 1.8z"/>
+  <text class="td" x="8" y="72">DBOS · EXACTLY-ONCE</text>
+  <text class="td" x="8" y="81">EVALS · LLM-JUDGE</text>
+  <line class="acc" x1="8" y1="92" x2="168" y2="92" stroke="currentColor"/>
+  <text class="td" x="8" y="100">DURABLE EXECUTION LAYER</text></svg></span>
         <div class="workhead"><h3>Multi-agent betting copilot</h3><span class="who">Gambly</span></div>
         <p>Orchestrator plus specialized subagents for betting search, stats research,
         and parlay building — offline eval harness, LLM-as-judge scoring, exactly-once
@@ -329,26 +276,22 @@
       </li>
       <li>
         <span class="logo"><img src="assets/huddlevision-mark.svg" alt=""></span>
-        <span class="demo d3" aria-hidden="true"><svg viewBox="0 0 160 104">
-  <g class="persp">
-    <polygon points="34,80 126,80 106,28 54,28" stroke="c" class="dim"/>
-    <line class="dim" x1="57" y1="80" x2="72" y2="28" stroke="c"/>
-    <line class="dim" x1="80" y1="80" x2="80" y2="28" stroke="c"/>
-    <line class="dim" x1="103" y1="80" x2="88" y2="28" stroke="c"/>
-  </g>
-  <g class="flat">
-    <rect x="40" y="26" width="80" height="54" stroke="c" class="dim"/>
-    <line class="dim" x1="60" y1="26" x2="60" y2="80" stroke="c"/>
-    <line class="dim" x1="80" y1="26" x2="80" y2="80" stroke="c"/>
-    <line class="dim" x1="100" y1="26" x2="100" y2="80" stroke="c"/>
-    <g class="lock">
-      <path class="acc" d="M40 32v-6h6" stroke="c"/><path class="acc" d="M114 26h6v6" stroke="c"/>
-      <path class="acc" d="M120 74v6h-6" stroke="c"/><path class="acc" d="M46 80h-6v-6" stroke="c"/>
-    </g>
-  </g>
-  <circle class="p1 accf" cx="66" cy="46" r="2.8"/>
-  <circle class="p2 fillc" cx="96" cy="64" r="2.8"/>
-</svg></span>
+        <span class="demo" aria-hidden="true"><svg viewBox="0 0 176 104">
+  <text x="88" y="12" text-anchor="middle">H : CAM → FIELD · 3×3</text>
+  <polygon class="dim dash" points="10,84 66,84 56,30 24,30" stroke="currentColor"/>
+  <line class="dim dash" x1="28" y1="84" x2="35" y2="30" stroke="currentColor"/>
+  <line class="dim dash" x1="46" y1="84" x2="45" y2="30" stroke="currentColor"/>
+  <rect class="dim" x="100" y="26" width="66" height="58" stroke="currentColor"/>
+  <line class="dim" x1="122" y1="26" x2="122" y2="84" stroke="currentColor"/>
+  <line class="dim" x1="144" y1="26" x2="144" y2="84" stroke="currentColor"/>
+  <line class="dim dash" x1="30" y1="60" x2="114" y2="48" stroke="currentColor"/>
+  <line class="dim dash" x1="44" y1="72" x2="130" y2="66" stroke="currentColor"/>
+  <line class="dim dash" x1="40" y1="42" x2="126" y2="36" stroke="currentColor"/>
+  <circle class="accf" cx="30" cy="60" r="2.6"/><circle class="accf" cx="114" cy="48" r="2.6"/>
+  <circle class="fillc" cx="44" cy="72" r="2.2"/><circle class="fillc" cx="130" cy="66" r="2.2"/>
+  <circle class="fillc" cx="40" cy="42" r="2.2"/><circle class="fillc" cx="126" cy="36" r="2.2"/>
+  <text class="td" x="10" y="98">BROADCAST</text>
+  <text class="td" x="100" y="98">TOP-DOWN · MPH</text></svg></span>
         <div class="workhead"><h3>Broadcast field registration</h3><span class="who">Huddlevision</span></div>
         <p>A field-registration model for broadcast football film that outperforms the
         best published IoU results — the basis for speed and acceleration metrics
@@ -356,16 +299,18 @@
       </li>
       <li>
         <span class="logo"><img src="assets/fdp-mark.svg" alt=""></span>
-        <span class="demo d4" aria-hidden="true"><svg viewBox="0 0 160 104">
-  <line class="dim" x1="30" y1="84" x2="134" y2="84" stroke="c"/>
-  <line class="dim" x1="30" y1="84" x2="30" y2="18" stroke="c"/>
-  <circle class="dim" cx="52" cy="66" r="1.8" stroke="c"/>
-  <circle class="dim" cx="70" cy="72" r="1.8" stroke="c"/>
-  <circle class="dim" cx="88" cy="52" r="1.8" stroke="c"/>
-  <circle class="dim" cx="106" cy="58" r="1.8" stroke="c"/>
-  <polyline class="curve" pathLength="1" points="30,78 52,62 70,66 88,44 106,50 128,26" stroke="c"/>
-  <circle class="tip accf" cx="128" cy="26" r="3.2"/>
-</svg></span>
+        <span class="demo" aria-hidden="true"><svg viewBox="0 0 176 104">
+  <line class="dim" x1="20" y1="86" x2="166" y2="86" stroke="currentColor"/>
+  <line class="dim" x1="20" y1="86" x2="20" y2="14" stroke="currentColor"/>
+  <line class="dim" x1="56" y1="86" x2="56" y2="88.5" stroke="currentColor"/><line class="dim" x1="92" y1="86" x2="92" y2="88.5" stroke="currentColor"/><line class="dim" x1="128" y1="86" x2="128" y2="88.5" stroke="currentColor"/>
+  <line class="dim" x1="17.5" y1="62" x2="20" y2="62" stroke="currentColor"/><line class="dim" x1="17.5" y1="38" x2="20" y2="38" stroke="currentColor"/>
+  <circle class="fillc" cx="36" cy="70" r="1.7"/><circle class="fillc" cx="48" cy="60" r="1.7"/>
+  <circle class="fillc" cx="62" cy="64" r="1.7"/><circle class="fillc" cx="76" cy="50" r="1.7"/>
+  <circle class="fillc" cx="90" cy="54" r="1.7"/><circle class="fillc" cx="104" cy="40" r="1.7"/>
+  <circle class="fillc" cx="120" cy="44" r="1.7"/><circle class="fillc" cx="134" cy="30" r="1.7"/>
+  <polyline class="acc" points="24,78 56,62 92,50 128,36 158,24" stroke="currentColor" fill="none"/>
+  <text class="td" x="24" y="12">P(WIN) · LOGISTIC ON EPA</text>
+  <text class="td" x="120" y="98">EPA / PLAY</text></svg></span>
         <div class="workhead"><h3>Fantasy Data Pros</h3><span class="who">Founder · est. 2020</span></div>
         <p>Taught Python and ML through NFL, MLB, and NBA data — 300k+ visitors,
         thousands of students. Product, courses, payments, and content, built solo.</p>
