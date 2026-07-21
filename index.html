@@ -144,12 +144,16 @@
     padding-left: 4.5rem; flex-wrap: wrap;
   }
   .workhead h3 { font-size: 1.1875rem; font-weight: 700; letter-spacing: -0.015em; }
-  .who {
-    display: inline-flex; align-items: center; gap: 0.45rem;
+  .meta {
+    display: flex; align-items: center; gap: 0.55rem;
+    margin-top: 1rem; padding: 0.65rem 0 0 0; margin-left: 4.5rem;
+    max-width: 26.5rem;
+    border-top: 1px solid var(--hairline);
     font-family: "Geist Mono", monospace;
-    font-size: var(--mono-size); color: var(--faint); white-space: nowrap;
+    font-size: var(--mono-size); color: var(--faint);
+    text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;
   }
-  .who img { height: 1.05rem; width: auto; max-width: 1.6rem; display: block; }
+  .meta img { height: 1.05rem; width: auto; max-width: 1.7rem; display: block; }
   .worklist p {
     margin-top: 0.45rem; padding-left: 4.5rem;
     max-width: 26.5rem;
@@ -179,12 +183,14 @@
   .demo .dash { stroke-dasharray: 3 2.5; }
   .demo .bx {
     fill: #ffffff;
-    filter: drop-shadow(0 1px 1px rgb(20 24 26 / 0.15));
+    filter: drop-shadow(0 1px 0 rgb(20 24 26 / 0.12)) drop-shadow(0 2px 3px rgb(20 24 26 / 0.1));
   }
   .demo .acc { stroke: var(--accent); stroke-width: 1.4; }
   .demo .bx.acc { fill: #fdf7f6; }
-  .demo .accf { fill: var(--accent); stroke: none; }
+  .demo .accf { fill: var(--accent); stroke: #ffffff; stroke-width: 0.9; }
   .demo .fillc { fill: #38444c; stroke: none; }
+  .demo circle.fillc { stroke: #ffffff; stroke-width: 0.7; }
+  .demo .chk { fill: var(--accent); stroke: #ffffff; stroke-width: 0.7; }
   .demo .areafill { fill: rgb(158 47 39 / 0.06); stroke: none; }
   .demo text {
     font-family: "Geist Mono", ui-monospace, monospace;
@@ -298,6 +304,7 @@
   }
   @media (max-width: 560px) {
     .num { font-size: 2.4rem; top: 1.8rem; }
+    .meta { margin-left: 3rem; }
     .workhead, .worklist p, .demo { padding-left: 0; margin-left: 3rem; }
     .workhead { padding-left: 0; } .worklist p { padding-left: 0; }
   }
@@ -371,8 +378,9 @@
     <ul class="worklist">
       <li>
         <span class="num" aria-hidden="true">01</span>
-        <div class="workhead"><h3>Image to betslip</h3><span class="who"><img src="assets/gambly.svg" alt="">Gambly</span></div>
+        <div class="workhead"><h3>Image to betslip</h3></div>
         <p>A screenshot of any bet — any book, any app — parsed into a structured, one-tap betslip. The flagship feature; shipped across web, iMessage, Discord, Telegram, and X.</p>
+        <div class="meta"><img src="assets/gambly.svg" alt="">Gambly</div>
         <span class="demo d1" aria-hidden="true"><svg viewBox="0 0 176 104">
   <rect class="bx fb1" x="8" y="44" width="26" height="16" rx="2" stroke="currentColor"/><text x="21" y="54.5" text-anchor="middle">IMG</text>
   <rect class="bx fb2" x="46" y="44" width="26" height="16" rx="2" stroke="currentColor"/><text x="59" y="54.5" text-anchor="middle">OCR</text>
@@ -382,8 +390,8 @@
   <line class="dim" x1="72" y1="52" x2="81" y2="52" stroke="currentColor"/><path class="fillc" d="M81 49.5l5 2.5-5 2.5z"/>
   <line class="dim" x1="110" y1="52" x2="129" y2="52" stroke="currentColor"/><path class="fillc" d="M129 49.5l5 2.5-5 2.5z"/>
   <rect class="bx dash" x="60" y="12" width="56" height="14" rx="2" stroke="currentColor"/><text x="88" y="21.5" text-anchor="middle">DHASH CACHE</text>
-  <polyline class="dim dash cachepath" points="21,44 21,19 58,19" stroke="currentColor" fill="none"/>
-  <polyline class="dim dash cachepath" points="118,19 150,19 150,42" stroke="currentColor" fill="none"/><path class="fillc" d="M147.5 42l2.5 5 2.5-5z"/>
+  <path class="dim dash cachepath" d="M21 44 V23 Q21 19 25 19 H58" stroke="currentColor" fill="none"/>
+  <path class="dim dash cachepath" d="M118 19 H146 Q150 19 150 23 V42" stroke="currentColor" fill="none"/><path class="fillc" d="M147.5 42l2.5 5 2.5-5z"/>
   <text class="td" x="124" y="15">HIT</text>
   <circle class="accf sim pu" cx="21" cy="52" r="2.4"/>
   <circle class="accf sim pu2" cx="21" cy="52" r="2.4"/>
@@ -393,8 +401,9 @@
       </li>
       <li>
         <span class="num" aria-hidden="true">02</span>
-        <div class="workhead"><h3>Multi-agent betting copilot</h3><span class="who"><img src="assets/gambly.svg" alt="">Gambly</span></div>
+        <div class="workhead"><h3>Multi-agent betting copilot</h3></div>
         <p>Orchestrator plus specialized subagents for betting search, stats research, and parlay building — offline eval harness, LLM-as-judge scoring, exactly-once turn execution on durable workflows.</p>
+        <div class="meta"><img src="assets/gambly.svg" alt="">Gambly</div>
         <span class="demo d2" aria-hidden="true"><svg viewBox="0 0 176 104">
   <rect class="bx" x="8" y="38" width="38" height="18" rx="2" stroke="currentColor"/><text x="27" y="49.5" text-anchor="middle">ORCH</text>
   <rect class="bx sb1" x="118" y="10" width="50" height="14" rx="2" stroke="currentColor"/><text x="143" y="19.5" text-anchor="middle">SEARCH</text>
@@ -412,13 +421,17 @@
   <text class="td" x="8" y="72">DBOS · EXACTLY-ONCE</text>
   <text class="td" x="8" y="81">EVALS · LLM-JUDGE</text>
   <line class="acc dur" x1="8" y1="92" x2="168" y2="92" stroke="currentColor" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0"/>
+  <path class="chk" d="M48 89.5l2.5 2.5-2.5 2.5-2.5-2.5z"/>
+  <path class="chk" d="M88 89.5l2.5 2.5-2.5 2.5-2.5-2.5z"/>
+  <path class="chk" d="M128 89.5l2.5 2.5-2.5 2.5-2.5-2.5z"/>
   <text class="td" x="8" y="100">DURABLE EXECUTION LAYER</text>
 </svg></span>
       </li>
       <li>
         <span class="num" aria-hidden="true">03</span>
-        <div class="workhead"><h3>Broadcast field registration</h3><span class="who"><img src="assets/huddlevision-mark.svg" alt="">Huddlevision</span></div>
+        <div class="workhead"><h3>Broadcast field registration</h3></div>
         <p>A field-registration model for broadcast football film that outperforms the best published IoU results — the basis for speed and acceleration metrics straight from game footage. Writeup coming soon.</p>
+        <div class="meta"><img src="assets/huddlevision-mark.svg" alt="">Huddlevision</div>
         <span class="demo d3" aria-hidden="true"><svg viewBox="0 0 176 104">
   <text x="88" y="12" text-anchor="middle">H : CAM → FIELD · 3×3</text>
   <g class="cam" style="transform-origin: 38px 57px;">
@@ -438,14 +451,20 @@
   <circle class="accf sim m1" cx="30" cy="60" r="2"/>
   <circle class="fillc sim m2" cx="44" cy="72" r="1.7"/>
   <circle class="fillc sim m3" cx="40" cy="42" r="1.7"/>
-  <text class="td" x="10" y="98">BROADCAST</text>
-  <text class="td" x="100" y="98">TOP-DOWN · MPH</text>
+  <text class="td" x="16" y="98">BROADCAST</text>
+  <line class="dim" x1="100" y1="91" x2="117" y2="91" stroke="currentColor"/>
+  <line class="dim" x1="149" y1="91" x2="166" y2="91" stroke="currentColor"/>
+  <line class="dim" x1="100" y1="88.5" x2="100" y2="93.5" stroke="currentColor"/>
+  <line class="dim" x1="166" y1="88.5" x2="166" y2="93.5" stroke="currentColor"/>
+  <text class="td" x="133" y="93.5" text-anchor="middle">53.3YD</text>
+  <path class="fillc" d="M6 60l7 -3.5v7z"/>
 </svg></span>
       </li>
       <li>
         <span class="num" aria-hidden="true">04</span>
-        <div class="workhead"><h3>Fantasy Data Pros</h3><span class="who"><img src="assets/fdp-mark.svg" alt="">Founder · est. 2020</span></div>
+        <div class="workhead"><h3>Fantasy Data Pros</h3></div>
         <p>Taught Python and ML through NFL, MLB, and NBA data — 300k+ visitors, thousands of students. Product, courses, payments, and content, built solo.</p>
+        <div class="meta"><img src="assets/fdp-mark.svg" alt="">Founder · est. 2020</div>
         <span class="demo d4" aria-hidden="true"><svg viewBox="0 0 176 104">
   <line class="dim" x1="20" y1="86" x2="166" y2="86" stroke="currentColor"/>
   <line class="dim" x1="20" y1="86" x2="20" y2="14" stroke="currentColor"/>
@@ -459,6 +478,8 @@
   <polyline class="acc curve" pathLength="1" points="24,78 56,62 92,50 128,36 158,24" stroke="currentColor" fill="none" stroke-dasharray="1" stroke-dashoffset="0"/>
   <circle class="accf tip" style="transform-box: fill-box; transform-origin: center;" cx="158" cy="24" r="3"/>
   <text class="td" x="24" y="12">P(WIN) · LOGISTIC ON EPA</text>
+  <text class="td" x="6" y="18">1.0</text>
+  <text class="td" x="6" y="88">0.0</text>
   <text class="td" x="120" y="98">EPA / PLAY</text>
 </svg></span>
       </li>
