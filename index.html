@@ -8,7 +8,7 @@
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="%2314181a"/><text x="16" y="21.5" font-family="monospace" font-size="13" font-weight="700" fill="white" text-anchor="middle">BD</text></svg>'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #fcfdfd;
@@ -17,9 +17,10 @@
     --faint: #6b7a80;      /* small-text gray: 4.6:1 on bg */
     --ghost: #93a0a5;      /* non-text only (logo marks) */
     --hairline: #e7ebec;
-    --accent: #0891b2;
-    --accent-deep: #0e7490;
-    --wash: rgb(8 145 178 / 0.045);
+    --accent: #ea580c;
+    --accent-deep: #c2410c;
+    --accent-edge: #9a3412;
+    --wash: rgb(234 88 12 / 0.05);
     --nav-shadow: 0 1px 0 var(--hairline), 0 4px 16px rgb(20 24 26 / 0.04);
     --mono-size: 0.78125rem;
   }
@@ -34,7 +35,7 @@
   }
   a { color: inherit; text-decoration: none; }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
-  ::selection { background: rgb(8 145 178 / 0.18); }
+  ::selection { background: rgb(234 88 12 / 0.16); }
   .col { max-width: 41rem; margin: 0 auto; padding: 0 1.25rem; }
 
   /* ---------- navbar ---------- */
@@ -73,31 +74,15 @@
   .cta {
     display: inline-flex; align-items: center; gap: 0.45rem;
     font-size: 0.84375rem; font-weight: 600; white-space: nowrap;
-    color: #fff; background: var(--ink);
-    padding: 0.5rem 1rem; border-radius: 8px;
-    box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.16),
-      inset 0 -1px 0 rgb(0 0 0 / 0.3),
-      0 1px 2px rgb(20 24 26 / 0.3),
-      0 2px 6px rgb(20 24 26 / 0.12);
-    transition: transform 130ms ease, box-shadow 130ms ease;
+    color: #fff; background: var(--accent);
+    padding: 0.44rem 1rem; border-radius: 8px;
+    border: 1.5px solid var(--accent-edge);
+    border-bottom-width: 4px;
+    transition: transform 110ms ease, border-bottom-width 110ms ease, background 110ms ease;
   }
-  .cta .arr { font-family: "Geist Mono", monospace; font-size: 0.8em; transition: transform 130ms ease; }
-  .cta:hover {
-    transform: translateY(-1px);
-    box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.2),
-      inset 0 -1px 0 rgb(0 0 0 / 0.3),
-      0 2px 4px rgb(20 24 26 / 0.24),
-      0 6px 16px rgb(20 24 26 / 0.18);
-  }
-  .cta:hover .arr { transform: translate(1px, -1px); }
-  .cta:active {
-    transform: translateY(0);
-    box-shadow:
-      inset 0 1px 2px rgb(0 0 0 / 0.35),
-      0 1px 2px rgb(20 24 26 / 0.2);
-  }
+  .cta .arr { font-family: "Geist Mono", monospace; font-size: 0.8em; }
+  .cta:hover { background: var(--accent-deep); }
+  .cta:active { transform: translateY(2px); border-bottom-width: 1.5px; }
 
   /* ---------- intro ---------- */
   .intro { padding: 3.2rem 0 0; }
@@ -107,11 +92,8 @@
     line-height: 1.16; text-wrap: balance;
   }
   .intro h1 em {
-    font-family: "Instrument Serif", serif;
-    font-style: italic; font-weight: 400;
+    font-style: normal;
     color: var(--accent-deep);
-    letter-spacing: 0;
-    font-size: 1.06em;
   }
   .intro p { margin-top: 1rem; color: var(--muted); text-wrap: pretty; }
   .intro a { color: var(--ink); font-weight: 600; border-bottom: 1px solid var(--hairline); }
@@ -136,18 +118,6 @@
   }
 
   /* ---------- work list + yard lines ---------- */
-  .work-section { position: relative; }
-  .work-section::before {
-    content: "";
-    position: absolute; left: -3.2rem; top: 2.4rem; bottom: 0.4rem; width: 1rem;
-    background-image: repeating-linear-gradient(
-      to bottom,
-      var(--hairline) 0 2px,
-      transparent 2px 16px
-    );
-  }
-  @media (max-width: 1080px) { .work-section::before { display: none; } }
-
   ul.worklist { list-style: none; }
   .worklist li {
     position: relative;
@@ -240,7 +210,7 @@
     </div>
   </div>
 
-  <section class="work-section">
+  <section>
     <h2>Work</h2>
     <ul class="worklist">
       <li>
