@@ -18,34 +18,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fcfdfd;
-    --ink: #14181a;
-    --muted: #525e63;
-    --faint: #6b7a80;      /* small-text gray: 4.6:1 on bg */
-    --ghost: #93a0a5;      /* non-text only (logo marks) */
-    --hairline: #e7ebec;
+    --bg: #fbfcfd;
+    --ink: #161b23;
+    --muted: #4e5a6b;
+    --faint: #66768a;
+    --ghost: #93a0b0;
+    --hairline: #e5e9ee;
     --accent: #9e2f27;
     --accent-deep: #822720;
     --wash: rgb(20 24 26 / 0.035);
     --accent-edge: #6e211b;
     --nav-shadow: 0 4px 16px rgb(20 24 26 / 0.06);
-    --mono-size: 0.78125rem;
+    --mono-size: 0.75rem;
     --surface: #ffffff;
-    --edge: #d3dadd;
-    --edge-deep: #b6c0c4;
-    --gridline: rgb(20 24 26 / 0.024);
-    --gridbloom: rgb(20 24 26 / 0.085);
+    --edge: #d1d8e0;
+    --edge-deep: #b3bec9;
+    --gridline: rgb(22 39 64 / 0.028);
+    --gridbloom: rgb(22 39 64 / 0.09);
     --dg-ink: #38444c;
     --dg-dim: rgb(20 24 26 / 0.34);
     --dg-text: #37434a;
     --dg-td: rgb(20 24 26 / 0.45);
     --dg-box: #ffffff;
     --dg-box-acc: #fdf7f6;
-    --nav-bg: rgb(252 253 253 / 0.92);
-    --num-ghost: rgb(20 24 26 / 0.08);
+    --nav-bg: rgb(251 252 253 / 0.92);
+    --num-ghost: rgb(22 39 64 / 0.09);
     --cta-hover: #822720;
-    --dg-mono: rgb(60 84 98 / 0.34);
-    --dg-hw: rgb(60 84 98 / 0.4);
+    --dg-mono: rgb(47 71 104 / 0.34);
+    --dg-hw: rgb(47 71 104 / 0.42);
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -76,7 +76,7 @@
       --dg-hw: rgb(196 214 232 / 0.34);
       --nav-shadow: 0 4px 16px rgb(0 4 10 / 0.35);
     }
-    .meta img { filter: invert(1) brightness(1.4); }
+    .meta img { filter: invert(0.82) opacity(0.75); }
     .demo .bx { filter: drop-shadow(0 1px 0 rgb(0 4 10 / 0.45)) drop-shadow(0 2px 3px rgb(0 4 10 / 0.35)); }
     ::selection { background: rgb(224 96 82 / 0.4); }
   }
@@ -149,12 +149,12 @@
   .eyebrow {
     display: inline-flex; align-items: center; gap: 0.55rem;
     font-family: "Geist Mono", monospace;
-    font-size: 0.71875rem; letter-spacing: 0.09em; text-transform: uppercase;
+    font-size: var(--mono-size); letter-spacing: 0.09em; text-transform: uppercase;
     color: var(--faint); margin-bottom: 1.1rem;
   }
   .eyebrow svg { width: 0.85rem; height: 0.85rem; stroke: var(--faint); stroke-width: 1.6; fill: none; }
   .intro h1 {
-    font-size: clamp(1.8rem, 5vw, 2.25rem);
+    font-size: clamp(1.9rem, 4.5vw, 2.375rem);
     font-weight: 700; letter-spacing: -0.03em;
     line-height: 1.16; text-wrap: balance;
   }
@@ -162,7 +162,7 @@
     font-style: normal;
     color: var(--accent-deep);
   }
-  .intro p { margin-top: 1rem; color: var(--muted); text-wrap: pretty; }
+  .intro p { margin-top: 1rem; color: var(--muted); font-size: 1.0625rem; line-height: 1.65; max-width: 38rem; text-wrap: pretty; }
   .intro a { color: var(--ink); font-weight: 600; border-bottom: 1px solid var(--hairline); }
   .intro a:hover { border-color: var(--accent); color: var(--accent-deep); }
 
@@ -176,8 +176,8 @@
   section { margin-top: 3.4rem; }
   h2 {
     font-family: "Geist Mono", monospace;
-    font-size: 0.8125rem; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 0.14em;
+    font-size: var(--mono-size); font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.16em;
     color: var(--muted);
     margin-bottom: 1.1rem;
   }
@@ -201,22 +201,22 @@
     display: flex; align-items: center; gap: 0.8rem;
     padding-left: 4.5rem; flex-wrap: wrap;
   }
-  .workhead h3 { font-size: 1.3125rem; font-weight: 700; letter-spacing: -0.018em; }
+  .workhead h3 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.016em; }
   .meta {
     display: flex; align-items: center; gap: 0.55rem;
     margin-top: 0.8rem; padding: 0; margin-left: 4.5rem;
     max-width: 25.5rem;
     font-family: "Geist Mono", monospace;
-    font-size: 0.71875rem; color: var(--faint);
+    font-size: var(--mono-size); color: var(--faint);
     text-transform: uppercase; letter-spacing: 0.05em;
     flex-wrap: wrap; row-gap: 0.2rem;
   }
-  .meta img { height: 1.5rem; width: auto; max-width: 2.4rem; display: block; flex: none; }
+  .meta img { height: 1.5rem; width: auto; max-width: 2.4rem; display: block; flex: none; filter: grayscale(1) opacity(0.65); }
   .meta .mtext { flex: 1; min-width: 0; }
   .worklist p {
     margin-top: 0.55rem; padding-left: 4.5rem;
     max-width: 25.5rem;
-    color: var(--muted); font-size: 0.9375rem; line-height: 1.66; text-wrap: pretty;
+    color: var(--muted); font-size: 0.9688rem; line-height: 1.64; text-wrap: pretty;
   }
 
   /* ---------- light schematics ---------- */
@@ -249,7 +249,7 @@
     font-size: var(--mono-size); text-transform: uppercase; letter-spacing: 0.06em;
     color: var(--faint); padding-top: 0.15rem;
   }
-  .rows .v { color: var(--muted); font-size: 0.9375rem; }
+  .rows .v { color: var(--muted); }
   .rows .v a { color: var(--ink); font-weight: 600; border-bottom: 1px solid var(--hairline); }
   .rows .v a:hover { border-color: var(--accent); color: var(--accent-deep); }
 
