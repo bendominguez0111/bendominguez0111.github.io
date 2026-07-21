@@ -139,7 +139,7 @@
     position: relative;
     padding: 1.7rem 0 1.8rem;
     border-top: 1px solid var(--hairline);
-    min-height: 12rem;
+    min-height: 14rem;
     display: flex; flex-direction: column; justify-content: center;
   }
   .worklist li:last-child { border-bottom: 1px solid var(--hairline); }
@@ -154,11 +154,11 @@
     display: flex; align-items: baseline; gap: 0.7rem;
     padding-left: 4.5rem; flex-wrap: wrap;
   }
-  .workhead h3 { font-size: 1.1875rem; font-weight: 700; letter-spacing: -0.015em; }
+  .workhead h3 { font-size: 1.3125rem; font-weight: 700; letter-spacing: -0.018em; }
   .meta {
     display: flex; align-items: center; gap: 0.55rem;
     margin-top: 1rem; padding: 0.65rem 0 0 0; margin-left: 4.5rem;
-    max-width: 26.5rem;
+    max-width: 25.5rem;
     border-top: 1px solid var(--hairline);
     font-family: "Geist Mono", monospace;
     font-size: var(--mono-size); color: var(--faint);
@@ -166,17 +166,18 @@
   }
   .meta img { height: 1.05rem; width: auto; max-width: 1.7rem; display: block; }
   .worklist p {
-    margin-top: 0.45rem; padding-left: 4.5rem;
-    max-width: 26.5rem;
-    color: var(--muted); font-size: 1rem; line-height: 1.62; text-wrap: pretty;
+    margin-top: 0.55rem; padding-left: 4.5rem;
+    max-width: 25.5rem;
+    color: var(--muted); font-size: 0.9375rem; line-height: 1.66; text-wrap: pretty;
   }
 
   /* ---------- open schematics, grid bloom ---------- */
   .demo {
-    position: absolute; right: 0; top: 50%;
+    position: absolute; right: -3rem; top: 50%;
     transform: translateY(-50%);
-    width: 17rem; z-index: 1; pointer-events: none;
+    width: 20rem; z-index: 1; pointer-events: none;
   }
+  @media (max-width: 1260px) { .demo { right: 0; width: 17.5rem; } }
   .demo::before {
     content: ""; position: absolute; inset: -8%;
     background:
