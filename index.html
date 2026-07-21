@@ -197,10 +197,8 @@
   ul.worklist { list-style: none; }
   .worklist li {
     position: relative;
-    padding: 1.7rem 0 1.8rem;
+    padding: 1.55rem 0 1.65rem;
     border-top: 1px solid var(--hairline);
-    min-height: 14rem;
-    display: flex; flex-direction: column; justify-content: center;
   }
   .worklist li:last-child { border-bottom: 1px solid var(--hairline); }
   .num {
@@ -211,14 +209,14 @@
     user-select: none;
   }
   .workhead {
-    display: flex; align-items: baseline; gap: 0.7rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 0.9rem;
     padding-left: 4.5rem; flex-wrap: wrap;
   }
   .workhead h3 { font-size: 1.3125rem; font-weight: 700; letter-spacing: -0.018em; }
   .meta {
     display: flex; align-items: center; gap: 0.55rem;
-    margin-top: 1rem; padding: 0.65rem 0 0 0; margin-left: 4.5rem;
-    max-width: 25.5rem;
+    margin-top: 0.95rem; padding: 0.65rem 0 0 0; margin-left: 4.5rem;
+    max-width: 34rem;
     border-top: 1px solid var(--hairline);
     font-family: "Geist Mono", monospace;
     font-size: 0.71875rem; color: var(--faint);
@@ -230,179 +228,20 @@
   .meta .live { color: var(--accent); font-weight: 500; }
   .worklist p {
     margin-top: 0.55rem; padding-left: 4.5rem;
-    max-width: 25.5rem;
+    max-width: 34rem;
     color: var(--muted); font-size: 0.9375rem; line-height: 1.66; text-wrap: pretty;
   }
 
-  /* ---------- open schematics, grid bloom ---------- */
-  .demo {
-    position: absolute; right: -3rem; top: 50%;
-    transform: translateY(-50%);
-    width: 20rem; z-index: 1; pointer-events: none;
-  }
-  @media (max-width: 1260px) { .demo { right: 0; width: 17.5rem; } }
-  .demo::before {
-    content: ""; position: absolute; inset: -8%;
-    background:
-      linear-gradient(var(--gridbloom) 1px, transparent 1px),
-      linear-gradient(90deg, var(--gridbloom) 1px, transparent 1px);
-    background-size: 22px 22px;
-    background-attachment: fixed;
-    -webkit-mask-image: radial-gradient(ellipse 62% 58% at 50% 50%, black 45%, transparent 76%);
-    mask-image: radial-gradient(ellipse 62% 58% at 50% 50%, black 45%, transparent 76%);
-  }
-  .demo svg { position: relative; display: block; width: 100%; height: auto; }
-  .fig {
-    position: relative; display: block; margin-top: 0.3rem; padding-left: 0.3rem;
+  /* ---------- figure tags ---------- */
+  .tagchip {
     font-family: "Geist Mono", monospace;
-    font-size: 0.625rem; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--dg-td);
-  }
-  .demo svg { shape-rendering: geometricPrecision; }
-  .demo [stroke] { stroke: var(--dg-ink); stroke-width: 1.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-  .demo .dim { stroke: var(--dg-dim); stroke-width: 0.8; }
-  .demo .dash { stroke-dasharray: 3 2.5; }
-  .demo .bx {
-    fill: var(--dg-box);
-    filter: drop-shadow(0 1px 0 rgb(0 0 0 / 0.14)) drop-shadow(0 2px 3px rgb(0 0 0 / 0.12));
-  }
-  .demo .acc { stroke: var(--accent); stroke-width: 1.4; }
-  .demo .bx.acc { fill: var(--dg-box-acc); }
-  .demo .accf { fill: var(--accent); stroke: var(--dg-box); stroke-width: 0.9; }
-  .demo .fillc { fill: var(--dg-ink); stroke: none; }
-  .demo circle.fillc { stroke: var(--dg-box); stroke-width: 0.7; }
-  .demo .chk { fill: var(--accent); stroke: var(--dg-box); stroke-width: 0.7; }
-  .demo .areafill { fill: rgb(158 47 39 / 0.06); stroke: none; }
-  .demo text {
-    font-family: "Geist Mono", ui-monospace, monospace;
-    font-size: 6.4px; letter-spacing: 0.03em;
-    fill: var(--dg-text); stroke: none;
-  }
-  .demo text.td { fill: var(--dg-td); }
-
-  /* ---------- hover simulations ---------- */
-  .sim { opacity: 0; }
-  @media (prefers-reduced-motion: no-preference) {
-    /* 01 · request trace */
-    li:hover .d1 .pu  { animation: p1pu 3.2s linear infinite; }
-    li:hover .d1 .pu2 { animation: p1pu2 3.2s linear infinite; }
-    li:hover .d1 .cachepath { animation: march 0.9s linear infinite; }
-    li:hover .d1 .fb1 { animation: bxflash 3.2s linear infinite; }
-    li:hover .d1 .fb2 { animation: bxflash 3.2s linear infinite 0.55s; }
-    li:hover .d1 .fb3 { animation: bxflash 3.2s linear infinite 1.1s; }
-    li:hover .d1 .fb4 { animation: bxflash 3.2s linear infinite 1.65s; }
-    /* 02 · dispatch + response */
-    li:hover .d2 .f1 { animation: p2f 3s ease-in-out infinite; }
-    li:hover .d2 .f2 { animation: p2f 3s ease-in-out infinite 0.35s; }
-    li:hover .d2 .f3 { animation: p2f 3s ease-in-out infinite 0.7s; }
-    li:hover .d2 .r1 { animation: p2r 3s ease-in-out infinite; }
-    li:hover .d2 .r2 { animation: p2r 3s ease-in-out infinite 0.35s; }
-    li:hover .d2 .r3 { animation: p2r 3s ease-in-out infinite 0.7s; }
-    li:hover .d2 .sb1 { animation: bxflash 3s linear infinite 0.9s; }
-    li:hover .d2 .sb2 { animation: bxflash 3s linear infinite 1.25s; }
-    li:hover .d2 .sb3 { animation: bxflash 3s linear infinite 1.6s; }
-    li:hover .d2 .dur { animation: drawline 3s ease-in-out infinite; }
-    /* 03 · correspondence + rectification */
-    li:hover .d3 .m1 { animation: p3m1 3.4s ease-in-out infinite; }
-    li:hover .d3 .m2 { animation: p3m2 3.4s ease-in-out infinite 0.25s; }
-    li:hover .d3 .m3 { animation: p3m3 3.4s ease-in-out infinite 0.5s; }
-    li:hover .d3 .cam { animation: rectify 3.4s ease-in-out infinite; }
-    li:hover .d3 .lockrect { animation: lockflash 3.4s linear infinite; }
-    /* 04 · refit */
-    li:hover .d4 .curve { animation: refit 3.4s ease-in-out infinite; }
-    li:hover .d4 .sc { animation: dotpop 3.4s ease-in-out infinite; }
-    li:hover .d4 .sc2 { animation-delay: 0.12s; } li:hover .d4 .sc3 { animation-delay: 0.24s; }
-    li:hover .d4 .sc4 { animation-delay: 0.36s; } li:hover .d4 .sc5 { animation-delay: 0.48s; }
-    li:hover .d4 .sc6 { animation-delay: 0.6s; }  li:hover .d4 .sc7 { animation-delay: 0.72s; }
-    li:hover .d4 .sc8 { animation-delay: 0.84s; }
-    li:hover .d4 .tip { animation: tippulse 3.4s ease-in-out infinite; }
-  }
-  @keyframes march { to { stroke-dashoffset: -11; } }
-  @keyframes bxflash {
-    0%, 100% { stroke: var(--dg-ink); } 6% { stroke: var(--accent); } 14% { stroke: var(--dg-ink); }
-  }
-  @keyframes drawline {
-    0% { stroke-dashoffset: 1; opacity: 1; } 55% { stroke-dashoffset: 0; opacity: 1; }
-    85% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; }
-  }
-  @keyframes p1pu {
-    0% { transform: translate(0,0); opacity: 0; } 3% { opacity: 1; }
-    17% { transform: translate(38px,0); } 34% { transform: translate(76px,0); }
-    51% { transform: translate(129px,0); opacity: 1; } 56%,100% { transform: translate(129px,0); opacity: 0; }
-  }
-  @keyframes p1pu2 {
-    0%,56% { transform: translate(0,0); opacity: 0; } 60% { transform: translate(0,-33px); opacity: 1; }
-    72% { transform: translate(67px,-33px); } 84% { transform: translate(129px,-33px); opacity: 1; }
-    92% { transform: translate(129px,-10px); opacity: 1; } 96%,100% { transform: translate(129px,-10px); opacity: 0; }
-  }
-  @keyframes p2f {
-    0% { transform: translate(0,0); opacity: 0; } 6% { opacity: 1; }
-    30% { transform: translate(var(--dx), var(--dy)); opacity: 1; }
-    34%,100% { transform: translate(var(--dx), var(--dy)); opacity: 0; }
-  }
-  @keyframes p2r {
-    0%,44% { transform: translate(var(--dx), var(--dy)); opacity: 0; }
-    48% { opacity: 1; }
-    70% { transform: translate(0,0); opacity: 1; }
-    74%,100% { transform: translate(0,0); opacity: 0; }
-  }
-  @keyframes p3m1 {
-    0% { transform: translate(0,0); opacity: 0; } 8% { opacity: 1; }
-    42% { transform: translate(84px,-12px); opacity: 1; } 48%,100% { transform: translate(84px,-12px); opacity: 0; }
-  }
-  @keyframes p3m2 {
-    0% { transform: translate(0,0); opacity: 0; } 8% { opacity: 1; }
-    42% { transform: translate(86px,-6px); opacity: 1; } 48%,100% { transform: translate(86px,-6px); opacity: 0; }
-  }
-  @keyframes p3m3 {
-    0% { transform: translate(0,0); opacity: 0; } 8% { opacity: 1; }
-    42% { transform: translate(86px,-6px); opacity: 1; } 48%,100% { transform: translate(86px,-6px); opacity: 0; }
-  }
-  @keyframes rectify {
-    0%, 20% { transform: none; } 55% { transform: skewX(5deg) scale(1.015, 0.985); }
-    80%, 100% { transform: none; }
-  }
-  @keyframes lockflash {
-    0%, 48% { stroke: var(--dg-dim); } 54% { stroke: var(--accent); }
-    66% { stroke: var(--dg-dim); } 100% { stroke: var(--dg-dim); }
-  }
-  @keyframes refit {
-    0% { stroke-dashoffset: 1; } 14% { stroke-dashoffset: 1; } 58% { stroke-dashoffset: 0; }
-    88% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 1; }
-  }
-  @keyframes dotpop {
-    0% { transform: scale(1); } 4% { transform: scale(1.7); } 10%,100% { transform: scale(1); }
-  }
-  @keyframes tippulse {
-    0%,55% { opacity: 0; transform: scale(0.5); } 62% { opacity: 1; transform: scale(1.3); }
-    70%,88% { opacity: 1; transform: scale(1); } 96%,100% { opacity: 0; }
-  }
-  @media (max-width: 900px) {
-    .worklist li { min-height: 0; display: block; }
-    .num { top: 1.4rem; transform: none; }
-    .demo { position: static; transform: none; width: 100%; max-width: 22rem; margin: 1.1rem 0 0 4.5rem; }
-    .demo::before { display: none; }
-  }
-  @media (max-width: 600px) {
-    .navbar .name .nametext { display: none; }
-    .navbar .links { gap: 0.9rem; }
-    .intro { padding: 2.2rem 0 0; }
-    section { margin-top: 2.6rem; }
-    .factline { display: grid; grid-template-columns: 1fr 1fr; }
-    .fcell { border-left: 0; padding: 0.55rem 0.9rem 0.6rem; }
-    .fcell:nth-child(even) { border-left: 1px solid var(--hairline); }
-    .fcell:nth-child(n+3) { border-top: 1px solid var(--hairline); }
-    .worklist li { padding: 1.4rem 0 1.5rem; }
-    .num {
-      position: static; display: block;
-      font-family: "Geist Mono", monospace;
-      font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.08em;
-      color: var(--faint); margin-bottom: 0.3rem;
-    }
-    .workhead, .worklist p, .meta { padding-left: 0; margin-left: 0; }
-    .worklist p, .meta { max-width: none; }
-    .demo { margin-left: 0; max-width: 100%; }
-    .rows > div { grid-template-columns: 1fr; gap: 0.15rem; }
+    font-size: 0.65625rem; font-weight: 500;
+    letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--faint);
+    border: 1px dashed var(--edge);
+    border-radius: 4px;
+    padding: 0.22rem 0.6rem;
+    white-space: nowrap;
   }
 
   /* ---------- details rows ---------- */
@@ -475,117 +314,34 @@
     <ul class="worklist">
       <li>
         <span class="num" aria-hidden="true">01</span>
-        <div class="workhead"><h3>Image to betslip</h3></div>
+        <div class="workhead"><h3>Image to betslip</h3><span class="tagchip">Vision pipeline</span></div>
         <p>The industry's first screenshot-to-betslip system — any bet, any book,
         parsed into a structured, one-tap betslip. Launched viral on X; shipped
         across web, iMessage, Discord, Telegram, and X.</p>
-        <div class="meta"><img src="assets/gambly.svg" alt=""><span class="mtext">GAMBLY · LEAD ENG · 2024— · VISION · <b class="live">PROD</b></span></div>
-        <span class="demo d1" aria-hidden="true"><svg viewBox="0 0 176 104">
-  <rect class="bx fb1" x="8" y="44" width="26" height="16" rx="2" stroke="currentColor"/><text x="21" y="54.5" text-anchor="middle">IMG</text>
-  <rect class="bx fb2" x="46" y="44" width="26" height="16" rx="2" stroke="currentColor"/><text x="59" y="54.5" text-anchor="middle">OCR</text>
-  <rect class="bx fb3" x="84" y="44" width="26" height="16" rx="2" stroke="currentColor"/><text x="97" y="54.5" text-anchor="middle">VLM</text>
-  <rect class="bx acc fb4" x="134" y="44" width="32" height="16" rx="2" stroke="currentColor"/><text x="150" y="54.5" text-anchor="middle">SLIP</text>
-  <line class="dim" x1="34" y1="52" x2="43" y2="52" stroke="currentColor"/><path class="fillc" d="M43 49.5l5 2.5-5 2.5z"/>
-  <line class="dim" x1="72" y1="52" x2="81" y2="52" stroke="currentColor"/><path class="fillc" d="M81 49.5l5 2.5-5 2.5z"/>
-  <line class="dim" x1="110" y1="52" x2="129" y2="52" stroke="currentColor"/><path class="fillc" d="M129 49.5l5 2.5-5 2.5z"/>
-  <rect class="bx dash" x="60" y="12" width="56" height="14" rx="2" stroke="currentColor"/><text x="88" y="21.5" text-anchor="middle">DHASH CACHE</text>
-  <path class="dim dash cachepath" d="M21 44 V23 Q21 19 25 19 H58" stroke="currentColor" fill="none"/>
-  <path class="dim dash cachepath" d="M118 19 H146 Q150 19 150 23 V42" stroke="currentColor" fill="none"/><path class="fillc" d="M147.5 42l2.5 5 2.5-5z"/>
-  <text class="td" x="124" y="15">HIT</text>
-  <circle class="accf sim pu" cx="21" cy="52" r="2.4"/>
-  <circle class="accf sim pu2" cx="21" cy="52" r="2.4"/>
-  <text class="td" x="8" y="86">TEXT + VISION → MATCHED OFFERS</text>
-  <text class="td" x="8" y="96">MISS → FULL PIPELINE</text>
-</svg><span class="fig">FIG. 01 — Betslip pipeline · cache bypass</span></span>
+        <div class="meta"><img src="assets/gambly.svg" alt=""><span class="mtext">GAMBLY · LEAD ENG · 2024— · <b class="live">PROD</b></span></div>
       </li>
       <li>
         <span class="num" aria-hidden="true">02</span>
-        <div class="workhead"><h3>Multi-agent betting copilot</h3></div>
+        <div class="workhead"><h3>Multi-agent betting copilot</h3><span class="tagchip">Agent graph</span></div>
         <p>The system behind every GamblyBot conversation: an orchestrator with
         specialized subagents, offline evals with LLM-as-judge scoring, and
         exactly-once turns on durable workflows.</p>
-        <div class="meta"><img src="assets/gambly.svg" alt=""><span class="mtext">GAMBLY · LEAD ENG · 2025— · AGENTS · <b class="live">PROD</b></span></div>
-        <span class="demo d2" aria-hidden="true"><svg viewBox="0 0 176 104">
-  <rect class="bx" x="8" y="38" width="38" height="18" rx="2" stroke="currentColor"/><text x="27" y="49.5" text-anchor="middle">ORCH</text>
-  <rect class="bx sb1" x="118" y="10" width="50" height="14" rx="2" stroke="currentColor"/><text x="143" y="19.5" text-anchor="middle">SEARCH</text>
-  <rect class="bx sb2" x="118" y="40" width="50" height="14" rx="2" stroke="currentColor"/><text x="143" y="49.5" text-anchor="middle">STATS</text>
-  <rect class="bx sb3" x="118" y="70" width="50" height="14" rx="2" stroke="currentColor"/><text x="143" y="79.5" text-anchor="middle">PARLAY</text>
-  <line class="dim" x1="46" y1="43" x2="112" y2="18" stroke="currentColor"/><path class="fillc" d="M112 15.7l5.5 1.8-4 4z"/>
-  <line class="dim" x1="46" y1="47" x2="112" y2="47" stroke="currentColor"/><path class="fillc" d="M112 44.5l5 2.5-5 2.5z"/>
-  <line class="dim" x1="46" y1="51" x2="112" y2="76" stroke="currentColor"/><path class="fillc" d="M113.5 72.7l4 4-5.5 1.8z"/>
-  <circle class="accf sim f1" cx="48" cy="43" r="2.3" style="--dx:64px; --dy:-25px;"/>
-  <circle class="accf sim f2" cx="48" cy="47" r="2.3" style="--dx:64px; --dy:0px;"/>
-  <circle class="accf sim f3" cx="48" cy="51" r="2.3" style="--dx:64px; --dy:25px;"/>
-  <circle class="fillc sim r1" cx="48" cy="43" r="1.7" style="--dx:64px; --dy:-25px;"/>
-  <circle class="fillc sim r2" cx="48" cy="47" r="1.7" style="--dx:64px; --dy:0px;"/>
-  <circle class="fillc sim r3" cx="48" cy="51" r="1.7" style="--dx:64px; --dy:25px;"/>
-  <text class="td" x="8" y="72">DBOS · EXACTLY-ONCE</text>
-  <text class="td" x="8" y="81">EVALS · LLM-JUDGE</text>
-  <line class="acc dur" x1="8" y1="92" x2="168" y2="92" stroke="currentColor" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0"/>
-  <path class="chk" d="M48 89.5l2.5 2.5-2.5 2.5-2.5-2.5z"/>
-  <path class="chk" d="M88 89.5l2.5 2.5-2.5 2.5-2.5-2.5z"/>
-  <path class="chk" d="M128 89.5l2.5 2.5-2.5 2.5-2.5-2.5z"/>
-  <text class="td" x="8" y="100">DURABLE EXECUTION LAYER</text>
-</svg><span class="fig">FIG. 02 — Agent graph · durable layer</span></span>
+        <div class="meta"><img src="assets/gambly.svg" alt=""><span class="mtext">GAMBLY · LEAD ENG · 2025— · <b class="live">PROD</b></span></div>
       </li>
       <li>
         <span class="num" aria-hidden="true">03</span>
-        <div class="workhead"><h3>Broadcast field registration</h3></div>
+        <div class="workhead"><h3>Broadcast field registration</h3><span class="tagchip">Homography</span></div>
         <p>A field-registration model for broadcast film that beats the best
         published IoU results — and turns raw footage into the speed metrics
         behind Tracking Football's recruiting data.</p>
-        <div class="meta"><img src="assets/huddlevision-mark.svg" alt=""><span class="mtext">HUDDLEVISION · FOUNDER · 2023— · CV · TRACKING FOOTBALL</span></div>
-        <span class="demo d3" aria-hidden="true"><svg viewBox="0 0 176 104">
-  <text x="88" y="12" text-anchor="middle">H : CAM → FIELD · 3×3</text>
-  <g class="cam" style="transform-origin: 38px 57px;">
-    <polygon class="dim dash" points="10,84 66,84 56,30 24,30" stroke="currentColor"/>
-    <line class="dim dash" x1="28" y1="84" x2="35" y2="30" stroke="currentColor"/>
-    <line class="dim dash" x1="46" y1="84" x2="45" y2="30" stroke="currentColor"/>
-  </g>
-  <rect class="dim lockrect" x="100" y="26" width="66" height="58" stroke="currentColor"/>
-  <line class="dim" x1="122" y1="26" x2="122" y2="84" stroke="currentColor"/>
-  <line class="dim" x1="144" y1="26" x2="144" y2="84" stroke="currentColor"/>
-  <line class="dim dash" x1="30" y1="60" x2="114" y2="48" stroke="currentColor"/>
-  <line class="dim dash" x1="44" y1="72" x2="130" y2="66" stroke="currentColor"/>
-  <line class="dim dash" x1="40" y1="42" x2="126" y2="36" stroke="currentColor"/>
-  <circle class="accf" cx="30" cy="60" r="2.6"/><circle class="accf" cx="114" cy="48" r="2.6"/>
-  <circle class="fillc" cx="44" cy="72" r="2.2"/><circle class="fillc" cx="130" cy="66" r="2.2"/>
-  <circle class="fillc" cx="40" cy="42" r="2.2"/><circle class="fillc" cx="126" cy="36" r="2.2"/>
-  <circle class="accf sim m1" cx="30" cy="60" r="2"/>
-  <circle class="fillc sim m2" cx="44" cy="72" r="1.7"/>
-  <circle class="fillc sim m3" cx="40" cy="42" r="1.7"/>
-  <text class="td" x="16" y="98">BROADCAST</text>
-  <line class="dim" x1="100" y1="91" x2="117" y2="91" stroke="currentColor"/>
-  <line class="dim" x1="149" y1="91" x2="166" y2="91" stroke="currentColor"/>
-  <line class="dim" x1="100" y1="88.5" x2="100" y2="93.5" stroke="currentColor"/>
-  <line class="dim" x1="166" y1="88.5" x2="166" y2="93.5" stroke="currentColor"/>
-  <text class="td" x="133" y="93.5" text-anchor="middle">53.3YD</text>
-  <path class="fillc" d="M6 60l7 -3.5v7z"/>
-</svg><span class="fig">FIG. 03 — Planar homography H</span></span>
+        <div class="meta"><img src="assets/huddlevision-mark.svg" alt=""><span class="mtext">HUDDLEVISION · FOUNDER · 2023— · TRACKING FOOTBALL</span></div>
       </li>
       <li>
         <span class="num" aria-hidden="true">04</span>
-        <div class="workhead"><h3>Fantasy Data Pros</h3></div>
+        <div class="workhead"><h3>Fantasy Data Pros</h3><span class="tagchip">Edu platform</span></div>
         <p>Taught Python and ML through sports data — 300k+ visitors, 4,000+ paid
         enrollments. Product, payments, and content, built solo.</p>
-        <div class="meta"><img src="assets/fdp-mark.svg" alt=""><span class="mtext">FANTASY DATA PROS · FOUNDER · 2020— · EDU · SOLO-BUILT</span></div>
-        <span class="demo d4" aria-hidden="true"><svg viewBox="0 0 176 104">
-  <line class="dim" x1="20" y1="86" x2="166" y2="86" stroke="currentColor"/>
-  <line class="dim" x1="20" y1="86" x2="20" y2="14" stroke="currentColor"/>
-  <line class="dim" x1="56" y1="86" x2="56" y2="88.5" stroke="currentColor"/><line class="dim" x1="92" y1="86" x2="92" y2="88.5" stroke="currentColor"/><line class="dim" x1="128" y1="86" x2="128" y2="88.5" stroke="currentColor"/>
-  <line class="dim" x1="17.5" y1="62" x2="20" y2="62" stroke="currentColor"/><line class="dim" x1="17.5" y1="38" x2="20" y2="38" stroke="currentColor"/>
-  <circle class="fillc sc" style="transform-box: fill-box; transform-origin: center;" cx="36" cy="70" r="1.7"/><circle class="fillc sc sc2" style="transform-box: fill-box; transform-origin: center;" cx="48" cy="60" r="1.7"/>
-  <circle class="fillc sc sc3" style="transform-box: fill-box; transform-origin: center;" cx="62" cy="64" r="1.7"/><circle class="fillc sc sc4" style="transform-box: fill-box; transform-origin: center;" cx="76" cy="50" r="1.7"/>
-  <circle class="fillc sc sc5" style="transform-box: fill-box; transform-origin: center;" cx="90" cy="54" r="1.7"/><circle class="fillc sc sc6" style="transform-box: fill-box; transform-origin: center;" cx="104" cy="40" r="1.7"/>
-  <circle class="fillc sc sc7" style="transform-box: fill-box; transform-origin: center;" cx="120" cy="44" r="1.7"/><circle class="fillc sc sc8" style="transform-box: fill-box; transform-origin: center;" cx="134" cy="30" r="1.7"/>
-  <polygon class="areafill" points="24,78 56,62 92,50 128,36 158,24 158,86 24,86"/>
-  <polyline class="acc curve" pathLength="1" points="24,78 56,62 92,50 128,36 158,24" stroke="currentColor" fill="none" stroke-dasharray="1" stroke-dashoffset="0"/>
-  <circle class="accf tip" style="transform-box: fill-box; transform-origin: center;" cx="158" cy="24" r="3"/>
-  <text class="td" x="24" y="12">P(WIN) · LOGISTIC ON EPA</text>
-  <text class="td" x="6" y="18">1.0</text>
-  <text class="td" x="6" y="88">0.0</text>
-  <text class="td" x="120" y="98">EPA / PLAY</text>
-</svg><span class="fig">FIG. 04 — Win-probability regression</span></span>
+        <div class="meta"><img src="assets/fdp-mark.svg" alt=""><span class="mtext">FANTASY DATA PROS · FOUNDER · 2020— · SOLO-BUILT</span></div>
       </li>
     </ul>
   </section>
