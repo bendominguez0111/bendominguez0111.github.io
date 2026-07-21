@@ -93,6 +93,7 @@
     font-size: 1rem;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
   }
   a { color: inherit; text-decoration: none; }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
@@ -165,27 +166,11 @@
   .intro a { color: var(--ink); font-weight: 600; border-bottom: 1px solid var(--hairline); }
   .intro a:hover { border-color: var(--accent); color: var(--accent-deep); }
 
-  .factline {
-    display: flex; flex-wrap: wrap;
-    margin-top: 1.7rem;
-    background: var(--surface); border-radius: 10px;
-    border: 1px solid var(--edge);
-    border-bottom-width: 3px;
-    border-bottom-color: var(--edge-deep);
-  }
-  .fcell { padding: 0.8rem 1.3rem 0.85rem; border-left: 1px solid var(--hairline); flex: 1 1 0; }
-  .fcell:first-child { border-left: 0; }
-  .fcell .fl {
-    display: block;
-    font-family: "Geist Mono", monospace;
-    font-size: 0.625rem; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--faint);
-    margin-bottom: 0.15rem;
-  }
-  .fcell .fv {
-    font-family: "Geist", sans-serif;
-    font-size: 1.0625rem; font-weight: 650; letter-spacing: -0.015em;
-    color: var(--ink);
+  .factnote {
+    margin-top: 1.5rem;
+    font-family: "Caveat", cursive;
+    font-size: 1.35rem; line-height: 1.3;
+    color: var(--faint);
   }
 
   section { margin-top: 3.4rem; }
@@ -226,7 +211,7 @@
     text-transform: uppercase; letter-spacing: 0.05em;
     flex-wrap: wrap; row-gap: 0.2rem;
   }
-  .meta img { height: 1.05rem; width: auto; max-width: 1.7rem; display: block; flex: none; }
+  .meta img { height: 1.5rem; width: auto; max-width: 2.4rem; display: block; flex: none; }
   .meta .mtext { flex: 1; min-width: 0; }
   .worklist p {
     margin-top: 0.55rem; padding-left: 4.5rem;
@@ -281,9 +266,26 @@
     font-size: 0.71875rem; color: var(--ink); letter-spacing: 0.03em;
   }
 
-  @media (max-width: 560px) {
+  @media (max-width: 900px) {
+    .worklist li { min-height: 0; display: flex; flex-direction: column; justify-content: flex-start; padding: 1.4rem 0 1.5rem; }
+    .num { order: 0; } .workhead { order: 1; } .worklist li > p { order: 2; }
+    .meta { order: 3; } .demo { order: 4; }
+    .num {
+      position: static; display: block;
+      font-family: "Geist Mono", monospace;
+      font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.08em;
+      color: var(--faint); margin-bottom: 0.3rem;
+    }
+    .workhead, .worklist p, .meta { padding-left: 0; margin-left: 0; }
+    .worklist p, .meta { max-width: none; }
+    .demo { position: static; transform: none; width: 100%; max-width: 19rem; margin: 1rem 0 0; }
+  }
+  @media (max-width: 600px) {
     .navbar .name .nametext { display: none; }
     .navbar .links { gap: 0.9rem; }
+    .intro { padding: 2.2rem 0 0; }
+    section { margin-top: 2.6rem; }
+    .rows > div { grid-template-columns: 1fr; gap: 0.15rem; }
   }
 </style>
 </head>
@@ -309,12 +311,7 @@
     <p>I lead engineering at <a href="https://gambly.com">Gambly</a> — a ten-engineer
     team across product, AI, and infrastructure — and I'm the founder of
     <a href="https://huddlevision.ai">Huddlevision</a>, computer vision for football.</p>
-    <div class="factline">
-      <span class="fcell"><span class="fl">Shipping</span><span class="fv">Since 2020</span></span>
-      <span class="fcell"><span class="fl">Team led</span><span class="fv">10 eng</span></span>
-      <span class="fcell"><span class="fl">Founded</span><span class="fv">×2</span></span>
-      <span class="fcell"><span class="fl">Stack</span><span class="fv">PY · C# · TS</span></span>
-    </div>
+    <p class="factnote">shipping since 2020 · 10 engineers led · 2 companies founded · py / c# / ts</p>
   </div>
 
   <section>
