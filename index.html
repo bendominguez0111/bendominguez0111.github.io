@@ -221,10 +221,13 @@
     max-width: 25.5rem;
     border-top: 1px solid var(--hairline);
     font-family: "Geist Mono", monospace;
-    font-size: var(--mono-size); color: var(--faint);
-    text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;
+    font-size: 0.71875rem; color: var(--faint);
+    text-transform: uppercase; letter-spacing: 0.05em;
+    flex-wrap: wrap; row-gap: 0.2rem;
   }
-  .meta img { height: 1.05rem; width: auto; max-width: 1.7rem; display: block; }
+  .meta img { height: 1.05rem; width: auto; max-width: 1.7rem; display: block; flex: none; }
+  .meta .mtext { flex: 1; min-width: 0; }
+  .meta .live { color: var(--accent); font-weight: 500; }
   .worklist p {
     margin-top: 0.55rem; padding-left: 4.5rem;
     max-width: 25.5rem;
@@ -375,20 +378,31 @@
     70%,88% { opacity: 1; transform: scale(1); } 96%,100% { opacity: 0; }
   }
   @media (max-width: 900px) {
-    .worklist li { min-height: 0; }
-    .demo { position: static; transform: none; width: 100%; max-width: 21rem; margin: 1rem 0 0 4.5rem; }
-    .worklist li { display: block; }
+    .worklist li { min-height: 0; display: block; }
+    .num { top: 1.4rem; transform: none; }
+    .demo { position: static; transform: none; width: 100%; max-width: 22rem; margin: 1.1rem 0 0 4.5rem; }
     .demo::before { display: none; }
   }
-  @media (max-width: 560px) {
+  @media (max-width: 600px) {
+    .navbar .name .nametext { display: none; }
+    .navbar .links { gap: 0.9rem; }
+    .intro { padding: 2.2rem 0 0; }
+    section { margin-top: 2.6rem; }
     .factline { display: grid; grid-template-columns: 1fr 1fr; }
     .fcell { border-left: 0; padding: 0.55rem 0.9rem 0.6rem; }
     .fcell:nth-child(even) { border-left: 1px solid var(--hairline); }
     .fcell:nth-child(n+3) { border-top: 1px solid var(--hairline); }
-    .num { font-size: 2.4rem; top: 1.8rem; }
-    .meta { margin-left: 3rem; }
-    .workhead, .worklist p, .demo { padding-left: 0; margin-left: 3rem; }
-    .workhead { padding-left: 0; } .worklist p { padding-left: 0; }
+    .worklist li { padding: 1.4rem 0 1.5rem; }
+    .num {
+      position: static; display: block;
+      font-family: "Geist Mono", monospace;
+      font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.08em;
+      color: var(--faint); margin-bottom: 0.3rem;
+    }
+    .workhead, .worklist p, .meta { padding-left: 0; margin-left: 0; }
+    .worklist p, .meta { max-width: none; }
+    .demo { margin-left: 0; max-width: 100%; }
+    .rows > div { grid-template-columns: 1fr; gap: 0.15rem; }
   }
 
   /* ---------- details rows ---------- */
@@ -406,9 +420,6 @@
   .rows .v { color: var(--muted); }
   .rows .v a { color: var(--ink); font-weight: 600; border-bottom: 1px solid var(--hairline); }
   .rows .v a:hover { border-color: var(--accent); color: var(--accent-deep); }
-  @media (max-width: 480px) {
-    .rows > div { grid-template-columns: 1fr; gap: 0.1rem; }
-  }
 
   .scell { padding: 0.5rem 1rem 0.55rem; border-left: 1px solid var(--hairline); flex: 1 1 auto; }
   .scell:first-child { border-left: 0; }
@@ -468,7 +479,7 @@
         <p>The industry's first screenshot-to-betslip system — any bet, any book,
         parsed into a structured, one-tap betslip. Launched viral on X; shipped
         across web, iMessage, Discord, Telegram, and X.</p>
-        <div class="meta"><img src="assets/gambly.svg" alt="">Gambly</div>
+        <div class="meta"><img src="assets/gambly.svg" alt=""><span class="mtext">GAMBLY · LEAD ENG · 2024— · VISION · <b class="live">PROD</b></span></div>
         <span class="demo d1" aria-hidden="true"><svg viewBox="0 0 176 104">
   <rect class="bx fb1" x="8" y="44" width="26" height="16" rx="2" stroke="currentColor"/><text x="21" y="54.5" text-anchor="middle">IMG</text>
   <rect class="bx fb2" x="46" y="44" width="26" height="16" rx="2" stroke="currentColor"/><text x="59" y="54.5" text-anchor="middle">OCR</text>
@@ -493,7 +504,7 @@
         <p>The system behind every GamblyBot conversation: an orchestrator with
         specialized subagents, offline evals with LLM-as-judge scoring, and
         exactly-once turns on durable workflows.</p>
-        <div class="meta"><img src="assets/gambly.svg" alt="">Gambly</div>
+        <div class="meta"><img src="assets/gambly.svg" alt=""><span class="mtext">GAMBLY · LEAD ENG · 2025— · AGENTS · <b class="live">PROD</b></span></div>
         <span class="demo d2" aria-hidden="true"><svg viewBox="0 0 176 104">
   <rect class="bx" x="8" y="38" width="38" height="18" rx="2" stroke="currentColor"/><text x="27" y="49.5" text-anchor="middle">ORCH</text>
   <rect class="bx sb1" x="118" y="10" width="50" height="14" rx="2" stroke="currentColor"/><text x="143" y="19.5" text-anchor="middle">SEARCH</text>
@@ -523,7 +534,7 @@
         <p>A field-registration model for broadcast film that beats the best
         published IoU results — and turns raw footage into the speed metrics
         behind Tracking Football's recruiting data.</p>
-        <div class="meta"><img src="assets/huddlevision-mark.svg" alt="">Huddlevision</div>
+        <div class="meta"><img src="assets/huddlevision-mark.svg" alt=""><span class="mtext">HUDDLEVISION · FOUNDER · 2023— · CV · TRACKING FOOTBALL</span></div>
         <span class="demo d3" aria-hidden="true"><svg viewBox="0 0 176 104">
   <text x="88" y="12" text-anchor="middle">H : CAM → FIELD · 3×3</text>
   <g class="cam" style="transform-origin: 38px 57px;">
@@ -557,7 +568,7 @@
         <div class="workhead"><h3>Fantasy Data Pros</h3></div>
         <p>Taught Python and ML through sports data — 300k+ visitors, 4,000+ paid
         enrollments. Product, payments, and content, built solo.</p>
-        <div class="meta"><img src="assets/fdp-mark.svg" alt="">Founder · est. 2020</div>
+        <div class="meta"><img src="assets/fdp-mark.svg" alt=""><span class="mtext">FANTASY DATA PROS · FOUNDER · 2020— · EDU · SOLO-BUILT</span></div>
         <span class="demo d4" aria-hidden="true"><svg viewBox="0 0 176 104">
   <line class="dim" x1="20" y1="86" x2="166" y2="86" stroke="currentColor"/>
   <line class="dim" x1="20" y1="86" x2="20" y2="14" stroke="currentColor"/>
