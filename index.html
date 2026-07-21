@@ -15,7 +15,7 @@
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="%2314181a"/><circle cx="16" cy="16" r="7.5" stroke="white" stroke-width="1.8" fill="none"/><path d="M16 3.5v6M16 22.5v6M3.5 16h6M22.5 16h6" stroke="white" stroke-width="1.8"/></svg>'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #fcfdfd;
@@ -44,7 +44,8 @@
     --nav-bg: rgb(252 253 253 / 0.92);
     --num-ghost: rgb(20 24 26 / 0.08);
     --cta-hover: #822720;
-    --dg-mono: rgb(60 84 98 / 0.2);
+    --dg-mono: rgb(60 84 98 / 0.26);
+    --dg-hw: rgb(60 84 98 / 0.4);
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -71,7 +72,8 @@
       --nav-bg: rgb(29 41 55 / 0.9);
       --num-ghost: rgb(220 235 250 / 0.18);
       --cta-hover: #b04a3e;
-      --dg-mono: rgb(196 214 232 / 0.17);
+      --dg-mono: rgb(196 214 232 / 0.2);
+      --dg-hw: rgb(196 214 232 / 0.34);
       --nav-shadow: 0 1px 0 var(--hairline), 0 4px 16px rgb(0 4 10 / 0.3);
     }
     .meta img { filter: invert(1) brightness(1.4); }
@@ -244,13 +246,18 @@
   }
   @media (max-width: 1260px) { .demo { right: 0; width: 16rem; } }
   .demo svg { display: block; width: 100%; height: auto; }
-  .demo [stroke] { stroke: var(--dg-mono); stroke-width: 1; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .demo [stroke] { stroke: var(--dg-mono); stroke-width: 0.7; fill: none; stroke-linecap: round; stroke-linejoin: round; }
   .demo .dash { stroke-dasharray: 3 2.5; }
   .demo .fillm { fill: var(--dg-mono); stroke: none; }
   .demo text {
     font-family: "Geist Mono", ui-monospace, monospace;
     font-size: 6.4px; letter-spacing: 0.03em;
     fill: var(--dg-mono); stroke: none;
+  }
+  .demo text.hw {
+    font-family: "Caveat", cursive;
+    font-size: 10.5px; letter-spacing: 0;
+    fill: var(--dg-hw);
   }
 
   /* ---------- figure tags ---------- */
@@ -346,6 +353,10 @@
   <rect class="dash" x="60" y="12" width="56" height="14" rx="2" stroke="currentColor"/><text x="88" y="21.5" text-anchor="middle">DHASH CACHE</text>
   <path class="dash" d="M21 44 V23 Q21 19 25 19 H58" stroke="currentColor"/>
   <path class="dash" d="M118 19 H146 Q150 19 150 23 V42" stroke="currentColor"/><path class="fillm" d="M147.5 42l2.5 5 2.5-5z"/>
+  <text class="hw" x="168" y="13" text-anchor="end">hit → skip the vlm</text>
+  <text class="hw" x="8" y="38">any book, any app</text>
+  <text class="hw" x="8" y="92">miss → full pipeline, then cache it</text>
+  <text class="hw" x="136" y="74">one-tap</text>
 </svg></span>
         <div class="workhead"><h3>Image to betslip</h3><span class="tagchip">Vision pipeline</span></div>
         <p>The industry's first screenshot-to-betslip system — any bet, any book,
@@ -363,6 +374,11 @@
   <line x1="46" y1="47" x2="112" y2="22" stroke="currentColor"/><path class="fillm" d="M112 19.7l5.5 1.8-4 4z"/>
   <line x1="46" y1="52" x2="112" y2="52" stroke="currentColor"/><path class="fillm" d="M112 49.5l5 2.5-5 2.5z"/>
   <line x1="46" y1="57" x2="112" y2="82" stroke="currentColor"/><path class="fillm" d="M113.5 78.7l4 4-5.5 1.8z"/>
+  <text class="hw" x="64" y="34">fan-out, typed tools</text>
+  <text class="hw" x="8" y="76">evals: llm-as-judge</text>
+  <line x1="8" y1="94" x2="168" y2="94" stroke="currentColor"/>
+  <line x1="48" y1="92" x2="48" y2="96" stroke="currentColor"/><line x1="88" y1="92" x2="88" y2="96" stroke="currentColor"/><line x1="128" y1="92" x2="128" y2="96" stroke="currentColor"/>
+  <text class="hw" x="8" y="89">durable · exactly-once</text>
 </svg></span>
         <div class="workhead"><h3>Multi-agent betting copilot</h3><span class="tagchip">Agent graph</span></div>
         <p>The system behind every GamblyBot conversation: an orchestrator with
@@ -382,9 +398,15 @@
   <line class="dash" x1="30" y1="58" x2="114" y2="46" stroke="currentColor"/>
   <line class="dash" x1="44" y1="70" x2="130" y2="64" stroke="currentColor"/>
   <line class="dash" x1="40" y1="40" x2="126" y2="34" stroke="currentColor"/>
-  <circle class="fillm" cx="30" cy="58" r="2.2"/><circle class="fillm" cx="114" cy="46" r="2.2"/>
-  <circle class="fillm" cx="44" cy="70" r="2.2"/><circle class="fillm" cx="130" cy="64" r="2.2"/>
-  <circle class="fillm" cx="40" cy="40" r="2.2"/><circle class="fillm" cx="126" cy="34" r="2.2"/>
+  <circle class="fillm" cx="30" cy="58" r="2"/><circle class="fillm" cx="114" cy="46" r="2"/>
+  <circle class="fillm" cx="44" cy="70" r="2"/><circle class="fillm" cx="130" cy="64" r="2"/>
+  <circle class="fillm" cx="40" cy="40" r="2"/><circle class="fillm" cx="126" cy="34" r="2"/>
+  <text class="hw" x="10" y="16">H : cam → field, 3×3</text>
+  <text class="hw" x="112" y="16">mph from Δpos</text>
+  <text class="hw" x="14" y="96">broadcast</text>
+  <line x1="100" y1="90" x2="122" y2="90" stroke="currentColor"/><line x1="144" y1="90" x2="166" y2="90" stroke="currentColor"/>
+  <line x1="100" y1="87.5" x2="100" y2="92.5" stroke="currentColor"/><line x1="166" y1="87.5" x2="166" y2="92.5" stroke="currentColor"/>
+  <text class="hw" x="126" y="94">53.3 yd</text>
 </svg></span>
         <div class="workhead"><h3>Broadcast field registration</h3><span class="tagchip">Homography</span></div>
         <p>A field-registration model for broadcast film that beats the best
@@ -397,11 +419,18 @@
         <span class="demo" aria-hidden="true"><svg viewBox="0 0 176 104">
   <line x1="20" y1="86" x2="166" y2="86" stroke="currentColor"/>
   <line x1="20" y1="86" x2="20" y2="14" stroke="currentColor"/>
-  <circle class="fillm" cx="36" cy="70" r="1.7"/><circle class="fillm" cx="48" cy="60" r="1.7"/>
-  <circle class="fillm" cx="62" cy="64" r="1.7"/><circle class="fillm" cx="76" cy="50" r="1.7"/>
-  <circle class="fillm" cx="90" cy="54" r="1.7"/><circle class="fillm" cx="104" cy="40" r="1.7"/>
-  <circle class="fillm" cx="120" cy="44" r="1.7"/><circle class="fillm" cx="134" cy="30" r="1.7"/>
+  <line x1="17.5" y1="62" x2="20" y2="62" stroke="currentColor"/><line x1="17.5" y1="38" x2="20" y2="38" stroke="currentColor"/>
+  <line x1="56" y1="86" x2="56" y2="88.5" stroke="currentColor"/><line x1="92" y1="86" x2="92" y2="88.5" stroke="currentColor"/><line x1="128" y1="86" x2="128" y2="88.5" stroke="currentColor"/>
+  <circle class="fillm" cx="36" cy="70" r="1.6"/><circle class="fillm" cx="48" cy="60" r="1.6"/>
+  <circle class="fillm" cx="62" cy="64" r="1.6"/><circle class="fillm" cx="76" cy="50" r="1.6"/>
+  <circle class="fillm" cx="90" cy="54" r="1.6"/><circle class="fillm" cx="104" cy="40" r="1.6"/>
+  <circle class="fillm" cx="120" cy="44" r="1.6"/><circle class="fillm" cx="134" cy="30" r="1.6"/>
   <polyline points="24,78 56,62 92,50 128,36 158,24" stroke="currentColor"/>
+  <text class="hw" x="24" y="12">p(win) — logistic on epa</text>
+  <text class="hw" x="6" y="20">1.0</text>
+  <text class="hw" x="6" y="88">0.0</text>
+  <text class="hw" x="132" y="98">epa / play</text>
+  <text class="hw" x="146" y="18">the fit ↗</text>
 </svg></span>
         <div class="workhead"><h3>Fantasy Data Pros</h3><span class="tagchip">Edu platform</span></div>
         <p>Taught Python and ML through sports data — 300k+ visitors, 4,000+ paid
