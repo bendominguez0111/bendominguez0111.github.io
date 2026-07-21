@@ -24,8 +24,8 @@
     background: var(--bg);
     color: var(--ink);
     font-family: "Geist", ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.9375rem;
-    line-height: 1.55;
+    font-size: 1rem;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
   a { color: inherit; text-decoration: none; }
@@ -45,7 +45,7 @@
     height: 3.25rem;
     display: flex; justify-content: space-between; align-items: center;
   }
-  .navbar .name { display: flex; align-items: center; gap: 0.6rem; font-weight: 600; font-size: 0.9063rem; }
+  .navbar .name { display: flex; align-items: center; gap: 0.6rem; font-weight: 600; font-size: 0.9688rem; }
   .navbar .mark {
     width: 1.6rem; height: 1.6rem; border-radius: 6px;
     background: var(--ink); color: #fff;
@@ -55,7 +55,7 @@
   .navbar .links { display: flex; align-items: center; gap: 1.3rem; }
   .navbar .links a {
     font-family: "Geist Mono", monospace;
-    font-size: 0.71875rem; text-transform: uppercase; letter-spacing: 0.05em;
+    font-size: 0.78125rem; text-transform: uppercase; letter-spacing: 0.05em;
     color: var(--muted);
   }
   .navbar .links a:hover, .navbar .links a:focus-visible { color: var(--accent-deep); }
@@ -72,7 +72,7 @@
   /* ---------- intro ---------- */
   .intro { padding: 3rem 0 0; }
   .intro h1 {
-    font-size: 1.625rem; font-weight: 700; letter-spacing: -0.02em;
+    font-size: 1.9375rem; font-weight: 700; letter-spacing: -0.02em;
     line-height: 1.22; text-wrap: balance;
   }
   .intro h1 em { font-style: normal; color: var(--accent-deep); }
@@ -85,14 +85,14 @@
     margin-top: 1.5rem; padding: 0.7rem 0;
     border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline);
     font-family: "Geist Mono", monospace;
-    font-size: 0.71875rem; color: var(--faint);
+    font-size: 0.78125rem; color: var(--faint);
   }
   .factline b { color: var(--ink); font-weight: 500; }
 
   section { margin-top: 2.6rem; }
   h2 {
     font-family: "Geist Mono", monospace;
-    font-size: 0.71875rem; font-weight: 500;
+    font-size: 0.78125rem; font-weight: 500;
     text-transform: uppercase; letter-spacing: 0.1em;
     color: var(--accent-deep);
     margin-bottom: 0.9rem;
@@ -100,31 +100,31 @@
 
   ul.worklist { list-style: none; }
   .worklist li {
-    display: grid; grid-template-columns: 1.7rem 1fr; gap: 0 0.55rem;
+    display: grid; grid-template-columns: 2.4rem 1fr; gap: 0 0.75rem;
     padding: 0.9rem 0; border-top: 1px solid var(--hairline);
   }
   .worklist li:last-child { border-bottom: 1px solid var(--hairline); }
   .worklist .logo {
     grid-row: 1 / span 2; padding-top: 0.15rem;
   }
-  .worklist .logo img { height: 1.05rem; width: auto; max-width: 1.7rem; display: block; filter: grayscale(1) opacity(0.55); }
+  .worklist .logo img { height: 1.55rem; width: auto; max-width: 2.4rem; display: block; filter: grayscale(1) opacity(0.6); }
   .workhead { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-  .workhead h3 { font-size: 0.9375rem; font-weight: 700; letter-spacing: -0.011em; }
+  .workhead h3 { font-size: 1.0625rem; font-weight: 700; letter-spacing: -0.011em; }
   .who {
     font-family: "Geist Mono", monospace;
-    font-size: 0.6875rem; color: var(--faint); white-space: nowrap;
+    font-size: 0.75rem; color: var(--faint); white-space: nowrap;
   }
-  .worklist p { margin-top: 0.2rem; color: var(--muted); font-size: 0.9063rem; text-wrap: pretty; }
+  .worklist p { margin-top: 0.2rem; color: var(--muted); font-size: 0.9688rem; text-wrap: pretty; }
 
   .rows { border-top: 1px solid var(--hairline); }
   .rows > div {
     display: grid; grid-template-columns: 9.5rem 1fr; gap: 1rem;
-    padding: 0.55rem 0; border-bottom: 1px solid var(--hairline);
-    font-size: 0.9063rem;
+    padding: 0.6rem 0; border-bottom: 1px solid var(--hairline);
+    font-size: 0.9688rem;
   }
   .rows .k {
     font-family: "Geist Mono", monospace;
-    font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.06em;
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em;
     color: var(--faint); padding-top: 0.2rem;
   }
   .rows .v { color: var(--muted); }
@@ -192,14 +192,14 @@
         turn execution on durable workflows.</p>
       </li>
       <li>
-        <span class="logo"><img src="assets/huddlevision.svg" alt=""></span>
+        <span class="logo"><img src="assets/huddlevision-mark.svg" alt=""></span>
           <div class="workhead"><h3>Broadcast field registration</h3><span class="who">Huddlevision</span></div>
         <p>A field-registration model for broadcast football film that outperforms the
         best published IoU results — the basis for speed and acceleration metrics
         straight from game footage. Writeup coming soon.</p>
       </li>
       <li>
-        <span class="logo"><img src="assets/fdp.svg" alt=""></span>
+        <span class="logo"><img src="assets/fdp-mark.svg" alt=""></span>
           <div class="workhead"><h3>Fantasy Data Pros</h3><span class="who">Founder · est. 2020</span></div>
         <p>Taught Python and ML through NFL, MLB, and NBA data — 300k+ visitors,
         thousands of students. Product, courses, payments, and content, built solo.</p>
