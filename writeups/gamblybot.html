@@ -29,6 +29,7 @@
     --accent-edge: #6e211b;
     --gridline: rgb(22 39 64 / 0.028);
     --gridmajor: rgb(22 39 64 / 0.052);
+    --figwash: rgb(22 39 64 / 0.045);
     --sheetglow: rgb(22 39 64 / 0.012);
     --gridbloom: rgb(22 39 64 / 0.09);
     --dg-mono: rgb(47 71 104 / 0.46);
@@ -50,6 +51,7 @@
       --accent-edge: #8c3228;
       --gridline: rgb(190 215 240 / 0.038);
       --gridmajor: rgb(190 215 240 / 0.07);
+      --figwash: rgb(190 215 240 / 0.055);
       --sheetglow: rgb(207 122 110 / 0.09);
       --gridbloom: rgb(190 215 240 / 0.12);
       --dg-mono: rgb(196 214 232 / 0.38);
@@ -70,8 +72,9 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: clip;
   }
+  body { position: relative; }
   body::before {
-    content: ""; position: fixed; inset: 0; z-index: -1;
+    content: ""; position: absolute; inset: 0; z-index: -1;
     pointer-events: none;
     background:
       radial-gradient(ellipse 100% 65% at 50% 0%, var(--sheetglow), transparent 68%),
@@ -147,12 +150,7 @@
   .fig { margin: 1.6rem 0 0.4rem; position: relative; }
   .fig::before {
     content: ""; position: absolute; inset: -6%;
-    background:
-      linear-gradient(var(--gridbloom) 1px, transparent 1px),
-      linear-gradient(90deg, var(--gridbloom) 1px, transparent 1px);
-    background-size: 22px 22px;
-    background-attachment: fixed;
-    background-position: var(--gx) 0;
+    background: var(--figwash);
     -webkit-mask-image: radial-gradient(ellipse 62% 58% at 50% 50%, black 45%, transparent 76%);
     mask-image: radial-gradient(ellipse 62% 58% at 50% 50%, black 45%, transparent 76%);
   }
