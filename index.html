@@ -243,7 +243,10 @@
   }
   .demo text.hw { font-size: 10.5px; }
 
-  .wlink {
+  /* writeup links hidden while drafts are in progress — flip to
+     inline-block to re-enable */
+  .wlink { display: none; }
+  .wlink-enabled {
     display: inline-block; align-self: flex-start;
     margin: 0.7rem 0 0 4.5rem;
     font-size: 0.9375rem;
