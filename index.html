@@ -47,7 +47,7 @@
     --nav-bg: rgb(251 252 253 / 0.92);
     --num-ghost: rgb(22 39 64 / 0.09);
     --cta-hover: #822720;
-    --hl: rgb(190 62 50 / 0.16);
+    --hl-swipe: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 28" preserveAspectRatio="none"><path d="M4 8 Q2 3.5 9 3.2 Q30 1.6 52 2.6 Q78 1.2 94 2.4 Q99.5 2.8 98.4 8 Q99.6 14 98.2 20.5 Q99.2 25 92.5 25.4 Q70 27.6 46 26.1 Q21 27.7 7 25.9 Q1.6 25.4 3.2 20 Q1.9 13.5 4 8 Z" fill="rgba(190,62,50,0.16)"/></svg>');
     --dg-mono: rgb(47 71 104 / 0.46);
     --dg-hw: rgb(47 71 104 / 0.42);
   }
@@ -78,7 +78,7 @@
       --nav-bg: rgb(12 16 23 / 0.9);
       --num-ghost: rgb(220 235 250 / 0.18);
       --cta-hover: #b04a3e;
-      --hl: rgb(224 96 82 / 0.26);
+      --hl-swipe: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 28" preserveAspectRatio="none"><path d="M4 8 Q2 3.5 9 3.2 Q30 1.6 52 2.6 Q78 1.2 94 2.4 Q99.5 2.8 98.4 8 Q99.6 14 98.2 20.5 Q99.2 25 92.5 25.4 Q70 27.6 46 26.1 Q21 27.7 7 25.9 Q1.6 25.4 3.2 20 Q1.9 13.5 4 8 Z" fill="rgba(224,96,82,0.26)"/></svg>');
       --dg-mono: rgb(196 214 232 / 0.38);
       --dg-hw: rgb(196 214 232 / 0.34);
       --nav-shadow: 0 4px 16px rgb(0 4 10 / 0.35);
@@ -168,9 +168,10 @@
     line-height: 1.52; text-wrap: balance;
   }
   .intro h1 .hl {
-    background: linear-gradient(90deg, transparent 0, var(--hl) 5%, var(--hl) 95%, transparent 100%);
+    background-image: var(--hl-swipe);
+    background-size: 100% 100%; background-repeat: no-repeat;
     -webkit-box-decoration-break: clone; box-decoration-break: clone;
-    padding: 0.06em 0.35em; margin-left: -0.35em;
+    padding: 0.09em 0.4em; margin-left: -0.4em;
   }
   .intro h1 em {
     font-style: normal;
