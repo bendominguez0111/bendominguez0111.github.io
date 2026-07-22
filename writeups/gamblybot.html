@@ -255,7 +255,7 @@
 
     <h2>The scramble</h2>
     <p>The fix was the boring, correct one: <strong>put a queue between
-    ingestion and work</strong>. Mentions landed in a queue the moment we saw
+    ingestion and work</strong> (and upgrade our API tier). Mentions landed in a queue the moment we saw
     them; a pool of workers pulled them off concurrently. Classification and
     reply delivery split into separate stages so a slow model call couldn't
     block a finished reply. Dedupe keyed on the post, not the attempt, killed
