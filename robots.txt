@@ -1,3 +1,2 @@
 User-agent: *
 Allow: /
-Sitemap: https://bendominguez0111.github.io/sitemap.xml
