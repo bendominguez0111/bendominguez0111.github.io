@@ -212,8 +212,8 @@
     <strong>a week before the Super Bowl</strong>.</p>
     <p>The architecture was the simplest thing that could work: <strong>a polling
     loop</strong>. Every cycle it pulled recent mentions, walked them one at a
-    time — download the image, run classification, match offers, post the
-    reply — and went back to sleep. Serial processing, no queue, no cache.
+    time (download the image, run classification, match offers, post the
+    reply) and went back to sleep. Serial processing, no queue, no cache.
     Between the polling window and the per-request latency, the ceiling worked
     out to roughly <strong>a hundred requests a day</strong>.</p>
     <p>Which was fine. We had maybe twenty.</p>
@@ -228,7 +228,7 @@
         <path class="dash" d="M140 60 V78 H25 V63" stroke="currentColor"/><path class="fillm" d="M22.7 63l2.3 -4.5 2.3 4.5z"/>
         <text class="hw" x="88" y="90" text-anchor="middle">one at a time, then sleep</text>
         <text class="hw" x="10" y="30">serial · no queue · no cache</text>
-        <text class="hw" x="166" y="14" text-anchor="end">~100 req/day ceiling</text>
+        <text class="hw" x="166" y="14" text-anchor="end">pro tier: 100 tweets/day</text>
       </svg>
       <figcaption class="figcap">FIG. 01 — The loop</figcaption>
     </figure>
@@ -241,9 +241,12 @@
     exponential in the most literal sense — every reply was an ad for the next
     one. Within two days, traffic went from a hundred requests a day to
     <strong>a hundred requests a minute</strong>, and the mentions feed became
-    a firehose of strangers tagging us under every slip on the timeline.</p>
-    <p>Every weakness of the loop surfaced at once. The polling window
-    overflowed, so mentions were silently missed. Serial processing meant each
+    a firehose of strangers tagging us under every slip on the timeline. The
+    math stopped working immediately: demand of a hundred requests a minute
+    against an API tier that allowed a hundred replies a day. The bot sold out
+    of its reply budget minutes after reset.</p>
+    <p>Behind the rate cap, every weakness of the loop surfaced at once. The
+    polling window overflowed, so mentions were silently missed. Serial processing meant each
     reply queued behind every reply before it — latency went from seconds to
     hours. Retries double-posted. Rate limits locked us out mid-cycle, which
     made the backlog worse, which made the next cycle longer. The bot wasn't
