@@ -92,7 +92,7 @@
     font-weight: 600; font-size: 0.9688rem; white-space: nowrap;
   }
   .mkg { width: 1.05rem; height: 1.05rem; flex: none; stroke: var(--ink); stroke-width: 1.7; fill: none; }
-  .back { font-size: 0.875rem; color: var(--faint); }
+  .back { font-size: 0.875rem; color: var(--faint); transition: color 140ms ease-out; }
   .back:hover { color: var(--ink); }
 
   .eyebrow {
@@ -126,7 +126,10 @@
   article a {
     color: var(--ink); font-weight: 400;
     text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px;
+    text-decoration-color: var(--ghost);
+    transition: color 140ms ease-out, text-decoration-color 140ms ease-out;
   }
+  article a:hover { text-decoration-color: currentColor; }
   article a:hover { color: var(--accent); }
 
   .fig { margin: 1.6rem 0 0.4rem; position: relative; }
@@ -187,7 +190,7 @@
     font-size: var(--mono-size); letter-spacing: 0.05em; text-transform: uppercase;
     color: var(--faint);
   }
-  .foot a { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; }
+  .foot a { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; transition: color 140ms ease-out; }
   .foot a:hover { color: var(--accent); }
 </style>
 </head>

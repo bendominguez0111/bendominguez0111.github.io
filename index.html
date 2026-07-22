@@ -125,6 +125,7 @@
   .navbar .links > a:not(.cta) {
     display: inline-flex; padding: 0.45rem 0.15rem;
     color: var(--faint);
+    transition: color 140ms ease-out;
   }
   .navbar .links > a:not(.cta):hover { color: var(--ink); }
   .nico { width: 1.15rem; height: 1.15rem; fill: currentColor; display: block; }
@@ -165,6 +166,11 @@
   .intro a, .rows .v a, .worklist p a, .wlink {
     font-weight: 400;
     text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px;
+    text-decoration-color: var(--ghost);
+    transition: color 140ms ease-out, text-decoration-color 140ms ease-out;
+  }
+  .intro a:hover, .rows .v a:hover, .worklist p a:hover, .wlink:hover {
+    text-decoration-color: currentColor;
   }
   .intro a, .rows .v a, .worklist p a { color: var(--ink); }
   .wlink { color: var(--accent-deep); }
