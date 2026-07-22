@@ -204,11 +204,12 @@
   <article>
 
     <h2>The MVP</h2>
-    <p>December 2024. The first version of GamblyBot was two models and a loop:
-    an X model that watched our mentions, and a betslip creator that turned what
+    <p>We built the first version of GamblyBot in December 2024: two models and
+    a loop. An X model watched our mentions, and a betslip creator turned what
     it found into something you could actually bet. Tag the bot under any
     screenshot of a bet, and it would parse the legs, match them against live
-    odds, and reply with a one-tap slip.</p>
+    odds, and reply with a one-tap slip. We released it on X
+    <strong>a week before the Super Bowl</strong>.</p>
     <p>The architecture was the simplest thing that could work: <strong>a polling
     loop</strong>. Every cycle it pulled recent mentions, walked them one at a
     time — download the image, run classification, match offers, post the
@@ -233,11 +234,14 @@
     </figure>
 
     <h2>The spike</h2>
-    <p>On day two, <a href="https://x.com/calspears/status/1963365897675931904" rel="noopener">a
-    post about the bot went viral</a>. The mentions feed stopped being a trickle
-    of friendlies and became a firehose of strangers tagging us under every slip
-    on the timeline. Traffic went from a hundred requests a day to
-    <strong>a hundred requests a minute</strong>.</p>
+    <p>There was no launch announcement. We soft-launched by
+    <strong>calling the bot ourselves</strong> under sports-betting posts.
+    People saw a reply appear with a one-tap slip and tried it on their own
+    posts; their followers saw those replies and did the same. The growth was
+    exponential in the most literal sense — every reply was an ad for the next
+    one. Within two days, traffic went from a hundred requests a day to
+    <strong>a hundred requests a minute</strong>, and the mentions feed became
+    a firehose of strangers tagging us under every slip on the timeline.</p>
     <p>Every weakness of the loop surfaced at once. The polling window
     overflowed, so mentions were silently missed. Serial processing meant each
     reply queued behind every reply before it — latency went from seconds to
@@ -253,7 +257,9 @@
     block a finished reply. Dedupe keyed on the post, not the attempt, killed
     the double-posting. Later, a perceptual-hash cache short-circuited the
     screenshots everyone kept re-sending — the same viral slip, tagged a
-    hundred times, became one classification and ninety-nine cache hits.</p>
+    hundred times, became one classification and ninety-nine cache hits. The rearchitected
+    pipeline went on to send <strong>millions of betslips</strong> across
+    platforms.</p>
 
     <figure class="fig" aria-hidden="true">
       <svg viewBox="0 0 176 104">
@@ -275,10 +281,14 @@
     </figure>
 
     <h2>The end of the X chapter</h2>
-    <p>The X bot didn't die of load — we'd solved that. It died of
-    <strong>platform dependency</strong>. Building your front door on someone
-    else's mentions API means their pricing, their rate limits, and their rules
-    are your architecture. Eventually that chapter closed.</p>
+    <p>The X bot didn't die of load — we'd solved that. In September 2025,
+    <a href="https://x.com/calspears/status/1963365897675931904" rel="noopener">X
+    cut off both us and Pikkit</a>, the competitor whose launch had pushed us
+    to double down. A media company had negotiated an exclusive deal for the
+    category; we never got a proposal or a chance to bid. That's
+    <strong>platform dependency</strong> in its purest form: build your front
+    door on someone else's API, and their business development becomes your
+    architecture.</p>
     <p><strong>Discord sustained us.</strong> The bettors were already there —
     group servers where picks get shared every night — and a socket-based bot
     in a server you own has no polling window, no per-mention economics, and no
@@ -292,18 +302,20 @@
       <li>the mvp's job is to find demand. ours found it in 48 hours</li>
       <li>put the queue in before the spike. ingest and work are different jobs</li>
       <li>cache the modality that repeats — viral screenshots repeat a lot</li>
-      <li>never build your front door on someone else's mentions api</li>
+      <li>never build your front door on someone else's api — it can be sold out from under you</li>
       <li>the durable channel is the one where your users already talk to each other</li>
     </ul>
 
     <h2>Timeline</h2>
     <div class="timeline">
-      <div><span class="t">Dec 2024</span><span class="e">X model + betslip creator ship; the polling loop goes live</span></div>
-      <div><span class="t">Dec 2024</span><span class="e">Viral post; 100 requests a day becomes 100 a minute</span></div>
-      <div><span class="t">Jan 2025</span><span class="e">Image upload lands; queue-and-worker architecture replaces the loop</span></div>
-      <div><span class="t">2025</span><span class="e">Discord becomes the durable channel; iMessage support ships</span></div>
+      <div><span class="t">Dec 2024</span><span class="e">X model + betslip creator built; the polling loop works</span></div>
+      <div><span class="t">Feb 2025</span><span class="e">Released on X a week before the Super Bowl; soft-launched by calling the bot on betting posts</span></div>
+      <div><span class="t">Feb 2025</span><span class="e">Exponential growth: 100 requests a day becomes 100 a minute; queue-and-worker architecture replaces the loop</span></div>
+      <div><span class="t">2025</span><span class="e">iMessage and Voice-to-Betslip via Siri ship; Pikkit launches a competitor and we double down</span></div>
+      <div><span class="t">Sep 2025</span><span class="e">X cuts off Gambly and Pikkit under an exclusive category deal; Discord sustains the bot</span></div>
       <div><span class="t">2026</span><span class="e">Telegram ships; perceptual-hash caching short-circuits repeat slips</span></div>
     </div>
+  </div>
 
     <p class="foot"><a href="../index.html">← Back to the sheet</a> · Drawn by B. Dominguez</p>
 
