@@ -83,7 +83,10 @@
       linear-gradient(var(--gridline) 1px, transparent 1px),
       linear-gradient(90deg, var(--gridline) 1px, transparent 1px);
     background-size: auto, 110px 110px, 110px 110px, 22px 22px, 22px 22px;
-    background-position: 0 0, var(--gx) 0, var(--gx) 0, var(--gx) 0, var(--gx) 0;
+    background-position:
+      0 0,
+      var(--gx) var(--gyM, 0px), var(--gx) var(--gyM, 0px),
+      var(--gx) var(--gym, 0px), var(--gx) var(--gym, 0px);
   }
   a { color: inherit; text-decoration: none; }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
@@ -347,5 +350,20 @@
 
   </article>
 </div>
+<script>
+  (function () {
+    function alignGrid() {
+      var anchor = document.querySelector("article");
+      if (!anchor) return;
+      var t = Math.round(anchor.getBoundingClientRect().top + window.scrollY);
+      document.body.style.setProperty("--gyM", (t % 110) + "px");
+      document.body.style.setProperty("--gym", (t % 22) + "px");
+    }
+    window.addEventListener("load", alignGrid);
+    window.addEventListener("resize", alignGrid);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(alignGrid);
+    alignGrid();
+  })();
+</script>
 </body>
 </html>
