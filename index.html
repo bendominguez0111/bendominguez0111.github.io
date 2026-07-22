@@ -16,7 +16,7 @@
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="%230c1017"/><text x="16" y="23" font-family="Georgia,serif" font-style="italic" font-size="20" font-weight="700" fill="%23a3e635" text-anchor="middle">B</text></svg>'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Caveat:wght@400;600&family=Graduate&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #fbfcfd;
@@ -46,11 +46,12 @@
     --dg-box: #ffffff;
     --dg-box-acc: #fdf7f6;
     --nav-bg: rgb(251 252 253 / 0.92);
-    --num-ghost: rgb(22 39 64 / 0.06);
+    --num-ghost: rgb(22 39 64 / 0.02);
+    --fig-label: rgb(22 39 64 / 0.1);
     --cta-hover: #3f6212;
     --cta-face: #4d7c0f;
     --hl-swipe: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 28" preserveAspectRatio="none"><filter id="r" x="-12%" y="-25%" width="124%" height="150%"><feTurbulence type="fractalNoise" baseFrequency="0.055 0.35" numOctaves="2" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/><feGaussianBlur stdDeviation="0.45"/></filter><g filter="url(%23r)"><path d="M5 8.5 Q3 4.5 11 4 Q35 2.2 55 3.4 Q80 2 92.5 3.2 Q98.5 3.6 97.4 9 Q98.8 14.5 97.2 20 Q98 24.2 91 24.6 Q66 26.6 45 25 Q21 26.8 9.5 24.8 Q3.6 24.2 5 19.5 Q3.4 14 5 8.5 Z" fill="rgba(101,163,13,0.17)"/><path d="M12 10.5 Q40 9.2 88 10 Q92 10.1 90 11.4 Q45 10.6 13 12 Z" fill="rgba(101,163,13,0.1)"/><path d="M10 18.5 Q50 17.4 86 18.2 Q90 18.3 87 19.6 Q48 18.8 12 20 Z" fill="rgba(101,163,13,0.1)"/></g></svg>');
-    --dg-mono: rgb(47 71 104 / 0.46);
+    --dg-mono: rgb(47 71 104 / 0.5);
     --dg-hw: rgb(47 71 104 / 0.42);
   }
   @media (prefers-color-scheme: dark) {
@@ -79,11 +80,12 @@
       --dg-box: #151b26;
       --dg-box-acc: #34313e;
       --nav-bg: rgb(12 16 23 / 0.9);
-      --num-ghost: rgb(220 235 250 / 0.11);
+      --num-ghost: rgb(220 235 250 / 0.028);
+      --fig-label: rgb(220 235 250 / 0.14);
       --cta-hover: #84cc16;
       --cta-face: #a3e635;
       --hl-swipe: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 28" preserveAspectRatio="none"><filter id="r" x="-12%" y="-25%" width="124%" height="150%"><feTurbulence type="fractalNoise" baseFrequency="0.055 0.35" numOctaves="2" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/><feGaussianBlur stdDeviation="0.45"/></filter><g filter="url(%23r)"><path d="M5 8.5 Q3 4.5 11 4 Q35 2.2 55 3.4 Q80 2 92.5 3.2 Q98.5 3.6 97.4 9 Q98.8 14.5 97.2 20 Q98 24.2 91 24.6 Q66 26.6 45 25 Q21 26.8 9.5 24.8 Q3.6 24.2 5 19.5 Q3.4 14 5 8.5 Z" fill="rgba(163,230,53,0.2)"/><path d="M12 10.5 Q40 9.2 88 10 Q92 10.1 90 11.4 Q45 10.6 13 12 Z" fill="rgba(163,230,53,0.12)"/><path d="M10 18.5 Q50 17.4 86 18.2 Q90 18.3 87 19.6 Q48 18.8 12 20 Z" fill="rgba(163,230,53,0.12)"/></g></svg>');
-      --dg-mono: rgb(196 214 232 / 0.38);
+      --dg-mono: rgb(196 214 232 / 0.44);
       --dg-hw: rgb(196 214 232 / 0.34);
       --nav-shadow: 0 4px 16px rgb(0 4 10 / 0.35);
     }
@@ -212,8 +214,8 @@
     }
     .herostat p { margin-top: 0; }
     .herostat .factnote { margin-top: 10px; }
-    section:has(ul.worklist) { margin-top: 92px; }
-    section:has(.rows) { margin-top: 92px; }
+    section:has(ul.worklist) { margin-top: 84px; }
+    section:has(.rows) { margin-top: 84px; }
     .rows > div { height: 55px; align-content: center; padding: 0; }
   }
   .factnote {
@@ -226,11 +228,11 @@
   section { margin-top: 66px; }
   h2 {
     font-family: "Geist Mono", monospace;
-    font-size: 0.9375rem; font-weight: 600;
+    font-size: 1.125rem; font-weight: 600;
     text-transform: uppercase; letter-spacing: 0.16em;
     color: var(--muted);
     line-height: 1;
-    margin-bottom: 3px;
+    margin-bottom: 8px;
   }
 
   /* ---------- work plates ---------- */
@@ -243,11 +245,21 @@
   }
   .num {
     position: absolute; left: -2px; top: 6px;
-    font-size: 3.25rem; font-weight: 700; line-height: 0.9;
-    letter-spacing: -0.05em;
+    font-family: "Graduate", serif;
+    font-size: 11.5rem; font-weight: 400; line-height: 0.85;
+    letter-spacing: -0.02em;
     color: var(--num-ghost);
     user-select: none; pointer-events: none;
     z-index: 0;
+  }
+  .num::before {
+    content: "FIG.";
+    display: block;
+    font-family: "Geist Mono", monospace;
+    font-size: 1.1rem; font-weight: 500; line-height: 1;
+    letter-spacing: 0.14em;
+    margin: 0 0 6px 8px;
+    color: var(--fig-label);
   }
   .workhead, .worklist li > p, .meta, .demo { position: relative; z-index: 1; }
   .workhead {
@@ -345,33 +357,35 @@
 
   @media (max-width: 900px) {
     ul.worklist {
-      display: grid; grid-auto-flow: column; grid-auto-columns: 84%;
-      gap: 1.5rem;
+      display: grid; grid-auto-flow: column; grid-auto-columns: 92%;
+      gap: 2.75rem;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       margin: 0 -1.5rem; padding: 0.25rem 1.5rem 0.75rem;
       scroll-padding: 0 1.5rem;
       scrollbar-width: none;
     }
+    ul.worklist::after { content: ""; }
     ul.worklist::-webkit-scrollbar { display: none; }
     .worklist li {
       scroll-snap-align: start;
-      min-height: 0; display: flex; flex-direction: column; justify-content: flex-start;
-      padding: 0.5rem 0 0.5rem;
+      position: relative;
+      min-height: 0; height: auto; display: flex; flex-direction: column; justify-content: flex-start;
+      padding: 0.25rem 0;
     }
-    .num { order: 0; } .workhead { order: 1; } .worklist li > p { order: 2; }
+    .workhead { order: 1; } .worklist li > p { order: 2; }
     .meta { order: 3; } .demo { order: 4; }
     .num {
-      position: static; display: block;
-      font-family: "Geist Mono", monospace;
-      font-size: 0.71875rem; font-weight: 500; letter-spacing: 0.08em;
-      color: var(--faint); margin-bottom: 0.35rem;
+      position: absolute; bottom: 4px; right: 0; left: auto; top: auto;
+      font-size: 6.5rem; text-align: right;
+      order: unset;
     }
+    .num::before { font-size: 0.9rem; margin: 0 0 4px; }
     .workhead, .worklist p, .meta { padding-left: 0 !important; margin-left: 0 !important; }
     .workhead { max-width: none; }
     .workhead h3 { text-wrap: pretty; }
     .worklist p, .meta { max-width: none; }
-    .demo { position: static; transform: none; width: 100%; max-width: 19rem; margin-top: auto; padding-top: 1.1rem; }
+    .demo { position: static; transform: none; width: 100%; max-width: 17rem; margin-top: auto; padding-top: 0.8rem; }
   }
   @media (max-width: 600px) {
     .navbar .name .nametext { display: none; }
