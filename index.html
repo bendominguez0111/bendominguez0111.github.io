@@ -47,6 +47,7 @@
     --nav-bg: rgb(251 252 253 / 0.92);
     --num-ghost: rgb(22 39 64 / 0.09);
     --cta-hover: #822720;
+    --hl: rgb(190 62 50 / 0.16);
     --dg-mono: rgb(47 71 104 / 0.46);
     --dg-hw: rgb(47 71 104 / 0.42);
   }
@@ -77,6 +78,7 @@
       --nav-bg: rgb(12 16 23 / 0.9);
       --num-ghost: rgb(220 235 250 / 0.18);
       --cta-hover: #b04a3e;
+      --hl: rgb(224 96 82 / 0.26);
       --dg-mono: rgb(196 214 232 / 0.38);
       --dg-hw: rgb(196 214 232 / 0.34);
       --nav-shadow: 0 4px 16px rgb(0 4 10 / 0.35);
@@ -163,7 +165,13 @@
   .intro h1 {
     font-size: clamp(1.9rem, 4.5vw, 2.375rem);
     font-weight: 700; letter-spacing: -0.03em;
-    line-height: 1.16; text-wrap: balance;
+    line-height: 1.38; text-wrap: balance;
+  }
+  .intro h1 .hl {
+    background: var(--hl);
+    -webkit-box-decoration-break: clone; box-decoration-break: clone;
+    padding: 0.06em 0.22em; margin-left: -0.22em;
+    border-radius: 3px;
   }
   .intro h1 em {
     font-style: normal;
@@ -364,7 +372,7 @@
 
   <div class="intro">
     <span class="eyebrow"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.2"/><path d="M10 1.2v4M10 14.8v4M1.2 10h4M14.8 10h4"/></svg>Miami, FL · 25.77°N 80.19°W</span>
-    <h1>AI engineer building LLM systems and computer vision <em>for sports</em>.</h1>
+    <h1><span class="hl">AI engineer building LLM systems and computer vision <em>for sports</em>.</span></h1>
     <p>I lead engineering at <a href="https://gambly.com">Gambly</a> across product,
     AI, and infrastructure. I'm also the founder of
     <a href="https://huddlevision.ai">Huddlevision</a>, computer vision for football.</p>
