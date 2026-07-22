@@ -35,6 +35,8 @@
     --edge: #d1d8e0;
     --edge-deep: #b3bec9;
     --gridline: rgb(22 39 64 / 0.028);
+    --gridmajor: rgb(22 39 64 / 0.052);
+    --sheetglow: rgb(22 39 64 / 0.012);
     --gridbloom: rgb(22 39 64 / 0.09);
     --dg-ink: #38444c;
     --dg-dim: rgb(20 24 26 / 0.34);
@@ -63,6 +65,8 @@
       --edge: rgb(160 185 210 / 0.28);
       --edge-deep: #05070c;
       --gridline: rgb(190 215 240 / 0.055);
+      --gridmajor: rgb(190 215 240 / 0.105);
+      --sheetglow: rgb(207 122 110 / 0.05);
       --gridbloom: rgb(190 215 240 / 0.12);
       --dg-ink: #cfdae4;
       --dg-dim: rgb(200 220 240 / 0.38);
@@ -83,11 +87,14 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     background:
+      radial-gradient(ellipse 100% 65% at 50% 0%, var(--sheetglow), transparent 68%),
+      linear-gradient(var(--gridmajor) 1px, transparent 1px),
+      linear-gradient(90deg, var(--gridmajor) 1px, transparent 1px),
       linear-gradient(var(--gridline) 1px, transparent 1px),
       linear-gradient(90deg, var(--gridline) 1px, transparent 1px),
       var(--bg);
-    background-size: 22px 22px, 22px 22px, auto;
-    background-attachment: fixed, fixed, scroll;
+    background-size: auto, 110px 110px, 110px 110px, 22px 22px, 22px 22px, auto;
+    background-attachment: fixed, fixed, fixed, fixed, fixed, scroll;
     color: var(--ink);
     font-family: "Geist", ui-sans-serif, system-ui, sans-serif;
     font-size: 1rem;
